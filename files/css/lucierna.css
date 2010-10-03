@@ -32,7 +32,7 @@ img{
     outline: none;
     border: none;
 }
-.nav{
+.navegacion{
     height: 36px;
     font-family: 'Verdana', "DejaVu Sans", sans-serif;
     font-size: 13px;
@@ -40,9 +40,7 @@ img{
     line-height: 36px;
     padding-left: 20px;
 }
-.nav a{
-    color: #fff;
-}
+
 .portada{
     background: url(/files/images/back_portada.png) no-repeat;
 }

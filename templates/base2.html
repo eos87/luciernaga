@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:fb="http://www.facebook.com/2008/fbml">
+    <head>
+        <title>Fundaci&oacute;n Luci&eacute;rnaga | {% block extratitle %}{% endblock %}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link type="text/css" rel="stylesheet"  href="/files/css/lucierna2.css" >
+        <link type="text/css" rel="stylesheet"  href="/files/css/nav.css">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+        <script type="text/javascript" src="/files/js/nav.js"></script>
+        {% block extrahead %}
+        {% endblock %}
+    </head>
+    <body>
+        <div id="contenido">
+            <div class="banner">
+                <a href="/"><img src="/files/images/logo_blanco.png" alt="Logo animado" class="logo_animado"></a>
+            </div>
+            <div class="navegacion">
+                {% include "nav.html" %}
+            </div>
+            <div class="bar">
+                <div class="menu_temas">
+                    {% for tema in temasall %}
+                    <a href="/videoteca/{{tema.slug}}/">{{tema.nombre}} &raquo;</a><br>
+                    {% endfor %}
+                </div>
+                <img src="/files/images/hline3.png" class="hline2" alt="line">
+                <img src="/files/images/redes.png" alt="Redes sociales">
+                <div class="red_social">                    
+                    {% include "redes_sociales.html" %}
+                    <img src="/files/images/hline3.png" class="hline2" alt="line">
+                </div>
+                <div>
+                    <a href="http://albafilms.tv/" target="_blank"><img src="/files/images/albafilms_logo.png" alt="AlbaFilms Logo"></a>&nbsp;&nbsp;
+                    <a href="http://turismoruralnica.com/" target="_blank"><img src="/files/images/turismorural_logo.png" alt="Turismo Rural Nica Logo"></a>
+                </div>
+            </div>
+            <img src="/files/images/separator.png" alt="separator" class="separator">
+            <div class="cuerpo">
+                <div class="search">
+                    <input name="q" type="input"> <button type="submit" class="red_link">Buscar &raquo;</button>                    
+                </div>
+                <div class="main">
+                    <div class="addthis">
+                        <a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;username=eos87"><img src="/files/images/addthis.png" width="150" height="20" alt="Bookmark and Share" style="border:0"/></a>
+                        <script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+                        <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=eos87"></script>
+                    </div>
+                    <div class="clean"></div>
+                </div>
+                {% block contenido %}
+                {% endblock %}                
+            </div>
+            <div class="clean"></div>
+        </div>
+        <div class="clean footer">
+            <img src="/files/images/footer_line.png" alt="footer line" class="footer_line"><br>
+            Todos los derechos reservados. Fundaci&oacute;n Luci&eacute;rnaga 2010.<br>
+            Telefonos: (505) 2266-0811 • 2268-7802. Dirección: Reparto Bolonia, Sumedico 1 c. al Oeste, Managua, Nicaragua<br>
+            <br><br>
+        </div>
+    </body>
+</html>

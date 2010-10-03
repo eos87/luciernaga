@@ -1,10 +1,24 @@
-<a href="/quienes/">Quienes somos</a>&nbsp;&nbsp;
-<a href="/temas/">Temas</a>&nbsp;&nbsp;
-<a href="/videoteca/">Videoteca</a>&nbsp;&nbsp;
-<a href="/material/">Material Didáctico</a>&nbsp;&nbsp;
-<a href="/proy-camp/">Proyecto y Campañas</a>&nbsp;&nbsp;
-<a href="/eventos/">Eventos</a>&nbsp;&nbsp;
-<a href="/noticias/">Noticias</a>&nbsp;&nbsp;
-<a href="/red/">Red Mesoamericana</a>&nbsp;&nbsp;
-<a href="/contactenos/">Cont&aacute;tenos</a>&nbsp;&nbsp;
-
+<ul id="nav">
+    <li class="l1"><a href="/">Quienes somos</a></li>
+    <li class="l1"><a href="/temas/">Temas</a>
+        <ul>
+            {% for tema in temas %}
+            <li><a href="/temas/{{tema.slug}}/">{{tema.nombre}} &raquo;</a></li>
+            {% endfor %}
+        </ul>
+    </li>
+    <li class="l1"><a href="/videoteca/">Videoteca</a>        
+        <ul>
+            <li><a href="/videoteca/buscar/">B&uacute;squeda &raquo;</a></li>
+            {% for tema in temasall %}
+            <li><a href="/videoteca/{{tema.slug}}/">{{tema.nombre}} &raquo;</a></li>
+            {% endfor %}
+        </ul>
+    </li>
+    <li class="l1"><a href="/material/">Material Did&aacute;ctico</a></li>
+    <li class="l1"><a href="/proy-camp/">Proyectos y Campañas</a></li>
+    <li class="l1"><a href="/eventos/">Eventos</a></li>
+    <li class="l1"><a href="/noticias/">Noticias</a></li>
+    <li class="l1"><a href="/red/">Red Mesoamericana</a></li>
+    <li class="l1"><a href="/contactenos/">Cont&aacute;tenos</a></li>
+</ul>

@@ -1,0 +1,124 @@
+body{
+    padding:0;
+    margin: 0;
+    background: #fff url(/files/images/back.png) repeat-y center;
+    font-family: 'Verdana', "DejaVu Sans", sans-serif;
+    font-size: 12px;
+}
+#contenido {
+    width: 960px;
+    margin: 0 auto;
+    background: url(/files/images/banner_rostros.png) no-repeat;    
+}
+.bar{
+    width: 210px;
+    float: left;
+    margin-left: 20px;        
+}
+.separator{
+    float: left;
+    padding: 0 10px;
+    margin-top: 25px;
+}
+.cuerpo{
+    float: left;        
+    width: 680px;
+}
+.cuerpo .main{
+    clear: both;
+    padding-top: 10px;    
+}
+.cuerpo .addthis{
+    float: right;
+}
+.search{
+    float: right;
+    margin-top: -10px;
+}
+.search input{
+    font-family: 'Trebuchet MS', sans-serif;
+    border: 1px #000 solid;
+    padding: 2px 4px;
+    height: 22px;
+    width: 170px;
+    margin-top: 20px;
+}
+
+
+.footer{
+    text-align: center;
+    font-size: 11px;
+}
+.footer_line{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.banner{
+    height: 160px;
+}
+.banner .logo_animado{
+    margin-left: 20px;
+}
+a{
+    text-decoration: none;
+    outline: none;
+}
+img{
+    outline: none;
+    border: none;
+}
+.navegacion{
+    height: 36px;
+    font-family: 'Verdana', "DejaVu Sans", sans-serif;
+    font-size: 13px;    
+    line-height: 36px;
+    padding-left: 20px;
+}
+.clean{
+    clear: both;
+}
+.menu_temas{
+    background: url(/files/images/temas_menu.png) no-repeat;
+    padding-top: 70px;
+    width: 207px;
+    padding-left: 20px;
+    line-height: 20px;
+}
+.menu_temas a{
+    color: #000;
+}
+.menu_temas a:hover{
+    text-decoration: underline;
+}
+.red_social{    
+    float: left;
+    line-height: 30px;
+    text-align: center;
+}
+.red_social .logo_red{
+    float: left;
+    height: 30px;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+.red_social .link{
+    float: left;
+    line-height: 40px;
+}
+.red_social .link a{
+    text-decoration: underline;
+    font-size: 13px;
+    color: #709b2e;
+}
+button.red_link, a.red_link{
+    background-color: #7c0000;
+    padding: 1px 5px;
+    color: #fff;
+    border: none;
+}
+.hline2{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
