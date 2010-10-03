@@ -1,16 +1,12 @@
 from django.conf.urls.defaults import *
-
-# Uncomment the next two lines to enable the admin:
 from django.contrib import admin
+import os
+
 admin.autodiscover()
+PROJECT_DIR = os.path.dirname(__file__)
 
 urlpatterns = patterns('',
-    # Example:
-    # (r'^luciernaga/', include('luciernaga.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
+    (r'^files/(?P<path>.*)$', 'django.views.static.serve', {'document_root': PROJECT_DIR + '/files'}),
+    (r'^$', 'luciernaga.views.index'),
     (r'^admin/', include(admin.site.urls)),
 )

@@ -1,0 +1,194 @@
+body{
+    padding:0;
+    margin: 0;
+    background: #fff url(/files/images/back.png) repeat-y center;
+    font-family: 'Verdana', "DejaVu Sans", sans-serif;
+    font-size: 12px;
+}
+#contenido {
+    width: 960px;
+    margin: 0 auto;    
+}
+.footer{
+    text-align: center;
+    font-size: 11px;
+}
+.footer_line{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.banner{
+    background: url(/files/images/medio_ambiente.png) no-repeat;
+    height: 411px;
+}
+.banner .logo_animado{
+    margin-left: 20px;
+}
+a{
+    text-decoration: none;
+    outline: none;
+}
+img{
+    outline: none;
+    border: none;
+}
+.nav{
+    height: 36px;
+    font-family: 'Verdana', "DejaVu Sans", sans-serif;
+    font-size: 13px;
+    background: url(/files/images/nav_back.png) repeat-x;
+    line-height: 36px;
+    padding-left: 20px;
+}
+.nav a{
+    color: #fff;
+}
+.portada{
+    background: url(/files/images/back_portada.png) no-repeat;
+}
+button.red_link, a.red_link{
+    background-color: #7c0000;
+    padding: 2px 5px;
+    color: #fff;
+    border: none;
+}
+.portada .left{
+    width: 620px;    
+    float: left;
+    padding-left: 20px;
+}
+.left .intro{
+    width: 283px;
+    background: url(/files/images/portada_carton_1.png) no-repeat;
+    font-size: 12px;
+    padding-top: 45px;
+    padding-left: 15px;
+    float: left;
+}
+.left .intro a{
+    color: #000;
+    text-decoration: underline;
+}
+.left .intro .title{
+    color: #fff;
+    font-weight: bold;
+    font-size: 12px;    
+}
+.left .intro .subtitle{
+    color: #dbe12e;
+    font-size: 12px;
+}
+.left .intro .desc{
+    width: 250px;    
+}
+.portada .video_destacado{
+    background: url(/files/images/portada_carton_video.png) no-repeat;
+    width: 266px;
+    padding-top: 40px;
+    padding-left: 5px;
+    float: left;
+    margin-top: 10px;
+    margin-left: 20px;
+    text-align: center;
+    font-size: 13px;
+}
+.video_destacado .title{
+    color: #000;
+    font-weight: bold;
+    font-size: 13px;
+}
+.portada .facebook{
+    width: 300px;
+    float: left;
+}
+.portada .mural{
+    background: url(/files/images/mural.png) no-repeat;
+    margin-top: 20px;
+    margin-left: 5px;
+    width: 581px;    
+}
+.mural_eventos{
+    float: left;
+    width: 350px;
+    padding-left: 20px;
+}
+.mural_eventos a{
+    color: #000;
+    text-decoration: underline;
+}
+.mural_eventos .eventos{
+    width: 345px;
+    float: left;
+    margin-bottom: 20px;
+}
+.mural_eventos .eventos .title{
+    font-weight: bold;
+    text-decoration: none;
+}
+.mural_eventos .eventos .desc{
+    text-align: justify;
+}
+.mural_eventos .meses{    
+    float: right;
+}
+.mural_eventos .imagen{
+    float: left;
+    padding-right: 10px;
+}
+.mural_eventos a.red_link{
+    color: #fff;
+    text-decoration: none;
+    padding: 4px 6px;
+    float: right;
+}
+
+.red_social{
+    padding-top: 40px;
+    float: left;
+    line-height: 30px;
+    text-align: center;
+}
+.red_social .logo_red{
+    float: left;
+    height: 30px;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+.red_social .link{
+    float: left;
+    line-height: 40px;
+}
+.red_social .link a{
+    text-decoration: underline;
+    font-size: 13px;
+    color: #709b2e;
+}
+
+
+.search input{
+    font-family: 'Trebuchet MS', sans-serif;
+    border: 1px #000 solid;
+    padding: 2px 4px;
+    height: 24px;
+    width: 220px;
+    margin-top: 20px;
+}
+.clean{
+    clear: both;
+}
+.plugin_like{
+    background-color: #fff;
+    margin-top: 20px;
+}
+.hline{
+    margin-left: 15px;
+    margin-top: 20px;
+}
+.vline{
+    margin: 10px 15px;
+    float: left;
+}
+.hline2{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}

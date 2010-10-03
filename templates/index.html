@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% block extratitle %}Inicio{% endblock %}
+{% block contenido %}
+<div class="portada">
+    <div class="left">
+        <div>
+            <div class="intro">
+                <span class="title">FUNDACI&Oacute;N LUCI&Eacute;RNAGA</span><br>
+                <span class="subtitle">Comunicaci&oacute;n para el desarrollo</span><br><br>
+                <div class="desc">
+                    Espacio para breve texto introductorio
+                    acerca de lo que es Luciernaga y luego
+                    un link a mas información.Espacio para
+                    breve texto introductorio acerca de lo
+                    que es Luciernaga y luego un link a mas
+                    información. Espacio para breve texto
+                    introductorio acerca de lo que es
+                    Luciernaga y luego un link a mas
+                    información.
+                </div><br>
+                <a href="">M&aacute;s de Fundaci&oacute;n Luci&eacute;rnaga &raquo;</a>
+            </div>
+            <div class="video_destacado">
+                <span class="title"><span style="font-size: 16px;">D</span>ESTACADO EN <span style="font-size: 16px;">V</span>IDEOTECA</span><br>
+                <img src="/files/images/video_portada.png" alt="Destacado en videoteca"><br>
+                Sol y Sombras<br><br>
+                <a href="" class="red_link">Tenemos 1,800 videos mas &raquo;</a>
+            </div>
+            <img src="/files/images/hline.png" alt="" class="hline">
+        </div>
+        <div class="mural">
+            <div class="mural_eventos">
+                <br>
+                <div class="meses">Septiembre 2010 | <a href="">Octubre 2010 &raquo;</a></div>
+                <div class="clean">
+                    <br>
+                    <!-- Lista de eventos -->
+                    <div class="eventos">
+                        <div class="imagen">
+                            <img src="/files/images/evento1.png" alt="EventoXY">
+                        </div>
+                        <div class="texto_evento">
+                            <img src="/files/images/dia.png" alt="dia"><br><br>
+                            <a href="" class="title">Titulo de la Actividad, Evento o Noticia en este espacio</a><br>
+                            Lugar: lugar de la actividad <br>
+                            Hora: 3:00 pm - 7:00 pm<br><br>
+                            <div class="desc">
+                                Breve descripcion de la actividad en este espacio Breve descripcion de la actividad en este espacio Breve descripcion de la actividad en este espacio
+                                Breve descripcion de la actividad en este espacio
+                            </div>
+                        </div>
+                    </div>
+                    <div class="eventos">
+                        <div class="imagen">
+                            <img src="/files/images/evento2.png" alt="EventoXY">
+                        </div>
+                        <div class="texto_evento">
+                            <img src="/files/images/dia.png" alt="dia"><br><br>
+                            <a href="" class="title">Titulo de la Actividad, Evento o Noticia en este espacio</a><br>
+                            Lugar: lugar de la actividad <br>
+                            Hora: 3:00 pm - 7:00 pm<br>
+                        </div>
+                    </div>
+                    <!-- fin lista eventos -->
+                    <a href="" class="red_link">Ver m&aacute;s actividades &raquo;</a>
+                </div>
+            </div>
+            <img src="/files/images/vline.png" alt="line" class="vline">
+            <div class="red_social">                
+                <div class="lista_redes">
+                    <div class="logo_red">
+                        <img src="/files/images/redes/facebook.png" alt="Facebook">
+                    </div>
+                    <div class="link">
+                        <a href="http://www.facebook.com/pages/Fundacion-Luciernaga/120183811356838">Facebook</a>
+                    </div>
+                    <div class="clean"></div>
+                </div>
+                <div class="lista_redes">
+                    <div class="logo_red">
+                        <img src="/files/images/redes/blogger.png" alt="Blogger">
+                    </div>
+                    <div class="link">
+                        <a href="http://fundacionluciernaga.blogspot.com/">Blogger</a>
+                    </div>
+                    <div class="clean"></div>
+                </div>
+                <div class="lista_redes">
+                    <div class="logo_red">
+                        <img src="/files/images/redes/twitter.png" alt="Twitter">
+                    </div>
+                    <div class="link">
+                        <a href="http://twitter.com/fundacionluciernaga">Twitter</a>
+                    </div>
+                    <div class="clean"></div>
+                </div>
+                <div class="lista_redes">
+                    <div class="logo_red">
+                        <img src="/files/images/redes/youtube.png" alt="Youtube">
+                    </div>
+                    <div class="link">
+                        <a href="http://youtube.com/">Youtube</a>
+                    </div>
+                    <div class="clean"></div>
+                </div>
+                <img src="/files/images/hline2.png" class="hline2" alt="line"><br>
+                <a href="http://albafilms.tv/" target="_blank"><img src="/files/images/albafilms_logo.png" alt="AlbaFilms Logo"></a><br><br>
+                <a href="http://turismoruralnica.com/" target="_blank"><img src="/files/images/turismorural_logo.png" alt="Turismo Rural Nica Logo"></a>
+                <div class="clean"></div>
+            </div>
+            <div class="clean"></div>
+        </div>
+    </div>
+    <div class="facebook">
+        <div class="search">
+            <input name="q" type="input"> <button type="submit" class="red_link">Buscar &raquo;</button>
+        </div>
+        <div class="plugin_like">
+            <fb:like-box header="true" stream="true" width="300" href="http://www.facebook.com/pages/Fundacion-Luciernaga/120183811356838" class="  fb_iframe_widget "></fb:like-box>
+        </div>
+    </div>
+    <div class="clean"></div>
+</div>
+<div id="fb-root"></div>
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({appId: '118744378183197', status: true, cookie: true,
+            xfbml: true});
+    };
+    (function() {
+        var e = document.createElement('script'); e.async = true;
+        e.src = document.location.protocol +
+            '//connect.facebook.net/es_ES/all.js';
+        document.getElementById('fb-root').appendChild(e);
+    }());
+</script>
+
+{% endblock%}
