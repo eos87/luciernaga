@@ -8,12 +8,12 @@ body{
 #contenido {
     width: 960px;
     margin: 0 auto;
-    background: url(/files/images/banner_rostros.png) no-repeat;    
+    background: url(/files/images/banner_rostros.jpg) no-repeat;
 }
 .bar{
     width: 210px;
     float: left;
-    margin-left: 20px;        
+    margin-left: 20px;
 }
 .separator{
     float: left;
@@ -21,12 +21,12 @@ body{
     margin-top: 25px;
 }
 .cuerpo{
-    float: left;        
+    float: left;
     width: 680px;
 }
 .cuerpo .main{
     clear: both;
-    padding-top: 10px;    
+    padding-top: 10px;
 }
 .cuerpo .addthis{
     float: right;
@@ -71,7 +71,7 @@ img{
 .navegacion{
     height: 36px;
     font-family: 'Verdana', "DejaVu Sans", sans-serif;
-    font-size: 13px;    
+    font-size: 13px;
     line-height: 36px;
     padding-left: 20px;
 }
@@ -91,7 +91,7 @@ img{
 .menu_temas a:hover{
     text-decoration: underline;
 }
-.red_social{    
+.red_social{
     float: left;
     line-height: 30px;
     text-align: center;

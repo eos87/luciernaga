@@ -7,7 +7,7 @@ body{
 }
 #contenido {
     width: 960px;
-    margin: 0 auto;    
+    margin: 0 auto;
 }
 .footer{
     text-align: center;
@@ -18,7 +18,7 @@ body{
     margin-bottom: 10px;
 }
 .banner{
-    background: url(/files/images/medio_ambiente.png) no-repeat;
+    background: url(/files/images/medio_ambiente.jpg) no-repeat;
     height: 411px;
 }
 .banner .logo_animado{
@@ -51,7 +51,7 @@ button.red_link, a.red_link{
     border: none;
 }
 .portada .left{
-    width: 620px;    
+    width: 620px;
     float: left;
     padding-left: 20px;
 }
@@ -70,14 +70,14 @@ button.red_link, a.red_link{
 .left .intro .title{
     color: #fff;
     font-weight: bold;
-    font-size: 12px;    
+    font-size: 12px;
 }
 .left .intro .subtitle{
     color: #dbe12e;
     font-size: 12px;
 }
 .left .intro .desc{
-    width: 250px;    
+    width: 250px;
 }
 .portada .video_destacado{
     background: url(/files/images/portada_carton_video.png) no-repeat;
@@ -103,7 +103,7 @@ button.red_link, a.red_link{
     background: url(/files/images/mural.png) no-repeat;
     margin-top: 20px;
     margin-left: 5px;
-    width: 581px;    
+    width: 581px;
 }
 .mural_eventos{
     float: left;
@@ -126,7 +126,7 @@ button.red_link, a.red_link{
 .mural_eventos .eventos .desc{
     text-align: justify;
 }
-.mural_eventos .meses{    
+.mural_eventos .meses{
     float: right;
 }
 .mural_eventos .imagen{
@@ -190,3 +190,4 @@ button.red_link, a.red_link{
     margin-bottom: 10px;
     margin-top: 10px;
 }
+

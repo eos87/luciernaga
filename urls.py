@@ -8,6 +8,7 @@ PROJECT_DIR = os.path.dirname(__file__)
 urlpatterns = patterns('',
     (r'^files/(?P<path>.*)$', 'django.views.static.serve', {'document_root': PROJECT_DIR + '/files'}),
     (r'^$', 'luciernaga.views.index'),
-    (r'^', include('multimedia.urls')),
+    (r'^', include('luciernaga.multimedia.urls')),
     (r'^admin/', include(admin.site.urls)),
 )
+
