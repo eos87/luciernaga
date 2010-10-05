@@ -78,5 +78,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',    
     'django.contrib.admin',
     'luciernaga.multimedia',
+    'luciernaga.red',
     'south',
 )
+
+AUTH_PROFILE_MODULE = 'red.Perfil'

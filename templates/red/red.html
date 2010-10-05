@@ -1,0 +1,31 @@
+{% extends "base2.html" %}
+{% block extratitle %}Red Mesoamericana{% endblock %}
+{% block extrahead %}
+<style type="text/css">
+    #contenido {
+        background: url(/files/images/banner_medio_ambiente.jpg) no-repeat;
+    }
+    .banner{
+        height: 380px;
+    }
+</style>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.logo_animado').attr('src', '/files/images/logo_red.png');
+    });
+</script>
+{% endblock %}
+{% block menu1 %}
+<a href="/red/perfiles/">Perfiles de miembros &raquo;</a><br>
+{% for tema in menu %}
+<a href="/red/{{tema.id}}/">{{tema.nombre}} &raquo;</a><br>
+{% endfor %}
+{% endblock %}
+{% block contenido %}
+<div>
+    <span class="title">{{contenido.nombre}}</span><br><br>
+    <div class="flatpage">
+        {{contenido.descripcion|safe}}
+    </div>
+</div>
+{% endblock %}

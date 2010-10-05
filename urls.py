@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     (r'^public/(?P<path>.*)$', 'django.views.static.serve', {'document_root': MEDIA_ROOT}),
     (r'^$', 'luciernaga.views.index'),
     (r'^', include('luciernaga.multimedia.urls')),
+    (r'^', include('luciernaga.red.urls')),
     (r'^admin/', include(admin.site.urls)),
 )
 

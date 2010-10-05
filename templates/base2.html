@@ -23,6 +23,8 @@
                     {% for tema in temasall %}
                     <a href="/videoteca/{{tema.slug}}/">{{tema.nombre}} &raquo;</a><br>
                     {% endfor %}
+                    {% block menu1 %}
+                    {% endblock %}
                 </div>
                 <img src="/files/images/hline3.png" class="hline2" alt="line">
                 <img src="/files/images/redes.png" alt="Redes sociales">
