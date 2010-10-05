@@ -21,24 +21,25 @@ class ContentTypeRestrictedFileField(FileField):
     """
 
     def __init__(self, content_types=None, max_upload_size=None, ** kwargs):
-        self.content_types = content_types
-        self.max_upload_size = max_upload_size
-        super(ContentTypeRestrictedFileField, self).__init__(** kwargs)
+        if content_types:
+            self.content_types = content_types
+            self.max_upload_size = max_upload_size
+        super(ContentTypeRestrictedFileField, self).__init__( ** kwargs)
 
 
     def clean(self, * args, ** kwargs):
         data = super(ContentTypeRestrictedFileField, self).clean(*args, ** kwargs)
-
-        file = data.file
-        content_type = file.content_type
-
-        if content_type in self.content_types:
-            if file._size > self.max_upload_size:
-                raise forms.ValidationError(_('Mantenga el tamaña de video bajo %s. Tamaño actual %s') % (filesizeformat(self.max_upload_size), filesizeformat(file._size)))
-        else:
-            raise forms.ValidationError(_('Archivo no soportado.'))
-
-        return data
+        try:            
+            file = data.file
+            content_type = file.content_type
+            if content_type in self.content_types:
+                if file._size > self.max_upload_size:
+                    raise forms.ValidationError(_('Mantenga el tamaña de video bajo %s. Tamaño actual %s') % (filesizeformat(self.max_upload_size), filesizeformat(file._size)))
+                else:
+                    raise forms.ValidationError(_('Archivo no soportado.'))
+            return data
+        except:
+            return data
 
 from south.modelsinspector import add_introspection_rules
 add_introspection_rules([], ["^luciernaga\.multimedia\.customfilefield\.ContentTypeRestrictedFileField"])

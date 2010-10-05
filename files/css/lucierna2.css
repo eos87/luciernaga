@@ -23,10 +23,23 @@ body{
 .cuerpo{
     float: left;
     width: 680px;
+    padding-left: 10px;
 }
 .cuerpo .main{
     clear: both;
     padding-top: 10px;
+    font-size: 13px;
+}
+.cuerpo .breadcrumb{
+    float: left;    
+}
+.cuerpo .breadcrumb a{
+    color: #456a38;
+    font-size: 11px;
+}
+.cuerpo .title{
+    color: #456a38;
+    font-size: 21px;
 }
 .cuerpo .addthis{
     float: right;
@@ -121,4 +134,54 @@ button.red_link, a.red_link{
     margin-top: 15px;
     margin-bottom: 15px;
 }
+.search_form label{
+    font-size: 12px;
+    font-weight: normal;
+    float: left;
+}
+.search_form input{
+    border: 1px solid;
+}
+.search_form ul{
+    list-style: none;
+    padding-left: 0px;
+}
+.search_form input[type='checkbox']{
+    float: left;
+}
+.line_large{
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+.producciones{
+    text-align: center;
+    height: 460px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+.producciones .titulo{
+    font-size: 13px;
+    color: #456a38;    
+}
+.obra{
+    margin: 15px 10px 30px 10px;
+    width: 112px;
+    height: 175px;
+    text-align: center;
+    color: #000;
+    float: left;
+}
+.video_player{
+    float: left;
+    width: 480px;  
+}
 
+.dato_video{
+    float: left;
+    margin-left: 20px;
+    font-size: 13px;
+}
+.sinopsis .title{
+    color: #456a38;
+    font-size: 18px;
+}

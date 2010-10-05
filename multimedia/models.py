@@ -76,3 +76,4 @@ class Video(models.Model):
 
     class Meta:
         verbose_name_plural = 'Videos'
+        ordering = ['-id',]
