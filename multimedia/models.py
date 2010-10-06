@@ -69,9 +69,10 @@ OWNER_CHOICES = (('luciernaga', 'Luciernaga'), ('red', 'Red Mesoamericana'))
 class Video(models.Model):
     nombre = models.CharField(max_length=150)
     portada = models.ImageField(upload_to='videos/thumbs', help_text='Portada de la produccion. Tamaño 112x158px ancho y alto respectivos')
-    archivo = RestrictedFileField(upload_to='videos',
-                                content_types=['video/mpeg', 'video/x-msvideo', 'video/quicktime', 'video/x-flv', 'video/mp4'],
-                                max_upload_size=104857600)
+    #archivo = RestrictedFileField(upload_to='videos',
+    #                            content_types=['video/mpeg', 'video/x-msvideo', 'video/quicktime', 'video/x-flv', 'video/mp4'],
+    #                            max_upload_size=104857600)
+    archivo = models.FileField(upload_to='videos')
     sinopsis = models.TextField()
     realizacion = models.CharField(max_length=200)
     produccion = models.CharField(max_length=300, help_text='Nombre de productores separados por comas')
