@@ -39,7 +39,7 @@ class ContentTypeRestrictedFileField(FileField):
                     raise forms.ValidationError(_('Archivo no soportado.'))
             return data
         except:
-            return data
+            raise forms.ValidationError(_('Archivo no soportado.'))
 
 from south.modelsinspector import add_introspection_rules
 add_introspection_rules([], ["^luciernaga\.multimedia\.customfilefield\.ContentTypeRestrictedFileField"])
