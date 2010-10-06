@@ -1,9 +1,11 @@
 {% extends "base2.html" %}
 {% block extratitle %}Red Mesoamericana{% endblock %}
+
 {% block extrahead %}
+{% if cotenido.imagen %}
 <style type="text/css">
     #contenido {
-        background: url(/files/images/banner_medio_ambiente.jpg) no-repeat;
+        background: url(/public/{{contenido.imagen.name}}) no-repeat;
     }
     .banner{
         height: 380px;
@@ -11,14 +13,15 @@
 </style>
 <script type="text/javascript">
     $(document).ready(function(){
-        $('.logo_animado').attr('src', '/files/images/logo_red.png');
+        $('.logo_animado').attr('src', '/public/{{contenido.logo.name}}');
     });
 </script>
+{% endif %}
 {% endblock %}
+
 {% block menu1 %}
-<a href="/red/perfiles/">Perfiles de miembros &raquo;</a><br>
-{% for tema in menu %}
-<a href="/red/{{tema.id}}/">{{tema.nombre}} &raquo;</a><br>
+{% for tema in temas %}
+<a href="/temas/{{tema.slug}}/">{{tema.nombre}} &raquo;</a><br>
 {% endfor %}
 <br><br><br>
 {% endblock %}
@@ -29,11 +32,12 @@
         {{contenido.descripcion|safe}}
     </div>
 </div>
+
 <img src="/files/images/hline_large.png" alt="line" class="hline2">
 <div>
     <div class="otras_producciones">
-        <div>Producciones recientes de la Red Mesoamericana</div>
-        {% for video in producciones|slice:"5" %}
+        <div>Producciones recientes en {{contenido.nombre}}</div>
+        {% for video in contenido.video_set.all|slice:"5" %}
         <div class="obra">
             <a href="/videoteca/video/{{video.pk}}/"<img src="{{video.portada.url}}" alt="{{video.nombre}}"></a>
             {{video.nombre}}
@@ -43,3 +47,4 @@
     </div>
 </div>
 {% endblock %}
+

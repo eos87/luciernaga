@@ -4,10 +4,23 @@ from django.db import models
 from django.contrib.auth.models import User
 from customfilefield import ContentTypeRestrictedFileField as RestrictedFileField
 
+class Informacion(models.Model):
+    titulo = models.CharField(max_length=150)
+    descripcion = models.TextField()
+    slug = models.SlugField(unique=True)
+    
+    def __unicode__(self):
+        return self.titulo
+
+    class Meta:
+        verbose_name_plural = 'Informacion'
+
 class Tema(models.Model):
     nombre = models.CharField(max_length=100)
     descripcion = models.TextField(null=True, blank=True)
     especifico = models.BooleanField(verbose_name='Tema específico de Luciérnaga')
+    imagen = models.ImageField(upload_to='temas/', help_text='Imagen que aparece en el banner superior. Tamaño 960x704', null=True, blank=True)
+    logo = models.ImageField(upload_to='temas/', help_text='Logo superior. Tamaño 350x300', null=True, blank=True)
     slug = models.SlugField(unique=True)
 
     def __unicode__(self):

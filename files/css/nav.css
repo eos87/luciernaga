@@ -44,3 +44,6 @@
 #nav ul ul{
     top:auto;
 }
+.selected{
+    background: url(/files/images/nav_hover.png) repeat-x bottom;
+}

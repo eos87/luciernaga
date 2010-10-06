@@ -16,6 +16,13 @@
     });
 </script>
 {% endblock %}
+
+{% block menu1 %}
+{% for tema in temasall %}
+<a href="/videoteca/{{tema.slug}}/">{{tema.nombre}} &raquo;</a><br>
+{% endfor %}
+{% endblock %}
+
 {% block contenido %}
 <div>
     <span class="title">{{video.nombre}}</span><br><br>
@@ -61,7 +68,7 @@
 <div id="fb-root"></div>
 <script>
     window.fbAsyncInit = function() {
-        FB.init({appId: '6c8e7653b9abc1b5d94f36e18a2147a1', status: true, cookie: true,
+        FB.init({appId: '118744378183197', status: true, cookie: true,
             xfbml: true});
     };
     (function() {

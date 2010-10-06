@@ -1,0 +1,17 @@
+{% extends "base2.html" %}
+{% block extratitle %}Red Mesoamericana{% endblock %}
+
+{% block menu1 %}
+{% for tema in menu %}
+<a href="/info/{{tema.slug}}/">{{tema.titulo}} &raquo;</a><br>
+{% endfor %}
+<br><br><br>
+{% endblock %}
+{% block contenido %}
+<div>
+    <span class="title">{{contenido.titulo}}</span><br><br>
+    <div class="flatpage">
+        {{contenido.descripcion|safe}}
+    </div>
+</div>
+{% endblock %}

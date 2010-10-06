@@ -1,5 +1,12 @@
 {% extends "base2.html" %}
 {% block extratitle %}Videoteca | Buscar{% endblock %}
+
+{% block menu1 %}
+{% for tema in temasall %}
+<a href="/videoteca/{{tema.slug}}/">{{tema.nombre}} &raquo;</a><br>
+{% endfor %}
+{% endblock %}
+
 {% block contenido %}
 <div>
     <span class="title">B&uacute;squeda</span><br><br>
@@ -19,13 +26,13 @@
     <div class="producciones">
         {% for tema in temasall %}
         <div>Producciones Recientes en {{tema.nombre}}</div>
-            {% for video in tema.video_set.all|slice:"5" %}
-            <div class="obra">
-                <a href="/videoteca/video/{{video.pk}}/"<img src="{{video.portada.url}}" alt="{{video.nombre}}"></a>
-                {{video.nombre}}
-            </div>
-            {% endfor %}
-            <div class="clean"></div>
+        {% for video in tema.video_set.all|slice:"5" %}
+        <div class="obra">
+            <a href="/videoteca/video/{{video.pk}}/"<img src="{{video.portada.url}}" alt="{{video.nombre}}"></a>
+            {{video.nombre}}
+        </div>
+        {% endfor %}
+        <div class="clean"></div>
         {% endfor %}        
     </div>
 </div>

@@ -1,24 +1,24 @@
 <ul id="nav">
-    <li class="l1"><a href="/">Quienes somos</a></li>
-    <li class="l1"><a href="/temas/">Temas</a>
+    <li class="l1 {% if flag == 'quien' %}selected{% endif %}"><a href="/info/quienes-somos/">Quienes somos</a></li>
+    <li class="l1 {% if flag == 'temas' %}selected{% endif %}"><a href="#">Temas</a>
         <ul>
             {% for tema in temas %}
             <li><a href="/temas/{{tema.slug}}/">{{tema.nombre}} &raquo;</a></li>
             {% endfor %}
         </ul>
     </li>
-    <li class="l1"><a href="/videoteca/">Videoteca</a>        
+    <li class="l1 {% if flag == 'videoteca' %}selected{% endif %}"><a href="/videoteca/">Videoteca</a>
         <ul>
             <li><a href="/videoteca/buscar/">B&uacute;squeda &raquo;</a></li>
-            {% for tema in temas %}
+            {% for tema in temasall %}
             <li><a href="/videoteca/{{tema.slug}}/">{{tema.nombre}} &raquo;</a></li>
             {% endfor %}
         </ul>
     </li>
-    <li class="l1"><a href="/material/">Material Did&aacute;ctico</a></li>
-    <li class="l1"><a href="/proy-camp/">Proyectos y Campañas</a></li>
-    <li class="l1"><a href="/eventos/">Eventos</a></li>
-    <li class="l1"><a href="/noticias/">Noticias</a></li>
-    <li class="l1"><a href="/red/">Red Mesoamericana</a></li>
-    <li class="l1"><a href="/contactenos/">Cont&aacute;ctenos</a></li>
+    <li class="l1 {% if flag == 'material' %}selected{% endif %}"><a href="/material/">Material Did&aacute;ctico</a></li>
+    <li class="l1 {% if flag == 'proyecto' %}selected{% endif %}"><a href="/proy-camp/">Proyectos y Campañas</a></li>
+    <li class="l1 {% if flag == 'evento' %}selected{% endif %}"><a href="/eventos/">Eventos</a></li>
+    <li class="l1 {% if flag == 'noticia' %}selected{% endif %}"><a href="/noticias/">Noticias</a></li>
+    <li class="l1 {% if flag == 'red' %}selected{% endif %}"><a href="/red/">Red Mesoamericana</a></li>
+    <li class="l1 {% if flag == 'contacto' %}selected{% endif %}"><a href="/contactenos/">Cont&aacute;ctenos</a></li>
 </ul>

@@ -19,10 +19,7 @@
                 {% include "nav.html" %}
             </div>
             <div class="bar">
-                <div class="menu_temas">
-                    {% for tema in temasall %}
-                    <a href="/videoteca/{{tema.slug}}/">{{tema.nombre}} &raquo;</a><br>
-                    {% endfor %}
+                <div class="menu_temas">                    
                     {% block menu1 %}
                     {% endblock %}
                 </div>
