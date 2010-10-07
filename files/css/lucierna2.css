@@ -230,8 +230,9 @@ button.red_link, a.red_link{
     margin-right: 10px;
     line-height: 15px;
 }
-.perfil img{
+.perfil .img{
     margin-bottom: 5px;
+    height: 115px;
 }
 .bandera img{
     margin-top: 2px;
