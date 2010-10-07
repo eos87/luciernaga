@@ -202,7 +202,7 @@ button.red_link, a.red_link{
 }
 .title{
     height: 34px;
-    background: url(nav_back.png) repeat;
+    background: url(/files/images/nav_back.png) repeat;
     color: #fff;
 }
 .title .pais{

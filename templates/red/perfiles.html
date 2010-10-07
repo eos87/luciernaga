@@ -12,7 +12,22 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $('.logo_animado').attr('src', '/files/images/logo_red.png');
+        lastBlock = $('#a8');
+        maxHeight = 505;
+        minHeight = 34;
+        $(".acordeon ul li div").click(
+        function(){
+            $(lastBlock).animate({height: minHeight+"px"}, { queue:false, duration:300 });
+            $(this).parent().animate({height: maxHeight+"px"}, { queue:false, duration:300});
+            changeSymbol(lastBlock, this);
+            lastBlock = $(this).parent();
+            return false;
+        });
     });
+    function changeSymbol(lastBlock, newBlock){
+        $(lastBlock).find('span').html('[+]');
+        $(newBlock).find('span').html('[-]');
+    }
 </script>
 {% endblock %}
 {% block menu1 %}
