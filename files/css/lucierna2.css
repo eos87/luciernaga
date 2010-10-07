@@ -204,7 +204,11 @@ button.red_link, a.red_link{
     height: 28px;
     background: url(/files/images/nav_back.png) repeat;
     color: #fff;
-    font-size: 18px;
+    font-size: 16px;
+}
+.acordeong .title .symbol{
+    font-size: 16px;
+    line-height: 28px;
 }
 .title .pais{
     float: left;
