@@ -15,7 +15,7 @@
         lastBlock = $('#a8');
         maxHeight = 505;
         minHeight = 28;
-        $(".acordeon ul li div").click(
+        $(".acordeon ul li div.title").click(
         function(){
             $(lastBlock).animate({height: minHeight+"px"}, { queue:false, duration:300 });
             $(this).parent().animate({height: maxHeight+"px"}, { queue:false, duration:300});
