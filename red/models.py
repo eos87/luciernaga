@@ -19,7 +19,7 @@ class Perfil(models.Model):
     user = models.ForeignKey(User)
     logo = ImageWithThumbsField(upload_to='red/perfiles/', sizes=((150,140),), blank=True, null=True)
     descripcion = models.TextField()
-    fundadada = models.IntegerField()
+    fundada = models.IntegerField()
     pais = models.ForeignKey(Pais)
 
     def __unicode__(self):
