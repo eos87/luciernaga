@@ -200,7 +200,7 @@ button.red_link, a.red_link{
     line-height: 34px;
     font-family: 'Verdana', 'Lucida Grande', sans-serif;
 }
-.title{
+.acordeon .title{
     height: 34px;
     background: url(/files/images/nav_back.png) repeat;
     color: #fff;
