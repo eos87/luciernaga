@@ -210,11 +210,11 @@ button.red_link, a.red_link{
     font-size: 16px;
     line-height: 28px;
 }
-.title .pais{
+.acordeon .title .pais{
     float: left;
     margin-left: 15px;
 }
-.title .bandera{
+.acordeon .title .bandera{
     float: right;
     padding-right: 3px;
     width: 54px;
