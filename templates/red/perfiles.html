@@ -1,0 +1,77 @@
+{% extends "base2.html" %}
+{% block extratitle %}Red Mesoamericana{% endblock %}
+{% block extrahead %}
+<style type="text/css">
+    #contenido {
+        background: url(/files/images/banner_medio_ambiente.jpg) no-repeat;
+    }
+    .banner{
+        height: 380px;
+    }
+</style>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.logo_animado').attr('src', '/files/images/logo_red.png');
+    });
+</script>
+{% endblock %}
+{% block menu1 %}
+<a href="/red/perfiles/">Perfiles de miembros &raquo;</a><br>
+{% for tema in menu %}
+<a href="/red/{{tema.id}}/">{{tema.nombre}} &raquo;</a><br>
+{% endfor %}
+<br><br><br>
+{% endblock %}
+{% block contenido %}
+<div>
+    <span class="title">Perfiles de Miembros</span><br><br>
+    <div class='acordeon'>
+        <ul>
+            <li>
+                <div id='a8'>
+                    <div class='title'>
+                        <div class='pais'>
+                            <span class='symbol'>[-]</span> {{nicaragua.nombre|upper}}
+                        </div>
+                        <div class='bandera'>
+                            <img src='/public/{{nicaragua.bandera.name}}/' alt='Nicaragua'>
+                        </div>
+                    </div>
+                    <div class='body'>
+                        {% for miembro in nicaragua.perfil_set.all %}
+                        <div class='perfil'>
+                            <img src='/public/{{miembro.logo.name}}/' alt='{{miembro.nombre}}'><br>
+                            {{miembro.nombre}}<br>
+                            Fundada: {{miembro.fundada}}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </li>
+            {% for pais in otros_paises %}
+            <li>
+                <div>
+                    <div class='title'>
+                        <div class='pais'>
+                            <span class='symbol'>[+]</span> {{pais.nombre|upper}}
+                        </div>
+                        <div class='bandera'>
+                            <img src='/public/{{pais.bandera.name}}/' alt='{{pais.nombre}}'>
+                        </div>
+                    </div>
+                    <div class='body'>
+                        {% for miembro in pais.perfil_set.all %}
+                        <div class='perfil'>
+                            <img src='/public/{{miembro.logo.name}}/' alt='{{miembro.nombre}}'><br>
+                            {{miembro.nombre}}<br>
+                            Fundada: {{miembro.fundada}}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

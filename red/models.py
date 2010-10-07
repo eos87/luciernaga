@@ -23,7 +23,7 @@ class Perfil(models.Model):
     pais = models.ForeignKey(Pais)
 
     def __unicode__(self):
-        return none
+        return self.user.username
 
     class Meta:
         verbose_name_plural = 'Perfiles de miembros'

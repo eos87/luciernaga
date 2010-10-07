@@ -24,5 +24,6 @@ def perfiles(request):
     temas = Tema.objects.filter(especifico=True)
     temasall = Tema.objects.all()
     menu = Contenido.objects.all()
-    
-    return render_to_response('red/red.html', RequestContext(request, locals()))
+    nicaragua = Pais.objects.get(nombre='Nicaragua')
+    otros_paises = Pais.objects.all().exclude(pk=nicaragua.pk)
+    return render_to_response('red/perfiles.html', RequestContext(request, locals()))
