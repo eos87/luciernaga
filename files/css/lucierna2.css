@@ -197,13 +197,14 @@ button.red_link, a.red_link{
 }
 .acordeon ul li{
     margin-top: 3px;
-    line-height: 34px;
+    line-height: 28px;
     font-family: 'Verdana', 'Lucida Grande', sans-serif;
 }
 .acordeon .title{
-    height: 34px;
+    height: 28px;
     background: url(/files/images/nav_back.png) repeat;
     color: #fff;
+    font-size: 18px;
 }
 .title .pais{
     float: left;
@@ -212,8 +213,8 @@ button.red_link, a.red_link{
 .title .bandera{
     float: right;
     padding-right: 3px;
-    width: 56px;
-    height: 34px;
+    width: 54px;
+    height: 28px;
     background-color: #4c703f;
     text-align: center;
 }
