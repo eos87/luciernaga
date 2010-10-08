@@ -57,7 +57,7 @@
                         {% for miembro in nicaragua.perfil_set.all %}
                         <div class='perfil'>
                             <div class="img"><img src='/public/{{miembro.logo.name}}/' alt='{{miembro.nombre}}'></div><br>
-                            {{miembro.user.get_full_name}}<br>
+                            {{miembro.siglas}}<br>
                             Fundada: {{miembro.fundada}}
                         </div>
                         {% endfor %}
@@ -81,7 +81,7 @@
                         {% for miembro in pais.perfil_set.all %}
                         <div class='perfil'>
                             <div class="img"><img src='/public/{{miembro.logo.name}}/' alt='{{miembro.nombre}}'></div><br>
-                            {{miembro.user.get_full_name}}<br>
+                            {{miembro.siglas}}<br>
                             Fundada: {{miembro.fundada}}
                         </div>
                         {% endfor %}

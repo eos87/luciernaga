@@ -16,14 +16,15 @@ class Pais(models.Model):
 
 
 class Perfil(models.Model):
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, verbose_name='usuario')
+    siglas = models.CharField(max_length=30, help_text='Nombre corto o Siglas')
     logo = ImageWithThumbsField(upload_to='red/perfiles/', sizes=((150,140),), blank=True, null=True)
     descripcion = models.TextField()
     fundada = models.IntegerField()
     pais = models.ForeignKey(Pais)
 
     def __unicode__(self):
-        return self.user.username
+        return self.siglas
 
     class Meta:
         verbose_name_plural = 'Perfiles de miembros'
