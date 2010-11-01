@@ -204,6 +204,14 @@ button.red_link, a.red_link{
     display: block;
     overflow: hidden;
 }
+.acordeon .body{
+	display: none;
+	/*overflow: auto;
+	overflow-x: hidden;*/
+}
+.acordeon #a8 .body{
+	display: block;
+}
 .acordeon .title{
     height: 28px;
     background: url(/files/images/nav_back.png) repeat;
