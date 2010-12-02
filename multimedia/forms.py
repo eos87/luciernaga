@@ -11,4 +11,10 @@ class SearchForm(forms.Form):
         pass
         #widgets = {'temas': forms.CheckboxSelectMultiple}
 
+class VideoBuscar(forms.Form):
+    tema = forms.ModelChoiceField(queryset=Tema.objects.all(), empty_label='Tema')
+    genero = forms.ModelChoiceField(queryset=Genero.objects.all(), empty_label='Subtema')
+    coleccion = forms.ModelChoiceField(queryset=Coleccion.objects.all(), empty_label='Colección')
 
+    class Meta:
+        pass

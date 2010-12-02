@@ -1,11 +1,14 @@
 {% extends "base2.html" %}
-{% block extratitle %}Red Mesoamericana{% endblock %}
+{% block extratitle %}{{contenido.nombre}}{% endblock %}
 
 {% block extrahead %}
 {% if contenido.imagen %}
 <style type="text/css">
     #contenido {
-        background: url(/public/{{contenido.imagen.name}}) no-repeat;
+        background: url({{contenido.imagen.url}}) no-repeat;
+    }
+    .resto{
+        background: url(/files/images/b-{{contenido.slug}}.png) no-repeat;
     }
     .banner{
         height: 380px;
@@ -13,7 +16,7 @@
 </style>
 <script type="text/javascript">
     $(document).ready(function(){
-        $('.logo_animado').attr('src', '/public/{{contenido.logo.name}}');
+        $('.logo_animado').attr('src', '{{contenido.logo.url}}');
     });
 </script>
 {% endif %}

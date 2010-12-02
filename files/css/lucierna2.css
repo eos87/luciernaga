@@ -8,7 +8,14 @@ body{
 #contenido {
     width: 960px;
     margin: 0 auto;
-    background: url(/files/images/banner_rostros.jpg) no-repeat;
+    /*background: url(/files/images/banner_rostros.jpg) no-repeat;*/
+}
+.banner_top{
+    height: 397px;    
+}
+.resto{    
+    margin-top: -100px;
+    padding-top: 75px;
 }
 .bar{
     width: 210px;
@@ -52,11 +59,10 @@ body{
     font-family: 'Trebuchet MS', sans-serif;
     border: 1px #000 solid;
     padding: 2px 4px;
-    height: 22px;
+    height: 18px;
     width: 170px;
     margin-top: 20px;
 }
-
 
 .footer{
     text-align: center;
@@ -256,4 +262,36 @@ button.red_link, a.red_link{
 }
 #a8{
     height: 505px;
+}
+
+/* termina acordeon code*/
+
+.buscar_videos{
+    background: url(/files/images/tv-buscar.jpg) no-repeat;
+    width: 100%;    
+}
+
+.cant_videos{
+    font-size: 20px;
+    color: #fff;
+    font-family: "Verdana", "Trebuchet MS", sans-serif;
+    font-weight: bold;
+    text-align: center;
+    width: 75px;
+    padding-top: 20px;
+    margin-left: 10px;
+}
+.cant_videos .slim{
+    font-weight: normal;
+    font-size: 18px;
+}
+.form_buscar_left{
+    margin-top: 40px;
+}
+.form_buscar_left select{
+    width: 200px;
+    border: 1px #000 solid;
+    background: #fff;
+    margin-top: 5px;
+    padding: 2px 2px;
 }

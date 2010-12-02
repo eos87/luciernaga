@@ -6,5 +6,6 @@ from luciernaga.multimedia.models import *
 def index(request):
     temas = Tema.objects.filter(especifico=True)
     temasall = Tema.objects.all()
+    videos_cant = Video.objects.all().count()
     return render_to_response('index.html', RequestContext(request, locals()))
 

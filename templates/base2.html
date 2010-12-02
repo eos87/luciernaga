@@ -12,48 +12,67 @@
     </head>
     <body>
         <div id="contenido">
-            <div class="banner">
-                <a href="/"><img src="/files/images/logo_blanco.png" alt="Logo animado" class="logo_animado"></a>
+            <div class="banner_top">
+                <div class="banner">
+                    <a href="/"><img src="/files/images/logo_blanco.png" alt="Logo animado" class="logo_animado"></a>
+                </div>
             </div>
-            <div class="navegacion">
-                {% include "nav.html" %}
-            </div>
-            <div class="bar">
-                <div class="menu_temas">                    
-                    {% block menu1 %}
+            <div class="resto">
+                <div class="navegacion">
+                    {% include "nav.html" %}
+                </div>
+                <div class="bar">
+                    <div class="menu_temas">
+                        {% block menu1 %}
+                        {% endblock %}
+                    </div>
+                    <img src="/files/images/hline3.png" class="hline2" alt="line">
+                    <div class="buscar_videos">
+                        <div class="cant_videos">
+                            1,500<br>
+                            <span class="slim">videos</span>
+                        </div>
+                        <div class="form_buscar_left">
+                            <form action="/videoteca/busqueda/" method="GET">
+                                {{videoForm.tema}}<br>
+                                {{videoForm.genero}}<br>
+                                {{videoForm.coleccion}}<br><br>
+                                <button type="submit" class="red_link">Buscar &raquo;</button>
+                            </form>
+                        </div>
+                    </div>
+                    <img src="/files/images/hline3.png" class="hline2" alt="line">
+                    <img src="/files/images/redes.png" alt="Redes sociales">
+                    <div class="red_social">
+                        {% include "redes_sociales.html" %}
+                        <img src="/files/images/hline3.png" class="hline2" alt="line">
+                    </div>
+                    <div>
+                        <a href="http://albafilms.tv/" target="_blank"><img src="/files/images/albafilms_logo.png" alt="AlbaFilms Logo"></a>&nbsp;&nbsp;
+                        <a href="http://turismoruralnica.com/" target="_blank"><img src="/files/images/turismorural_logo.png" alt="Turismo Rural Nica Logo"></a>
+                    </div>
+                </div>
+                <img src="/files/images/separator.png" alt="separator" class="separator">
+                <div class="cuerpo">
+                    <div class="search">
+                        <input name="q" type="input"> <button type="submit" class="red_link">Buscar &raquo;</button>
+                    </div>
+                    <div class="main">
+                        <div class="breadcrumb">
+                            <a href="">Videoteca &raquo;</a>
+                        </div>
+                        <div class="addthis">
+                            <a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;username=eos87"><img src="/files/images/addthis.png" width="150" height="20" alt="Bookmark and Share" style="border:0"/></a>
+                            <script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+                            <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=eos87"></script>
+                        </div>
+                        <div class="clean"></div>
+                    </div>
+                    {% block contenido %}
                     {% endblock %}
                 </div>
-                <img src="/files/images/hline3.png" class="hline2" alt="line">
-                <img src="/files/images/redes.png" alt="Redes sociales">
-                <div class="red_social">                    
-                    {% include "redes_sociales.html" %}
-                    <img src="/files/images/hline3.png" class="hline2" alt="line">
-                </div>
-                <div>
-                    <a href="http://albafilms.tv/" target="_blank"><img src="/files/images/albafilms_logo.png" alt="AlbaFilms Logo"></a>&nbsp;&nbsp;
-                    <a href="http://turismoruralnica.com/" target="_blank"><img src="/files/images/turismorural_logo.png" alt="Turismo Rural Nica Logo"></a>
-                </div>
+                <div class="clean"></div>
             </div>
-            <img src="/files/images/separator.png" alt="separator" class="separator">
-            <div class="cuerpo">
-                <div class="search">
-                    <input name="q" type="input"> <button type="submit" class="red_link">Buscar &raquo;</button>                    
-                </div>
-                <div class="main">
-                    <div class="breadcrumb">
-                        <a href="">Videoteca &raquo;</a>
-                    </div>
-                    <div class="addthis">
-                        <a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;username=eos87"><img src="/files/images/addthis.png" width="150" height="20" alt="Bookmark and Share" style="border:0"/></a>
-                        <script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
-                        <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=eos87"></script>
-                    </div>
-                    <div class="clean"></div>                    
-                </div>
-                {% block contenido %}
-                {% endblock %}                
-            </div>
-            <div class="clean"></div>
         </div>
         <div class="clean footer">
             <img src="/files/images/footer_line.png" alt="footer line" class="footer_line"><br>
