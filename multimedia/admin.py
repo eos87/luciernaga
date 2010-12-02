@@ -16,5 +16,6 @@ admin.site.register(Subtema)
 admin.site.register(Genero)
 admin.site.register(Coleccion)
 admin.site.register(Video)
+admin.site.register(Archivo)
 
 
