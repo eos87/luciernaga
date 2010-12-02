@@ -91,34 +91,3 @@ class Video(models.Model):
     class Meta:
         verbose_name_plural = 'Videos'
         ordering = ['-id',]
-
-import uuid
-import os
-import re 
-
-p = re.compile(r'[^0-9a-zA-Z\._]+')
-
-def repl(match):
-    chars = {u'á': u'a', u'Á':u'A', u'é':u'e', u'É':u'E', u'í': u'i', u'Í':u'I', u'ó':u'o', u'Ó':'O', u'ú':u'u', u'Ú':'U', u'ñ':u'n', u'ü':u'u',}
-    a = ''
-    for i in match.group():
-        print i
-        if i in chars:
-            a = a + chars[i]
-        else:
-            a = a + '_'
-    return a
-
-#metodo para cambiar nombre a archivos con tildes
-def get_file_path(instance, filename):
-    ext = filename.split('.')[-1]
-    nombre = p.sub(repl, filename.split('.')[-2])
-    print nombre
-    filename = "%s.%s" % (nombre, ext)
-    return os.path.join(instance.ruta, filename)
-
-class Archivo(models.Model):
-    archivo = models.FileField(upload_to = get_file_path)
-    ruta = 'otro/'
-
-
