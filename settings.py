@@ -49,7 +49,7 @@ TEMPLATE_CONTEXT_PROCESSORS=(
     "django.core.context_processors.request",
     "django.core.context_processors.auth",
     "django.core.context_processors.request",
-    "context.variables",
+    "luciernaga.context.variables",
     )
 
 ROOT_URLCONF = 'luciernaga.urls'
