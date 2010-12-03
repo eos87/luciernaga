@@ -1,7 +1,7 @@
 {% extends "base2.html" %}
 {% block extratitle %}{{contenido.nombre}}{% endblock %}
-
 {% block extrahead %}
+<script type="text/javascript" src="/files/js/jquery.jcarousel.min.js"></script>
 {% if contenido.imagen %}
 <style type="text/css">
     #contenido {
@@ -17,11 +17,30 @@
     }
     .banner{
         height: 380px;
-    }
+    }    
 </style>
 <script type="text/javascript">
+    function mycarousel_initCallback(carousel) {
+        jQuery('#mycarousel-next').click(function() {
+            carousel.next();
+            return false;
+        });
+
+        jQuery('#mycarousel-prev').click(function() {
+            carousel.prev();
+            return false;
+        });
+    };
     $(document).ready(function(){
-        $('.logo_animado').attr('src', '{{contenido.logo.url}}');
+        $('.logo_animado').attr('src', '{{contenido.logo.url}}');        
+        // Ride the carousel...        
+        $(".obras").jcarousel({
+            scroll: 1,
+            initCallback: mycarousel_initCallback,
+            // This tells jCarousel NOT to autobuild prev/next buttons
+            buttonNextHTML: null,
+            buttonPrevHTML: null            
+        });
     });
 </script>
 {% endif %}
@@ -33,6 +52,11 @@
 {% endfor %}
 <br><br><br>
 {% endblock %}
+
+{% block breadcrumb %}
+<a href="/temas/">Temas &raquo;</a> <a href="/temas/{{contenido.slug}}">{{contenido.nombre}} &raquo;</a>
+{% endblock %}
+
 {% block contenido %}
 <div>
     <span class="title">{{contenido.nombre}}</span><br><br>
@@ -40,17 +64,50 @@
         {{contenido.descripcion|safe}}
     </div>
 </div>
-
 <img src="/files/images/hline_large.png" alt="line" class="hline2">
 <div>
     <div class="otras_producciones">
-        <div>Producciones recientes en {{contenido.nombre}}</div>
-        {% for video in contenido.video_set.all|slice:"5" %}
-        <div class="obra">
-            <a href="/videoteca/video/{{video.pk}}/"<img src="{{video.portada.url}}" alt="{{video.nombre}}"></a>
-            {{video.nombre}}
+        <div class="title_prod">Producciones recientes en {{contenido.nombre}}</div>
+        {% if contenido.video_set.all %}
+        <div class="prev" id="mycarousel-prev"></div>
+        <div class="obras_carusel">
+            <ul class="obras">
+                {% for video in contenido.video_set.all|slice:"5" %}
+                <li class="obra">
+                    <a href="/videoteca/video/{{video.pk}}/"><img src="{{video.portada.url}}" alt="{{video.nombre}}"></a>
+                    {{video.nombre}}
+                </li>
+                <li class="obra">
+                    <a href="/videoteca/video/{{video.pk}}/"><img src="{{video.portada.url}}" alt="{{video.nombre}}"></a>
+                    {{video.nombre}}
+                </li>
+                <li class="obra">
+                    <a href="/videoteca/video/{{video.pk}}/"><img src="{{video.portada.url}}" alt="{{video.nombre}}"></a>
+                    {{video.nombre}}
+                </li>
+                <li class="obra">
+                    <a href="/videoteca/video/{{video.pk}}/"><img src="{{video.portada.url}}" alt="{{video.nombre}}"></a>
+                    {{video.nombre}}
+                </li>
+                <li class="obra">
+                    <a href="/videoteca/video/{{video.pk}}/"><img src="{{video.portada.url}}" alt="{{video.nombre}}"></a>
+                    {{video.nombre}}
+                </li>
+                <li class="obra">
+                    <a href="/videoteca/video/{{video.pk}}/"><img src="{{video.portada.url}}" alt="{{video.nombre}}"></a>
+                    {{video.nombre}}
+                </li>
+                <li class="obra">
+                    <a href="/videoteca/video/{{video.pk}}/"><img src="{{video.portada.url}}" alt="{{video.nombre}}"></a>
+                    {{video.nombre}}
+                </li>
+                {% endfor %}
+            </ul>
         </div>
-        {% endfor %}
+        <div class="next" id="mycarousel-next"></div>
+        {% else %}
+        <br>No hay producciones!
+        {% endif %}
         <div class="clean"></div>
     </div>
 </div>

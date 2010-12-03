@@ -1,5 +1,5 @@
 {% extends "base2.html" %}
-{% block extratitle %}Videoteca | Buscar{% endblock %}
+{% block extratitle %}Videoteca | {{selecto.nombre}}{% endblock %}
 
 {% block menu1 %}
 {% for tema in temasall %}
@@ -7,33 +7,28 @@
 {% endfor %}
 {% endblock %}
 
+{% block breadcrumb %}
+<a href="/videoteca/">Videoteca &raquo;</a> <a href="/videoteca/buscar/">B&uacute;queda &raquo;</a>
+{% endblock %}
+
 {% block contenido %}
 <div>
-    <span class="title">B&uacute;squeda</span><br><br>
-    La búsqueda en la Videoteca, puede realizarse por uno ovarios campos combinados<br><br>
+    <span class="title">{{selecto.nombre}}</span><br><br>
+    La búsqueda en la Videoteca, puede realizarse por uno o varios campos combinados<br><br>
     <div class="search_form">
         <form action="." method="GET">
             <table>
-                <tr><th><label for="id_q">Palabras claves:</label></th><td>{{form.q}} <button type="submit" class="red_link">Buscar &raquo;</button></td></tr>
-                <tr><th><label for="id_temas_0">{{form.tema.label}}:</label></th>
-                    <td>{{form.tema}}
+                <tr><th><label for="id_q">Palabras claves:</label></th><td>{{form.q}} <button type="submit" class="red_link">Buscar &raquo;</button></td>
+                <th><label for="id_temas_0">{{form.subtema.label}}:</label></th>
+                    <td>{{form.subtema}}
                     </td>
                 </tr>
             </table>            
         </form>
     </div>
     <img src="/files/images/hline_large.png" alt="line" class="line_large">
-    <div class="producciones">
-        {% for tema in temasall %}
-        <div>Producciones Recientes en {{tema.nombre}}</div>
-        {% for video in tema.video_set.all|slice:"5" %}
-        <div class="obra">
-            <a href="/videoteca/video/{{video.pk}}/"<img src="{{video.portada.url}}" alt="{{video.nombre}}"></a>
-            {{video.nombre}}
-        </div>
-        {% endfor %}
-        <div class="clean"></div>
-        {% endfor %}        
+    <div class="resultados">
+              
     </div>
 </div>
 {% endblock %}

@@ -165,14 +165,44 @@ button.red_link, a.red_link{
     font-size: 13px;
     color: #456a38;    
 }
+.obras{
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
 .obra{
-    margin: 15px 10px 30px 10px;
+    padding: 0px;
+    margin: 15px 7px 30px 7px;
     width: 112px;
     height: 175px;
     text-align: center;
     color: #000;
     float: left;
 }
+.obras_carusel{
+    float: left;
+    width: 510px;    
+}
+.prev, .next{
+    float: left;
+    width: 22px;
+    height: 122px;
+    cursor: pointer;
+    margin-top: 45px;
+}
+.prev{    
+    background: url(/files/images/prev.png) no-repeat;
+    margin-right: 20px;
+    margin-left: 30px;
+}
+.prev:hover, .next:hover{
+    background-position: 0 -122px;
+}
+.next{    
+    background: url(/files/images/next.png) no-repeat;
+    margin-left: 15px;
+}
+
 .video_player{
     float: left;
     width: 480px;  
@@ -290,4 +320,19 @@ button.red_link, a.red_link{
     background: #fff;
     margin-top: 5px;
     padding: 2px 2px;
+}
+.title_prod{
+    font-size: 17px;
+    color: #456a38;
+    font-family: "Verdana", "Trebuchet MS", sans-serif;
+    text-align: center;
+    letter-spacing: 3px;
+}
+
+.title_prod2{
+    font-size: 14px;
+    color: #456a38;
+    font-family: "Verdana", "Trebuchet MS", sans-serif;
+    text-align: center;
+    letter-spacing: 2px;
 }

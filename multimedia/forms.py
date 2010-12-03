@@ -18,3 +18,10 @@ class VideoBuscar(forms.Form):
 
     class Meta:
         pass
+
+class SelectoForm(forms.Form):
+    q = forms.CharField(max_length=40, label='Palabras claves')
+    subtema = forms.ModelChoiceField(queryset=Tema.objects.all(), label="Subtema", empty_label='Todos')
+
+    class Meta:
+        pass
