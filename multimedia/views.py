@@ -1,9 +1,10 @@
+from django.shortcuts import get_object_or_404
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from django.shortcuts import get_object_or_404
-
+from django.db.models import Q
 from forms import *
 from models import *
+import operator
 
 def info(request, slug):
     flag = 'quien'
@@ -30,9 +31,28 @@ def buscar(request):
 def tema_selecto(request, slug):
     flag = 'videoteca'
     temas = Tema.objects.filter(especifico=True)
-    temasall = Tema.objects.all().exclude(slug=slug)
-    form = SelectoForm()
-    selecto = get_object_or_404(Tema, slug=slug)
+    temasall = Tema.objects.all().exclude(slug=slug)    
+    selecto = get_object_or_404(Tema, slug=slug)    
+    form = SelectoForm()    
+
+    query = request.GET.get('q', '')
+    subtema = request.GET.get('subtema', '')
+    qset = []
+    videos = Video.objects.filter(tema=selecto)
+    if query:
+        qset.append(Q(nombre__icontains=query))
+        qset.append(Q(sinopsis__icontains=query))
+        qset.append(Q(anio__icontains=query))
+        qs = reduce(operator.or_, qset)
+        resultados = videos.filter(qs).distinct()
+        form = SelectoForm(request.GET)
+    if subtema:        
+        resultados = videos.filter(qs, subtema__pk=subtema).distinct()
+        form = SelectoForm(request.GET)
+
+    if not query and not subtema:
+        resultados = Video.objects.filter(tema=selecto)
+
     return render_to_response('videoteca.html', RequestContext(request, locals()))
 
 def video_selecto(request, id):

@@ -336,3 +336,17 @@ button.red_link, a.red_link{
     text-align: center;
     letter-spacing: 2px;
 }
+.in_videoteca{
+    margin-bottom: 15px;
+}
+.in_videoteca input{
+    width: 160px;
+}
+.in_videoteca select{
+    width: 170px;
+    background: #fff;
+    border: 1px #000 solid;
+}
+.in_videoteca .subtema{
+    margin-left: 30px;
+}
