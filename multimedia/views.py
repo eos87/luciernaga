@@ -1,10 +1,14 @@
+import operator
+
+from django.db.models import Q
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from django.db.models import Q
+from django.http import HttpResponse
+from django.utils import simplejson
+
 from forms import *
 from models import *
-import operator
 
 def info(request, slug):
     flag = 'quien'
@@ -30,14 +34,16 @@ def buscar(request):
 
 def tema_selecto(request, slug):
     flag = 'videoteca'
+    #objetos por pagina
+    opp = 15
     temas = Tema.objects.filter(especifico=True)
     temasall = Tema.objects.all().exclude(slug=slug)    
     selecto = get_object_or_404(Tema, slug=slug)    
-    form = SelectoForm()    
+    form = SelectoForm(selecto)
 
     query = request.GET.get('q', '')
     subtema = request.GET.get('subtema', '')
-    qset = []
+    qset = []    
     videos = Video.objects.filter(tema=selecto)
     if query:
         qset.append(Q(nombre__icontains=query))
@@ -45,10 +51,14 @@ def tema_selecto(request, slug):
         qset.append(Q(anio__icontains=query))
         qs = reduce(operator.or_, qset)
         resultados = videos.filter(qs).distinct()
-        form = SelectoForm(request.GET)
-    if subtema:        
+        form = SelectoForm(selecto, request.GET)
+    if subtema and not query:
+        resultados = videos.filter(subtema__pk=subtema).distinct()
+        form = SelectoForm(selecto, request.GET)
+
+    if subtema and query:
         resultados = videos.filter(qs, subtema__pk=subtema).distinct()
-        form = SelectoForm(request.GET)
+        form = SelectoForm(selecto, request.GET)
 
     if not query and not subtema:
         resultados = Video.objects.filter(tema=selecto)
@@ -65,3 +75,12 @@ def video_selecto(request, id):
         pass
     return render_to_response('video_selecto.html', RequestContext(request, locals()))
 
+def get_subtema(request, id):
+    results = []
+    subtemas = Subtema.objects.filter(tema__pk=id).values('id', 'nombre')
+    dicc = {
+        'subtemas': list(subtemas)
+    }
+    results.append(dicc)
+    
+    return HttpResponse(simplejson.dumps(list(subtemas)), mimetype='application/json')

@@ -8,6 +8,7 @@ urlpatterns = patterns('luciernaga.multimedia.views',
     (r'^videoteca/video/(?P<id>\d+)/$', 'video_selecto'),
 
     (r'^temas/(?P<slug>[-\w]+)/$', 'tema_detail'),
+    (r'^ajax/subtemas/(?P<id>\d+)/$', 'get_subtema'),
 
     
     #(r'^indicadores/$', 'indicadores'),

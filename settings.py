@@ -39,6 +39,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'luciernaga.pagination.middleware.PaginationMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS=(
@@ -68,6 +69,7 @@ INSTALLED_APPS = (
     'luciernaga.multimedia',
     'luciernaga.red',
     'south',
+    'luciernaga.pagination',
 )
 
 AUTH_PROFILE_MODULE = 'red.Perfil'

@@ -183,22 +183,22 @@ button.red_link, a.red_link{
     float: left;
     width: 500px;    
 }
-.prev, .next{
+.prev_car, .next_car{
     float: left;
     width: 22px;
     height: 122px;
     cursor: pointer;
     margin-top: 45px;
 }
-.prev{    
+.prev_car{
     background: url(/files/images/prev.png) no-repeat;
     margin-right: 20px;
     margin-left: 30px;
 }
-.prev:hover, .next:hover{
+.prev_car:hover, .next_car:hover{
     background-position: 0 -122px;
 }
-.next{    
+.next_car{
     background: url(/files/images/next.png) no-repeat;
     margin-left: 15px;
 }
@@ -349,4 +349,38 @@ button.red_link, a.red_link{
 }
 .in_videoteca .subtema{
     margin-left: 30px;
+}
+.descripciones{
+    color: #456a38;
+    font-size: 13px;
+}
+.objetos_salida{
+    float: left;
+}
+.pagination{
+    float: left;
+    margin-left: 10px;
+}
+.pagination .page{
+    padding: 1px 6px;
+    border: 2px #456a38 solid;    
+    color: #456a38;
+    font-size: 11px;
+}
+a.prev, a.next{
+    color: #fff;
+    padding: 2px 5px;
+}
+.prev, .next{
+    background: #456a38;
+    color: #fff;
+    font-weight: bold;
+}
+.disabled{
+    background: #eee;
+    padding: 2px 5px;
+    color: #959595;
+}
+.current{
+    background: #f0e68c;
 }

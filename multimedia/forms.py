@@ -20,8 +20,10 @@ class VideoBuscar(forms.Form):
         pass
 
 class SelectoForm(forms.Form):
-    q = forms.CharField(max_length=40, label='Palabras claves')
-    subtema = forms.ModelChoiceField(queryset=Subtema.objects.all(), label="Subtema", empty_label='Todos')
-
+    def __init__(self, selecto, *args, **kwargs):
+        super(SelectoForm, self).__init__(*args, **kwargs)
+        self.fields['subtema'] = forms.ModelChoiceField(queryset=Subtema.objects.filter(tema=selecto), label="Subtema", empty_label='Todos')
+        self.fields['q'] = forms.CharField(max_length=40, label='Palabras claves')
+        
     class Meta:
         pass

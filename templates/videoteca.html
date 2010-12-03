@@ -1,11 +1,22 @@
 {% extends "base2.html" %}
+
+{% load pagination_tags %}
+
 {% block extratitle %}Videoteca | {{selecto.nombre}}{% endblock %}
 
 {% block extrahead %}
 <script type="text/javascript">
     // TODO: filtro para subtemas
     $(document).ready(function(){
-        
+        /*$.getJSON('http://localhost:8000/ajax/subtemas/{{selecto.pk}}/', function(data){
+            if(data){
+                $('#id_subtema').html('');
+                $('#id_subtema').append($('<option></option>').val('').html('Todos'));
+                $.each(data, function(i, item){
+                    $('#id_subtema').append($('<option></option>').val(item.id).html(item.nombre));
+                });
+            }            
+        });*/
     });
 </script>
 {% endblock %}
@@ -36,6 +47,16 @@
     </div>    
     <img src="/files/images/hline_large.png" alt="line" class="line_large">
     <div class="resultados">
+        {% autopaginate resultados opp %}
+        <div class="descripciones">
+            <div>
+                <div class="objetos_salida">{{paginator.count}} Video{{resultados|pluralize:'s'}} disponible{{resultados|pluralize:'s'}} (encontrados)
+                    | Mostrando {{page_obj.start_index}} - {{page_obj.end_index}}
+                </div>
+                {% paginate %}
+                <div class="clean"></div><br><br>
+            </div>
+        </div>
         {% for v in resultados %}
         {{v}}
         {% endfor %}

@@ -45,7 +45,7 @@
             // This tells jCarousel NOT to autobuild prev/next buttons
             buttonNextHTML: null,
             buttonPrevHTML: null            
-        });
+        });        
     });
 </script>
 {% endif %}
@@ -74,7 +74,7 @@
     <div class="otras_producciones">
         <div class="title_prod">Producciones recientes en {{contenido.nombre}}</div>
         {% if contenido.video_set.all %}
-        <div class="prev" id="mycarousel-prev"></div>
+        <div class="prev_car" id="mycarousel-prev"></div>
         <div class="obras_carusel">
             <ul id="obras">
                 {% for video in contenido.video_set.all|slice:"5" %}
@@ -113,7 +113,7 @@
                 {% endfor %}
             </ul>
         </div>
-        <div class="next" id="mycarousel-next"></div>
+        <div class="next_car" id="mycarousel-next"></div>
         {% else %}
         <br>No hay producciones!
         {% endif %}
