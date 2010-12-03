@@ -165,7 +165,7 @@ button.red_link, a.red_link{
     font-size: 13px;
     color: #456a38;    
 }
-.obras{
+#obras{
     list-style: none;
     padding: 0px;
     margin: 0px;
@@ -181,7 +181,7 @@ button.red_link, a.red_link{
 }
 .obras_carusel{
     float: left;
-    width: 510px;    
+    width: 500px;    
 }
 .prev, .next{
     float: left;
