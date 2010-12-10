@@ -62,9 +62,9 @@ def buscar(request):
         qset.append(Q(sinopsis__icontains=query))
         qset.append(Q(anio__icontains=query))
         qs = reduce(operator.or_, qset)
-        try:
+        if resultados:
             resultados = resultados.filter(qs).distinct()
-        except:
+        else:
             resultados = Video.objects.filter(qs).distinct()
         
     return render_to_response('busqueda.html', RequestContext(request, locals()))
