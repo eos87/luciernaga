@@ -1,4 +1,5 @@
 {% extends "base2.html" %}
+{% load pagination_tags %}
 {% block extratitle %}Videoteca | Buscar videos{% endblock %}
 
 {% block menu1 %}
@@ -14,10 +15,9 @@
 {% block contenido %}
 <div>
     <span class="title">B&uacute;squeda</span><br><br>
-    {{resultados}}
     La búsqueda en la Videoteca, puede realizarse por uno o varios campos combinados<br><br>
     <div class="search_form">
-        <form action="." method="POST">{% csrf_token %}
+        <form action="." method="GET">
             <table>
                 <tr><th><label for="id_q">Palabras claves:</label></th><td>{{form.q}} <button type="submit" class="red_link">Buscar &raquo;</button></td></tr>
                 <tr><th><label for="id_temas_0">{{form.tema.label}}:</label></th>
@@ -28,7 +28,7 @@
         </form>
     </div>
     <img src="/files/images/hline_large.png" alt="line" class="line_large">
-    {% if themes or query %}
+    {% if centinela %}
     <div class="producciones">
         {% for tema in temasall %}
         <div class="title_prod2">Producciones Recientes en {{tema.nombre}}</div>
@@ -46,7 +46,7 @@
         {% endfor %}        
     </div>
     {% else %}
-    {{resultados}}
+    {% include "search_results.html" %}
     {% endif %}
 </div>
 {% endblock %}

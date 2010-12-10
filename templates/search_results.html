@@ -1,0 +1,51 @@
+{% load pagination_tags %}
+{% if resultados %}
+<div class="resultados">
+    {% autopaginate resultados opp %}
+    <div class="descripciones">
+        <div>
+            <div class="objetos_salida">{{paginator.count}} Video{{paginator.count|pluralize:'s'}} disponible{{paginator.count|pluralize:'s'}} (encontrados)
+                | Mostrando {{page_obj.start_index}} - {{page_obj.end_index}}
+            </div>
+            {% paginate %}
+            <div class="clean"></div>
+            {% if centinela2 %}
+            <div class="ordering">
+                Ordenar resultados por 
+                <select class="order-by" onchange="Change2();">
+                    <option value="subtema" id="subtema">Subtema</option>
+                    <option value="genero" id="genero">G&eacute;nero</option>
+                </select>&nbsp; Mostar
+                <select class="number" onchange="Change();">
+                    <option value="12" class="n15">15</option>
+                    <option value="30" class="n30">30</option>
+                    <option value="60" class="n60">60</option>
+                    <option value="120" class="n120">120</option>
+                    <option value="200" class="n240">240</option>
+                </select>
+                registros
+            </div>
+            <div class="clean"></div><br>
+            {% endif %}
+        </div>
+    </div>
+    {% for video in resultados %}
+    <div class="obra">
+        <a href="/videoteca/video/{{video.pk}}/"><img src="{{video.portada.url}}" alt="{{video.nombre}}"></a>
+        {{video.nombre}}
+    </div>
+    {% endfor %}
+    <div class="clean"></div>
+    <div class="descripciones">
+        <div>
+            <div class="objetos_salida">{{paginator.count}} Video{{resultados|pluralize:'s'}} disponible{{resultados|pluralize:'s'}} (encontrados)
+                | Mostrando {{page_obj.start_index}} - {{page_obj.end_index}}
+            </div>
+            {% paginate %}
+            <div class="clean"></div><br>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="title_prod2">No hay resultados!</div>
+{% endif %}

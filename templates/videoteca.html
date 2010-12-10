@@ -1,5 +1,4 @@
 {% extends "base2.html" %}
-
 {% load pagination_tags %}
 
 {% block extratitle %}Videoteca | {{selecto.nombre}}{% endblock %}
@@ -8,6 +7,8 @@
 <script type="text/javascript">
     // TODO: filtro para subtemas
     $(document).ready(function(){
+        $('.n{{n}}').attr('selected','selected');
+        $('.{{order}}').attr('selected','selected');
         /*$.getJSON('http://localhost:8000/ajax/subtemas/{{selecto.pk}}/', function(data){
             if(data){
                 $('#id_subtema').html('');
@@ -18,7 +19,21 @@
             }            
         });*/
     });
+
+    function Change(){
+        var a = $('.number option:selected').val();
+        window.location.href='?n='+a;
+    }
+    function Change2(){
+        var a = $('.order-by option:selected').val();
+        window.location.href='?order='+a;
+    }
 </script>
+<style type="text/css">
+    .obra{
+        margin: 15px 12px 30px 12px;
+    }
+</style>
 {% endblock %}
 
 {% block menu1 %}
@@ -28,13 +43,13 @@
 {% endblock %}
 
 {% block breadcrumb %}
-<a href="/videoteca/">Videoteca &raquo;</a> <a href="/videoteca/buscar/">B&uacute;queda &raquo;</a>
+<a href="/videoteca/">Videoteca &raquo;</a> <a href="/videoteca/{{selecto.slug}}/">{{selecto.nombre}} &raquo;</a>
 {% endblock %}
 
 {% block contenido %}
 <div>
     <span class="title">{{selecto.nombre}}</span><br><br>
-    La búsqueda en la Videoteca, puede realizarse por uno o varios campos combinados<br><br>
+    {{selecto.descripcion|truncatewords:40|safe}}<br><br>
     <div class="search_form in_videoteca">
         <form action="." method="GET">
             <table>
@@ -46,20 +61,6 @@
         </form>
     </div>    
     <img src="/files/images/hline_large.png" alt="line" class="line_large">
-    <div class="resultados">
-        {% autopaginate resultados opp %}
-        <div class="descripciones">
-            <div>
-                <div class="objetos_salida">{{paginator.count}} Video{{resultados|pluralize:'s'}} disponible{{resultados|pluralize:'s'}} (encontrados)
-                    | Mostrando {{page_obj.start_index}} - {{page_obj.end_index}}
-                </div>
-                {% paginate %}
-                <div class="clean"></div><br><br>
-            </div>
-        </div>
-        {% for v in resultados %}
-        {{v}}
-        {% endfor %}
-    </div>
+    {% include "search_results.html" %}
 </div>
 {% endblock %}

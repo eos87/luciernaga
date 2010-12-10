@@ -25,48 +25,74 @@ def tema_detail(request, slug):
     return render_to_response('tema.html', RequestContext(request, locals()))
 
 def buscar(request):
-    flag = 'videoteca'
+    flag = 'videoteca'    
+    centinela = True
     temas = Tema.objects.filter(especifico=True)
     temasall = Tema.objects.all()
     qset = []
-    if request.method == 'POST':
-        form = SearchForm(request.POST)        
-        query = request.POST['q']
-        themes = None
-        try:
-            themes = request.POST.copy().pop('tema')
-            videos = Video.objects.filter(tema__pk__in=themes)
-        except:
-            pass
-
-        if query:
-            qset.append(Q(nombre__icontains=query))
-            qset.append(Q(sinopsis__icontains=query))
-            qset.append(Q(anio__icontains=query))
-            qs = reduce(operator.or_, qset)
-            try:
-                resultados = videos.filter(qs).distinct()
-            except:
-                resultados = Video.objects.filter(qs).distinct()
+    resultados = []
+    themes = []
+    query = request.GET.get('q', '')
+    genero = request.GET.get('genero', '')
+    coleccion = request.GET.get('coleccion', '')
+    try:
+        themes = request.GET.copy().pop('tema')
+    except:
+        pass
+    if query or themes:
+        opp = 15
+        centinela = False
+        form = SearchForm(data=request.GET)
     else:
         form = SearchForm()
-    
+
+    #validando si selecciono algun tema
+    if themes != [u'']:
+        resultados = Video.objects.filter(tema__pk__in=themes)        
+    #validando si selecciono un tipo de genero
+    if genero:
+        resultados = Video.objects.filter(genero__pk=genero)
+    #validando si selecciono una coleccion
+    if coleccion:
+        resultados = Video.objects.filter(coleccion__pk=coleccion)
+        
+    #verificar si hay palabras claves
+    if query:
+        qset.append(Q(nombre__icontains=query))
+        qset.append(Q(sinopsis__icontains=query))
+        qset.append(Q(anio__icontains=query))
+        qs = reduce(operator.or_, qset)
+        try:
+            resultados = resultados.filter(qs).distinct()
+        except:
+            resultados = Video.objects.filter(qs).distinct()
         
     return render_to_response('busqueda.html', RequestContext(request, locals()))
 
 def tema_selecto(request, slug):
     flag = 'videoteca'
+    temas = Tema.objects.filter(especifico=True)
+    temasall = Tema.objects.all().exclude(slug=slug)
+    selecto = get_object_or_404(Tema, slug=slug)
+
     #objetos por pagina
     opp = 15
-    temas = Tema.objects.filter(especifico=True)
-    temasall = Tema.objects.all().exclude(slug=slug)    
-    selecto = get_object_or_404(Tema, slug=slug)    
-    form = SelectoForm(selecto)
+    order = 'subtema'
+    n = request.GET.get('n', '')
+    s = request.GET.get('order', '')
+    if n:
+        opp = int(n)
+    if s:
+        order = s
+
+    #utilizado para validar si se muestrar los ordering en la plantilla
+    centinela2 = True    
+    form = SelectoForm(selecto)    
 
     query = request.GET.get('q', '')
     subtema = request.GET.get('subtema', '')
     qset = []    
-    videos = Video.objects.filter(tema=selecto)
+    videos = Video.objects.filter(tema=selecto).order_by(order)
     if query:
         qset.append(Q(nombre__icontains=query))
         qset.append(Q(sinopsis__icontains=query))

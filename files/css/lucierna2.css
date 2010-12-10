@@ -358,18 +358,21 @@ button.red_link, a.red_link{
     float: left;
 }
 .pagination{
-    float: left;
-    margin-left: 10px;
+    float: right;
+    margin-right: 10px;
 }
 .pagination .page{
     padding: 1px 6px;
-    border: 2px #456a38 solid;    
+    border: 1px #456a38 solid;
     color: #456a38;
     font-size: 11px;
 }
 a.prev, a.next{
-    color: #fff;
-    padding: 2px 5px;
+    color: #fff;    
+    display: inline-block;
+    width: 20px;
+    height: 19px;
+    text-align: center;
 }
 .prev, .next{
     background: #456a38;
@@ -383,4 +386,19 @@ a.prev, a.next{
 }
 .current{
     background: #f0e68c;
+}
+.ordering{
+    margin-top: 8px;
+    font-size: 12px;
+    color: #000;
+    float: right;
+    margin-right: 10px;
+}
+.ordering select{
+    width: 150px;
+    background: #fff;
+    border: 1px #000 solid;
+}
+select.number{
+    width: 50px;
 }
