@@ -181,7 +181,8 @@ button.red_link, a.red_link{
 }
 .obras_carusel{
     float: left;
-    width: 500px;    
+    width: 645px;
+    margin-left: -15px;    
 }
 .prev_car, .next_car{
     float: left;
@@ -193,14 +194,14 @@ button.red_link, a.red_link{
 .prev_car{
     background: url(/files/images/prev.png) no-repeat;
     margin-right: 20px;
-    margin-left: 30px;
+    margin-left: -20px;
 }
 .prev_car:hover, .next_car:hover{
     background-position: 0 -122px;
 }
 .next_car{
     background: url(/files/images/next.png) no-repeat;
-    margin-left: 15px;
+    margin-left: 0px;
 }
 
 .video_player{
