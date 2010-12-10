@@ -1,12 +1,11 @@
 import operator
 
 from django.db.models import Q
+from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from django.http import HttpResponse
 from django.utils import simplejson
-
 from forms import *
 from models import *
 
@@ -29,7 +28,30 @@ def buscar(request):
     flag = 'videoteca'
     temas = Tema.objects.filter(especifico=True)
     temasall = Tema.objects.all()
-    form = SearchForm()
+    qset = []
+    if request.method == 'POST':
+        form = SearchForm(request.POST)        
+        query = request.POST['q']
+        themes = None
+        try:
+            themes = request.POST.copy().pop('tema')
+            videos = Video.objects.filter(tema__pk__in=themes)
+        except:
+            pass
+
+        if query:
+            qset.append(Q(nombre__icontains=query))
+            qset.append(Q(sinopsis__icontains=query))
+            qset.append(Q(anio__icontains=query))
+            qs = reduce(operator.or_, qset)
+            try:
+                resultados = videos.filter(qs).distinct()
+            except:
+                resultados = Video.objects.filter(qs).distinct()
+    else:
+        form = SearchForm()
+    
+        
     return render_to_response('busqueda.html', RequestContext(request, locals()))
 
 def tema_selecto(request, slug):

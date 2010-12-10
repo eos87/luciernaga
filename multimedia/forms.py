@@ -5,7 +5,7 @@ from models import *
 
 class SearchForm(forms.Form):
     q = forms.CharField(max_length=40, label='Palabras claves')
-    tema = forms.ModelMultipleChoiceField(queryset=Tema.objects.all(), widget=forms.CheckboxSelectMultiple, label="Limitar búsqueda a")
+    tema = forms.ModelMultipleChoiceField(queryset=Tema.objects.all(), widget=forms.CheckboxSelectMultiple, label='Limitar búsqueda a')
 
     class Meta:
         pass
