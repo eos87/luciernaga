@@ -3,6 +3,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from customfilefield import ContentTypeRestrictedFileField as RestrictedFileField
+from luciernaga.thumbs import ImageWithThumbsField
 
 class Informacion(models.Model):
     titulo = models.CharField(max_length=150)
@@ -68,7 +69,8 @@ OWNER_CHOICES = (('luciernaga', 'Luciernaga'), ('red', 'Red Mesoamericana'))
 
 class Video(models.Model):
     nombre = models.CharField(max_length=150)
-    portada = models.ImageField(upload_to='videos/thumbs', help_text='Portada de la produccion. Tamaño 112x158px ancho y alto respectivos')
+    portada = ImageWithThumbsField(upload_to='videos/thumbs', sizes=((112,158),), help_text='Portada de la produccion.')
+    #portada = models.ImageField(upload_to='videos/thumbs', help_text='Portada de la produccion. Tamaño 112x158px ancho y alto respectivos')
     #archivo = RestrictedFileField(upload_to='videos',
     #                            content_types=['video/mpeg', 'video/x-msvideo', 'video/quicktime', 'video/x-flv', 'video/mp4'],
     #                            max_upload_size=104857600)

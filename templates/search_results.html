@@ -31,7 +31,7 @@
     </div>
     {% for video in resultados %}
     <div class="obra">
-        <a href="/videoteca/video/{{video.pk}}/"><img src="{{video.portada.url}}" alt="{{video.nombre}}"></a>
+        <a href="/videoteca/video/{{video.pk}}/"><img src="{{video.portada.url_112x158}}" alt="{{video.nombre}}"></a>
         {{video.nombre}}
     </div>
     {% endfor %}
