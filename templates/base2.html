@@ -7,6 +7,12 @@
         <link type="text/css" rel="stylesheet"  href="/files/css/nav.css">
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
         <script type="text/javascript" src="/files/js/nav.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+               var altura = $('.cuerpo').height();
+               $('.vertical_separator').height(altura);
+            });
+        </script>
         {% block extrahead %}
         {% endblock %}
     </head>
@@ -52,7 +58,9 @@
                         <a href="http://turismoruralnica.com/" target="_blank"><img src="/files/images/turismorural_logo.png" alt="Turismo Rural Nica Logo"></a>
                     </div>
                 </div>
-                <img src="/files/images/separator.png" alt="separator" class="separator">
+                <div class="vertical_separator">                    
+                </div>
+                
                 <div class="cuerpo">
                     <div class="search">
                         <input name="q" type="input"> <button type="submit" class="red_link">Buscar &raquo;</button>
@@ -70,8 +78,10 @@
                         </div>
                         <div class="clean"></div>
                     </div>
+                    <div style="margin-right: 5px; margin-left: 10px;">
                     {% block contenido %}
                     {% endblock %}
+                    </div>
                 </div>
                 <div class="clean"></div>
             </div>

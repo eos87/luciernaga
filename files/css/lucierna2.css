@@ -181,7 +181,7 @@ button.red_link, a.red_link{
 }
 .obras_carusel{
     float: left;
-    width: 645px;
+    width: 623px;
     margin-left: -15px;    
 }
 .prev_car, .next_car{
@@ -193,8 +193,8 @@ button.red_link, a.red_link{
 }
 .prev_car{
     background: url(/files/images/prev.png) no-repeat;
-    margin-right: 20px;
-    margin-left: -20px;
+    margin-right: 15px;
+    margin-left: -5px;
 }
 .prev_car:hover, .next_car:hover{
     background-position: 0 -122px;
@@ -402,4 +402,11 @@ a.prev, a.next{
 }
 select.number{
     width: 50px;
+}
+.vertical_separator{
+    background: url(/files/images/separator.png) repeat-y;
+    width: 2px;    
+    float: left;
+    margin-top: 15px;
+    margin-left: 5px;
 }

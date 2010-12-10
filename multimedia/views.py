@@ -61,6 +61,8 @@ def buscar(request):
         qset.append(Q(nombre__icontains=query))
         qset.append(Q(sinopsis__icontains=query))
         qset.append(Q(anio__icontains=query))
+        #qset.append(Q(produccion__icontains=query))
+        #qset.append(Q(realizacion__icontains=query))
         qs = reduce(operator.or_, qset)
         if resultados:
             resultados = resultados.filter(qs).distinct()
@@ -97,6 +99,8 @@ def tema_selecto(request, slug):
         qset.append(Q(nombre__icontains=query))
         qset.append(Q(sinopsis__icontains=query))
         qset.append(Q(anio__icontains=query))
+        #qset.append(Q(produccion__icontains=query))
+        #qset.append(Q(realizacion__icontains=query))
         qs = reduce(operator.or_, qset)
         resultados = videos.filter(qs).distinct()
         form = SelectoForm(selecto, request.GET)

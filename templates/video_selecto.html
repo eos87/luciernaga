@@ -56,13 +56,13 @@
     <img src="/files/images/hline_large.png" alt="line" class="line_large">
     <div class="otras_producciones">
         <div>Otras Producciones en {{video.tema.nombre}}</div>
-            {% for video in video.tema.video_set.all|slice:"5" %}
-            <div class="obra">
-                <a href="/videoteca/video/{{video.pk}}/"<img src="{{video.portada.url}}" alt="{{video.nombre}}"></a>
-                {{video.nombre}}
-            </div>
-            {% endfor %}
-            <div class="clean"></div>
+        {% for video in video.tema.video_set.all|slice:"5" %}
+        <div class="obra">
+            <a href="/videoteca/video/{{video.pk}}/"<img src="{{video.portada.url}}" alt="{{video.nombre}}"></a>
+            {{video.nombre}}
+        </div>
+        {% endfor %}
+        <div class="clean"></div>
     </div>
 </div>
 <div id="fb-root"></div>
