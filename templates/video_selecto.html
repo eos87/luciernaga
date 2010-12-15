@@ -30,16 +30,16 @@
         <a class="media" href="/public/{{video.archivo.name}}"></a>
     </div>
     <div class="dato_video">
-        G&eacute;nero:<br>
+        <span class="negrita">G&eacute;nero:</span><br>
         {{video.genero}}<br><br>
-        Realizaci&oacute;n<br>
+        <span class="negrita">Realizaci&oacute;n:</span><br>
         {{video.realizacion}}<br><br>
-        Producci&oacute;n:<br>
+        <span class="negrita">Producci&oacute;n:</span><br>
         {{video.produccion}}<br><br>
-        A&ntilde;o:<br>
+        <span class="negrita">A&ntilde;o:</span><br>
         {{video.anio}}
     </div>
-    <div class="clean"></div><br><br>
+    <div class="clean"></div><br>
     <div class="sinopsis">
         <span class="title">
             Sin&oacute;psis
@@ -48,22 +48,32 @@
             {{video.sinopsis}}
         </div>
     </div><br><br>
-    <img src="/files/images/hline_large.png" alt="line" class="line_large">
+    <div class="hline_large"></div>
     <div class="fbcomments">
         <fb:comments width="650"></fb:comments>
     </div>
-    <br><br>
-    <img src="/files/images/hline_large.png" alt="line" class="line_large">
+    <br>
+    <div class="hline_large"></div>
     <div class="otras_producciones">
-        <div>Otras Producciones en {{video.tema.nombre}}</div>
-        {% for video in video.tema.video_set.all|slice:"5" %}
-        <div class="obra">
-            <a href="/videoteca/video/{{video.pk}}/"<img src="{{video.portada.url}}" alt="{{video.nombre}}"></a>
-            {{video.nombre}}
+        <div class="title_prod">Otras Producciones en {{video.tema.nombre}}</div>
+        {% if video.tema.video_set.all %}
+        <div class="prev_car" id="mycarousel-prev"></div>
+        <div class="obras_carusel">
+            <ul id="obras">
+                {% for video in video.tema.video_set.all|slice:"8" %}
+                <li class="obra">
+                    <a href="/videoteca/video/{{video.pk}}/"><img  width="112" height="158" src="{{video.portada.url}}" alt="{{video.nombre}}"></a>
+                    {{video.nombre}}                    
+                </li>                
+                {% endfor %}
+            </ul>
         </div>
-        {% endfor %}
+        <div class="next_car" id="mycarousel-next"></div>
+        {% else %}
+        <br>No hay producciones!
+        {% endif %}
         <div class="clean"></div>
-    </div>
+    </div>    
 </div>
 <div id="fb-root"></div>
 <script>

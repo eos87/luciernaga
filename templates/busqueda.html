@@ -20,13 +20,18 @@
         <form action="." method="GET">
             <table>
                 <tr><th><label for="id_q">Palabras claves:</label></th><td>{{form.q}} <button type="submit" class="red_link">Buscar &raquo;</button></td></tr>
-                <tr><th><label for="id_temas_0">{{form.tema.label}}:</label></th>
-                    <td>{{form.tema}}
+                <tr>
+                    <th>
+                        <label for="id_temas_0">{{form.tema.label}}:</label>
+                    </th>
+                    <td>
+                        {{form.tema}}
                     </td>
                 </tr>
             </table>            
         </form>
     </div>
+    <br>
     <img src="/files/images/hline_large.png" alt="line" class="line_large">
     {% if centinela %}
     <div class="producciones">

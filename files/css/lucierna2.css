@@ -83,6 +83,9 @@ img{
     outline: none;
     border: none;
 }
+.negrita{
+    font-weight: bold;
+}
 .navegacion{
     height: 36px;
     font-family: 'Verdana', "DejaVu Sans", sans-serif;
@@ -138,8 +141,10 @@ button.red_link, a.red_link{
 }
 .search_form label{
     font-size: 12px;
-    font-weight: normal;
-    float: left;
+    font-weight: normal;    
+    display: block;
+    padding-left: 15px;
+    text-indent: -15px;
 }
 .search_form input{
     border: 1px solid;
@@ -149,7 +154,15 @@ button.red_link, a.red_link{
     padding-left: 0px;
 }
 .search_form input[type='checkbox']{
-    float: left;
+    width: 13px;
+    height: 13px;
+    padding: 0;
+    margin:0;
+    vertical-align: bottom;
+    position: relative;
+    top: -1px;
+    overflow: hidden;
+
 }
 .line_large{
     margin-left: 20px;
@@ -206,18 +219,30 @@ button.red_link, a.red_link{
 
 .video_player{
     float: left;
-    width: 480px;  
+    width: 480px;    
 }
 
 .dato_video{
     float: left;
     margin-left: 20px;
-    font-size: 13px;
+    font-size: 13px;    
+    width: 165px;
 }
 .sinopsis .title{
     color: #456a38;
     font-size: 18px;
 }
+.sinopsis_desc{
+    text-align: justify;
+}
+.hline_large{
+    background: url(/files/images/hline_large.png) repeat-x;
+    height: 1px;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
 
 /* ACORDEON CSS CODE */
 
