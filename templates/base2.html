@@ -9,7 +9,7 @@
         <script type="text/javascript" src="/files/js/nav.js"></script>
         <script type="text/javascript">
             $(document).ready(function(){
-               var altura = $('.resto').height();
+               var altura = $('.cuerpo').height();
                $('.vertical_separator').height(altura);
             });
         </script>
@@ -57,15 +57,13 @@
                         <a href="http://albafilms.tv/" target="_blank"><img src="/files/images/albafilms_logo.png" alt="AlbaFilms Logo"></a>&nbsp;&nbsp;
                         <a href="http://turismoruralnica.com/" target="_blank"><img src="/files/images/turismorural_logo.png" alt="Turismo Rural Nica Logo"></a>
                     </div>
-                </div>
-                <div class="vertical_separator">                    
-                </div>
-                
+                </div>                                
                 <div class="cuerpo">
                     <div class="search">
                         <input name="q" type="input"> <button type="submit" class="red_link">Buscar &raquo;</button>
                     </div>
                     <div class="main">
+                        <br>
                         <div class="breadcrumb">
                             <a href="/">Home &raquo;</a> 
                             {% block breadcrumb %}
@@ -81,7 +79,7 @@
                     <div style="margin-right: 5px; margin-left: 10px;">
                     {% block contenido %}
                     {% endblock %}
-                    </div>
+                    </div>                    
                 </div>
                 <div class="clean"></div>
             </div>

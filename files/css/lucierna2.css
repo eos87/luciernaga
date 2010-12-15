@@ -10,9 +10,6 @@ body{
     margin: 0 auto;
     background: url(/files/images/banner_rostros.jpg) no-repeat;
 }
-.resto{    
-    
-}
 .bar{
     width: 210px;
     float: left;
@@ -27,6 +24,9 @@ body{
     float: left;
     width: 680px;
     padding-left: 10px;
+    margin-top: 15px;
+    margin-left: 10px;
+    background: url(/files/images/separator.png) repeat-y left;
 }
 .cuerpo .main{
     clear: both;
@@ -34,7 +34,7 @@ body{
     font-size: 13px;
 }
 .cuerpo .breadcrumb{
-    float: left;    
+    float: left;
 }
 .cuerpo .breadcrumb a{
     color: #456a38;
