@@ -92,7 +92,7 @@ class Video(models.Model):
         return '%s - %s' % (self.nombre, self.user)
 
     def get_portada(self):
-        if self.image:
+        if self.portada:
             return u'<img alt="%s" title="%s" width="80" height="52" src="%s" />' % (self.nombre, self.nombre, self.portada.url_80x52)
         else:
             return '(Without image)'
