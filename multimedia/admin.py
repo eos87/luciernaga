@@ -13,6 +13,8 @@ class ModelOptions(admin.ModelAdmin):
 class VideoAdmin(admin.ModelAdmin):
     list_display = ['get_portada', 'nombre', 'owner', 'anio']
     search_fields = ['nombre', 'sinopsis', 'realizacion', 'produccion', 'anio']
+    save_on_top = True
+    actions_on_top = True
     
     class Media:
         css = {
