@@ -186,8 +186,7 @@ button.red_link, a.red_link{
 .obra{
     padding: 0px;
     margin: 15px 7px 30px 7px;
-    width: 112px;
-    height: 175px;
+    width: 112px;    
     text-align: center;
     color: #000;
     float: left;
@@ -242,10 +241,6 @@ button.red_link, a.red_link{
     margin-top: 15px;
     margin-bottom: 20px;
 }
-.temas_recientes{    
-    margin-bottom: 10px;
-}
-
 
 /* ACORDEON CSS CODE */
 
