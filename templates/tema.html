@@ -81,7 +81,7 @@
             <ul id="obras">
                 {% for video in contenido.video_set.all|slice:"8" %}
                 <li class="obra">
-                    <a href="/videoteca/video/{{video.pk}}/"><img  width="112" height="158" src="{{video.portada.url}}" alt="{{video.nombre}}"></a>
+                    <a href="/videoteca/video/{{video.pk}}/"><img src="{{video.portada.url_112x158}}" alt="{{video.nombre}}"></a>
                     {{video.nombre}}                    
                 </li>                
                 {% endfor %}

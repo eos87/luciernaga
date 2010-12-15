@@ -5,7 +5,7 @@ http://django.es
 """
 from django.db.models import ImageField
 from django.db.models.fields.files import ImageFieldFile
-from PIL import Image
+from PIL import Image, ImageOps
 from django.core.files.base import ContentFile
 import cStringIO
 
@@ -30,13 +30,15 @@ def generate_thumb(img, thumb_size, format):
     if image.mode not in ('L', 'RGB', 'RGBA'):
         image = image.convert('RGB')
 
-    ancho, alto = image.size
-    if alto > ancho:
-        thumb_h, thumb_w = thumb_size
-    else:
-        thumb_w, thumb_h = thumb_size
+    #comprobar que la imagen no es mas alta que ancha
+    #ancho, alto = image.size
+    #if alto > ancho:
+    #    thumb_h, thumb_w = thumb_size
+    #else:
+    #    thumb_w, thumb_h = thumb_size
 
     # get size
+    thumb_w, thumb_h = thumb_size
 
     # If you want to generate a square thumbnail
     if thumb_w == thumb_h:
@@ -54,9 +56,7 @@ def generate_thumb(img, thumb_size, format):
         # thumbnail of the cropped image (with ANTIALIAS to make it look better)
         image2.thumbnail(thumb_size, Image.ANTIALIAS)
     else:
-        # not quad
-        image2 = image
-        image2.thumbnail((thumb_w, thumb_h), Image.ANTIALIAS)
+        image2 = ImageOps.fit(image, thumb_size, Image.ANTIALIAS, 0, (0.5, 0.5))
 
     io = cStringIO.StringIO()
     # PNG and GIF are the same, JPG is JPEG
