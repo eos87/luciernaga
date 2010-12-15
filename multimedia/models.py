@@ -70,7 +70,7 @@ OWNER_CHOICES = (('luciernaga', 'Luciernaga'), ('red', 'Red Mesoamericana'))
 class Video(models.Model):
     nombre = models.CharField(max_length=150)
     destacado = models.BooleanField(verbose_name='Marcar como destacado')
-    portada = ImageWithThumbsField(upload_to='videos/thumbs', sizes=((112,158), (140,135), ), help_text='Portada de la produccion.')
+    portada = ImageWithThumbsField(upload_to='videos/thumbs', sizes=((80, 52), (112,158), (140,135), ), help_text='Portada de la produccion.')
     #portada = models.ImageField(upload_to='videos/thumbs', help_text='Portada de la produccion. Tamaño 112x158px ancho y alto respectivos')
     #archivo = RestrictedFileField(upload_to='videos',
     #                            content_types=['video/mpeg', 'video/x-msvideo', 'video/quicktime', 'video/x-flv', 'video/mp4'],
@@ -90,6 +90,14 @@ class Video(models.Model):
 
     def __unicode__(self):
         return '%s - %s' % (self.nombre, self.user)
+
+    def get_portada(self):
+        if self.image:
+            return u'<img alt="%s" title="%s" width="80" height="52" src="%s" />' % (self.photo_name(), self.photo_name(), self.image.url_80x52)
+        else:
+            return '(Without image)'
+    get_portada.short_description = 'Portada'
+    get_portada.allow_tags = True
 
     class Meta:
         verbose_name_plural = 'Videos'

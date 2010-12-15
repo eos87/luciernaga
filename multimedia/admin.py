@@ -11,6 +11,9 @@ class ModelOptions(admin.ModelAdmin):
               '/files/js/tiny_mce/tconfig.js')
 
 class VideoAdmin(admin.ModelAdmin):
+    list_display = ['get_portada', 'nombre', 'owner', 'anio']
+    search_fields = ['nombre', 'sinopsis', 'realizacion', 'produccion', 'anio']
+    
     class Media:
         css = {
             "all": ("/files/css/vareas.css", )
