@@ -36,18 +36,20 @@
     {% if centinela %}
     <div class="producciones">
         {% for tema in temasall %}
-        <div class="title_prod2">Producciones Recientes en {{tema.nombre}}</div>
-        {% if tema.video_set.all %}
-        {% for video in tema.video_set.all|slice:"5" %}
-        <div class="obra">
-            <a href="/videoteca/video/{{video.pk}}/"><img src="{{video.portada.url_112x158}}" alt="{{video.nombre}}"></a>
-            {{video.nombre}}
+        <div class="temas_recientes">
+            <div class="title_prod2">Producciones Recientes en {{tema.nombre}}</div>
+            {% if tema.video_set.all %}
+            {% for video in tema.video_set.all|slice:"5" %}
+            <div class="obra">
+                <a href="/videoteca/video/{{video.pk}}/"><img src="{{video.portada.url_112x158}}" alt="{{video.nombre}}"></a>
+                {{video.nombre}}
+            </div>
+            {% endfor %}
+            {% else %}
+            No hay producciones!<br><br>
+            {% endif %}        
+            <div class="clean"></div>
         </div>
-        {% endfor %}
-        {% else %}
-        No hay producciones!<br><br>
-        {% endif %}
-        <div class="clean"></div>
         {% endfor %}        
     </div>
     {% else %}
