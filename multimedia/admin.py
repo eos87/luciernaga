@@ -30,6 +30,9 @@ admin.site.register(Tema, ModelOptions)
 admin.site.register(Subtema)
 admin.site.register(Genero)
 admin.site.register(Coleccion)
+admin.site.register(Director)
+admin.site.register(Idioma)
+admin.site.register(Formato)
 admin.site.register(Video, VideoAdmin)
 
 
