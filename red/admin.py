@@ -11,6 +11,9 @@ class ModelOptions(admin.ModelAdmin):
         js = ('/files/js/tiny_mce/tiny_mce.js',
               '/files/js/tiny_mce/tconfig.js')
 
+admin.site.register(Director)
+admin.site.register(Idioma)
+admin.site.register(Formato)
 admin.site.register(Pais)
 admin.site.register(Perfil)
 admin.site.register(Contenido, ModelOptions)
