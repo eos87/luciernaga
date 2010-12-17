@@ -4,6 +4,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from customfilefield import ContentTypeRestrictedFileField as RestrictedFileField
 from luciernaga.thumbs import ImageWithThumbsField
+from luciernaga.red.models import *
 
 class Informacion(models.Model):
     titulo = models.CharField(max_length=150)
@@ -64,11 +65,40 @@ class Coleccion(models.Model):
 
     class Meta:
         verbose_name_plural = 'Colecciones'
+
+class Director(models.Model):
+    nombre = models.CharField(max_length=100)
     
+    def __unicode__(self):
+        return self.nombre
+    
+    class Meta:
+        verbose_name_plural = 'Directores'
+
+class Idioma(models.Model):
+    nombre = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return self.nombre
+
+    class Meta:
+        verbose_name_plural = 'Idiomas'
+
+class Formato(models.Model):
+    nombre = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return self.nombre
+
+    class Meta:
+        verbose_name_plural = 'Formatos'
+
 OWNER_CHOICES = (('luciernaga', 'Luciernaga'), ('red', 'Red Mesoamericana'))
+COLOR = (('blanco-negro', 'Blanco y Negro'), ('color', 'Color'))
+DERECHOS = (('si', 'Si'), ('no', 'No'))
 
 class Video(models.Model):
-    nombre = models.CharField(max_length=150)
+    nombre = models.CharField(max_length=150, verbose_name='Título')
     destacado = models.BooleanField(verbose_name='Marcar como destacado')
     portada = ImageWithThumbsField(upload_to='videos/thumbs', sizes=((80, 52), (112,158), (140,135), ), help_text='Portada de la produccion.')
     #portada = models.ImageField(upload_to='videos/thumbs', help_text='Portada de la produccion. Tamaño 112x158px ancho y alto respectivos')
@@ -77,16 +107,31 @@ class Video(models.Model):
     #                            max_upload_size=104857600)
     archivo = models.FileField(upload_to='videos')
     sinopsis = models.TextField()
-    realizacion = models.CharField(max_length=200)
-    produccion = models.CharField(max_length=300, help_text='Nombre de productores separados por comas')
-    anio = models.CharField(max_length=5)    
+    realizacion = models.ManyToManyField(Director, verbose_name='Realización')
+    produccion = models.CharField(max_length=300, help_text='Nombre de productores separados por comas', verbose_name='Producción')
+    anio = models.CharField(max_length=5, verbose_name='Año')
+    #agragando campos nuevos
+    duracion = models.CharField(max_length=50, verbose_name='Duración')
+    pais_produccion = models.ManyToManyField(Pais)
+    paises_referidos = models.ManyToManyField(Pais, related_name='referidos')
+    color = models.CharField(choices=COLOR, max_length=50)
+    formato_original = models.ManyToManyField(Formato)
+    formatos_distribucion = models.ManyToManyField(Formato, related_name='distribucion')
+    elenco = models.CharField(max_length=250, help_text='Nombres separados por comas')
+    creditos = models.TextField(verbose_name='Créditos', blank=True)
+    derechos_autor = models.CharField(choices=DERECHOS, max_length=10)
+    comentarios = models.TextField(blank=True)
+    stand = models.CharField(max_length=150, blank=True, null=True)
+    fila = models.CharField(max_length=150, blank=True, null=True)
+    #acaban los campos nuevos
     tema = models.ForeignKey(Tema)
     subtema = models.ManyToManyField(Subtema)
-    genero = models.ForeignKey(Genero)
-    coleccion = models.ForeignKey(Coleccion, null=True, blank=True)
+    genero = models.ForeignKey(Genero, verbose_name='Género')
+    coleccion = models.ForeignKey(Coleccion, null=True, blank=True, verbose_name='Colección')
     owner = models.CharField(choices=OWNER_CHOICES, max_length=100)
     user = models.ForeignKey(User)
     slug = models.SlugField(unique=True)
+    publicar = models.BooleanField()
 
     def __unicode__(self):
         return '%s - %s' % (self.nombre, self.user)
