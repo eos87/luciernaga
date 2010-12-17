@@ -34,5 +34,3 @@ admin.site.register(Director)
 admin.site.register(Idioma)
 admin.site.register(Formato)
 admin.site.register(Video, VideoAdmin)
-
-
