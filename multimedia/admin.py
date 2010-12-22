@@ -12,6 +12,7 @@ class ModelOptions(admin.ModelAdmin):
 
 class VideoAdmin(admin.ModelAdmin):
     list_display = ['get_portada', 'nombre', 'codigo', 'owner', 'anio', 'publicar', 'duracion']
+    list_filter = ['publicar']
     search_fields = ['nombre', 'sinopsis', 'realizacion__nombre', 'produccion', 'anio', 'codigo']
     save_on_top = True
     actions_on_top = True
