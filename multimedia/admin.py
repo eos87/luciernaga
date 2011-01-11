@@ -30,12 +30,17 @@ class SubtemaAdmin(admin.ModelAdmin):
     list_display = ['nombre', 'tema']
     list_filter = ['tema']
 
+class DirectorAdmin(admin.ModelAdmin):
+    search_fields = ['nombre',]
+    save_on_top = True
+    actions_on_top = True
+
 admin.site.register(Informacion, ModelOptions)
 admin.site.register(Tema, ModelOptions)
 admin.site.register(Subtema, SubtemaAdmin)
 admin.site.register(Genero)
 admin.site.register(Coleccion)
-admin.site.register(Director)
+admin.site.register(Director, DirectorAdmin)
 admin.site.register(Idioma)
 admin.site.register(Pais)
 admin.site.register(Formato)

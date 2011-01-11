@@ -27,13 +27,16 @@
 <div>
     <span class="title">{{video.nombre}}</span><br><br>
     <div class="video_player">
-        <a class="media" href="/public/{{video.archivo.name}}"></a>
+        <a class="media" href="/public/{{video.archivo}}"></a>
     </div>
     <div class="dato_video">
         <span class="negrita">G&eacute;nero:</span><br>
         {{video.genero}}<br><br>
         <span class="negrita">Realizaci&oacute;n:</span><br>
-        {{video.realizacion}}<br><br>
+        {% for director in video.realizacion.all %}
+        {{director.nombre}}{% if forloop.last %}{% else %}, {% endif %}
+        {% endfor %}
+        <br><br>
         <span class="negrita">Producci&oacute;n:</span><br>
         {{video.produccion}}<br><br>
         <span class="negrita">A&ntilde;o:</span><br>
