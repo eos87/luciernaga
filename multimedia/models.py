@@ -32,7 +32,10 @@ class Tema(models.Model):
         verbose_name_plural = 'Temas'
 
     def obtener_cinco(self):
-        return Video.objects.filter(tema__pk=self.pk, publicar=True)
+        return Video.objects.filter(tema__pk=self.pk, publicar=True)[:5]
+
+    def obtener_ocho(self):
+        return Video.objects.filter(tema__pk=self.pk, publicar=True)[:8]
 
 class Subtema(models.Model):
     nombre = models.CharField(max_length=100)
