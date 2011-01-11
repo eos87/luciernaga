@@ -94,7 +94,7 @@ def tema_selecto(request, slug):
     query = request.GET.get('q', '')
     subtema = request.GET.get('subtema', '')
     qset = []    
-    videos = Video.objects.filter(tema=selecto).order_by(order)
+    videos = Video.objects.filter(tema=selecto, publicar=True).order_by(order)
     if query:
         qset.append(Q(nombre__icontains=query))
         qset.append(Q(sinopsis__icontains=query))
@@ -113,7 +113,7 @@ def tema_selecto(request, slug):
         form = SelectoForm(selecto, request.GET)
 
     if not query and not subtema:
-        resultados = Video.objects.filter(tema=selecto)
+        resultados = Video.objects.filter(tema=selecto, publicar=True)
 
     return render_to_response('videoteca.html', RequestContext(request, locals()))
 
