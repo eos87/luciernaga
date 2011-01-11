@@ -35,11 +35,11 @@
     <img src="/files/images/hline_large.png" alt="line" class="line_large">
     {% if centinela %}
     <div class="producciones">
-        {% for tema in temasall %}
+        {% for tema in temas %}
         <div class="temas_recientes">
             <div class="title_prod2">Producciones Recientes en {{tema.nombre}}</div>
             {% if tema.video_set.all %}
-            {% for video in tema.video_set.all|slice:"5" %}
+            {% for video in tema.obtener_cinco %}
             <div class="obra">
                 <a href="/videoteca/video/{{video.pk}}/"><img src="{{video.portada.url_112x158}}" alt="{{video.nombre}}"></a>
                 {{video.nombre}}

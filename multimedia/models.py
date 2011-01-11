@@ -31,6 +31,9 @@ class Tema(models.Model):
     class Meta:
         verbose_name_plural = 'Temas'
 
+    def obtener_cinco(self):
+        return Video.objects.filter(tema__pk=self.pk, publicar=True)
+
 class Subtema(models.Model):
     nombre = models.CharField(max_length=100)
     descripcion = models.TextField(null=True, blank=True)

@@ -48,13 +48,13 @@ def buscar(request):
 
     #validando si selecciono algun tema
     if themes != [u'']:
-        resultados = Video.objects.filter(tema__pk__in=themes)        
+        resultados = Video.objects.filter(tema__pk__in=themes, publicar=True)
     #validando si selecciono un tipo de genero
     if genero:
-        resultados = Video.objects.filter(genero__pk=genero)
+        resultados = Video.objects.filter(genero__pk=genero, publicar=True)
     #validando si selecciono una coleccion
     if coleccion:
-        resultados = Video.objects.filter(coleccion__pk=coleccion)
+        resultados = Video.objects.filter(coleccion__pk=coleccion, publicar=True)
         
     #verificar si hay palabras claves
     if query:
@@ -67,7 +67,7 @@ def buscar(request):
         if resultados:
             resultados = resultados.filter(qs).distinct()
         else:
-            resultados = Video.objects.filter(qs).distinct()
+            resultados = Video.objects.filter(qs, publicar=True).distinct()
         
     return render_to_response('busqueda.html', RequestContext(request, locals()))
 
