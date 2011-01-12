@@ -15,7 +15,13 @@
             {% endfor %}
         </ul>
     </li>
-    <li class="l1 {% if flag == 'material' %}selected{% endif %}"><a href="/material/">Material Did&aacute;ctico</a></li>
+    <li class="l1 {% if flag == 'material' %}selected{% endif %}"><a href="/material/">Material Did&aacute;ctico</a>
+        <ul>
+            {% for tema in temas_material %}
+            <li><a href="/material/{{tema.slug}}/">{{tema.nombre}} &raquo;</a></li>
+            {% endfor %}
+        </ul>
+    </li>
     <li class="l1 {% if flag == 'proyecto' %}selected{% endif %}"><a href="/proy-camp/">Proyectos y Campañas</a></li>
     <li class="l1 {% if flag == 'evento' %}selected{% endif %}"><a href="/eventos/">Eventos</a></li>
     <li class="l1 {% if flag == 'noticia' %}selected{% endif %}"><a href="/noticias/">Noticias</a></li>

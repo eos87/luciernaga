@@ -4,6 +4,7 @@ from django.db.models import FileField
 from django.forms import forms
 from django.template.defaultfilters import filesizeformat
 from django.utils.translation import ugettext_lazy as _
+import mimetypes
 
 class ContentTypeRestrictedFileField(FileField):
     """
@@ -21,24 +22,26 @@ class ContentTypeRestrictedFileField(FileField):
     """
 
     def __init__(self, content_types=None, max_upload_size=None, ** kwargs):
-        if content_types:
-            self.content_types = content_types
-            self.max_upload_size = max_upload_size
+        self.content_types = content_types
+        self.max_upload_size = max_upload_size
         super(ContentTypeRestrictedFileField, self).__init__( ** kwargs)
-
 
     def clean(self, * args, ** kwargs):
         data = super(ContentTypeRestrictedFileField, self).clean(*args, ** kwargs)
-        try:            
-            file = data.file
+        file = data.file
+        try:
             content_type = file.content_type
-            if content_type in self.content_types:
-                if file._size > self.max_upload_size:
-                    raise forms.ValidationError(_('Mantenga el tamaña de video bajo %s. Tamaño actual %s') % (filesizeformat(self.max_upload_size), filesizeformat(file._size)))
-                else:
-                    raise forms.ValidationError(_('Archivo no soportado.'))
-            return data
+            bandera = 0
         except:
+            bandera = 1
+            content_type = mimetypes.guess_type(str(file))[0]
+
+        if content_type in self.content_types:
+            if bandera == 0:
+                if file._size > self.max_upload_size:
+                    raise forms.ValidationError(_('El Archivo debe ser menor a %s. El archivo actual es de %s') % (filesizeformat(self.max_upload_size), filesizeformat(file._size)))
+            return data
+        else:
             raise forms.ValidationError(_('Archivo no soportado.'))
 
 from south.modelsinspector import add_introspection_rules

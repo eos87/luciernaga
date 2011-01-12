@@ -68,7 +68,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'luciernaga.multimedia',
     'luciernaga.red',
-    'south',
+    'luciernaga.material',
+    #'south',
     'luciernaga.pagination',
 )
 

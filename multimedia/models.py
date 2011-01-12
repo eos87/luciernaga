@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 from django.db import models
 from django.contrib.auth.models import User
-from customfilefield import ContentTypeRestrictedFileField as RestrictedFileField
+#from customfilefield import ContentTypeRestrictedFileField as RestrictedFileField
 from luciernaga.thumbs import ImageWithThumbsField
 from luciernaga.red.models import *
 from django.template.defaultfilters import slugify
@@ -37,6 +37,12 @@ class Tema(models.Model):
 
     def obtener_ocho(self):
         return Video.objects.filter(tema__pk=self.pk, publicar=True)[:8]
+
+    def has_material(self):
+        if self.documento_set.all():
+            return True
+        else:
+            return False
 
 class Subtema(models.Model):
     nombre = models.CharField(max_length=100)

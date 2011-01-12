@@ -433,3 +433,28 @@ select.number{
     margin-top: 15px;
     margin-left: 5px;
 }
+
+.doc .portada{
+    float: left;
+    margin: 0 10px 0 5px;
+    width: 112px;
+}
+.doc .breve_descripcion{
+    float: left;
+    width: 540px;    
+}
+.title_doc, .title_doc a{
+    color: #000;
+    font-size: 13px;
+    font-weight: bold;
+}
+.doc_desc{
+    margin-top: 7px;
+    margin-bottom: 10px;
+}
+.related_videos a{
+    color: #000;
+}
+.related_videos a:hover{
+    text-decoration: underline;
+}
