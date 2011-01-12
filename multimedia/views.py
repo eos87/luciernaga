@@ -122,7 +122,7 @@ def video_selecto(request, id):
     try:
         video = Video.objects.get(pk=id)
         temas = Tema.objects.filter(especifico=True)
-        temasall = Tema.objects.all().exclude(slug=video.tema.slug)
+        temasall = Tema.objects.all()
     except:
         pass
     return render_to_response('video_selecto.html', RequestContext(request, locals()))

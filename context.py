@@ -1,7 +1,7 @@
 from multimedia.forms import *
 
 def variables(request):
-    videos_count = Video.objects.all().count()
+    videos_count = Video.objects.filter(publicar=True).count()
     videoForm = VideoBuscar()
     dicc = {
             'videoForm': videoForm,

@@ -7,8 +7,8 @@
     $(document).ready(function(){
         $('a.media').media(
         {
-            width: 480,
-            height: 400,
+            width: 490,
+            height: 440,
             autoplay: 'true',
             params:{ wmode: 'transparent', allowfullscreen: 'true', allowscriptaccess: 'always'},
             flashvars: { image:'/public/{{video.imagen.name}}', autostart:'true', menu:'false'}
@@ -30,6 +30,7 @@
         <a class="media" href="/public/{{video.archivo}}"></a>
     </div>
     <div class="dato_video">
+        <img src="{{video.portada.url}}" height="190" width="140" alt="{{video.nombre}}"><br><br>
         <span class="negrita">G&eacute;nero:</span><br>
         {{video.genero}}<br><br>
         <span class="negrita">Realizaci&oacute;n:</span><br>
@@ -39,6 +40,10 @@
         <br><br>
         <span class="negrita">Producci&oacute;n:</span><br>
         {{video.produccion}}<br><br>
+        {% if video.duracion %}
+        <span class="negrita">Duraci&oacute;n:</span><br>
+        {{video.duracion}}<br><br>
+        {% endif %}
         <span class="negrita">A&ntilde;o:</span><br>
         {{video.anio}}
     </div>
