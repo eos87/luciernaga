@@ -1,56 +1,5 @@
 {% extends "base2.html" %}
 {% block extratitle %}{{contenido.nombre}}{% endblock %}
-{% block extrahead %}
-<script type="text/javascript" src="/files/js/jquery.jcarousel.min.js"></script>
-{% if contenido.imagen %}
-<style type="text/css">
-    #contenido {
-        background: url({{contenido.imagen.url}}) no-repeat;
-    }
-    .resto{
-        background: url(/files/images/b-{{contenido.slug}}.png) no-repeat;
-        margin-top: -100px;
-        padding-top: 75px;
-    }
-    .banner_top{
-        height: 397px;
-    }
-    .banner{
-        height: 380px;
-    }
-    .jcarousel-item {
-        width: 112px;
-    }
-    .obra{
-        margin: 15px 4px 30px 4px;
-    }
-</style>
-<script type="text/javascript">
-    function mycarousel_initCallback(carousel) {
-        jQuery('#mycarousel-next').click(function() {
-            carousel.next();
-            return false;
-        });
-
-        jQuery('#mycarousel-prev').click(function() {
-            carousel.prev();
-            return false;
-        });
-    };
-    $(document).ready(function(){
-        $('.logo_animado').attr('src', '{{contenido.logo.url}}');
-        // Ride the carousel...
-        $("#obras").jcarousel({
-            scroll: 3,
-            initCallback: mycarousel_initCallback,
-            // This tells jCarousel NOT to autobuild prev/next buttons
-            buttonNextHTML: null,
-            buttonPrevHTML: null
-        });
-    });
-</script>
-{% endif %}
-{% endblock %}
 
 {% block menu1 %}
 {% for tema in temas_material %}
