@@ -5,6 +5,7 @@ from customfilefield import ContentTypeRestrictedFileField as RestrictedFileFiel
 from luciernaga.thumbs import ImageWithThumbsField
 from luciernaga.red.models import *
 from django.template.defaultfilters import slugify
+import random
 
 class Informacion(models.Model):
     titulo = models.CharField(max_length=150)
@@ -158,6 +159,17 @@ class Video(models.Model):
             return '(Without image)'
     get_portada.short_description = 'Portada'
     get_portada.allow_tags = True
+
+    def get_related_videos(self):
+        videos = []
+        for tema in self.tema.all():
+            for video in tema.video_set.filter(publicar=True).order_by('?')[:10]:
+                videos.append(video)        
+        if len(videos) < 15:
+            return videos
+        else:
+            return random.sample(videos, 15)
+
 
     class Meta:
         verbose_name_plural = 'Videos'

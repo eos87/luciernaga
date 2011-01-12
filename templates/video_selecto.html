@@ -63,12 +63,12 @@
     <br>
     <div class="hline_large"></div>
     <div class="otras_producciones">
-        <div class="title_prod2">Otras Producciones en {{video.tema.nombre}}</div>
-        {% if video.tema.video_set.all %}
-        <div class="prev_car" id="mycarousel-prev"></div>
-        <div class="obras_carusel">
+        <div class="title_prod2">Otras Producciones Relacionadas</div>
+        {% if video.get_related_videos %}
+        <div class="prev_car" id="mycarousel-prev"></div>        
+        <div class="obras_carusel">            
             <ul id="obras">
-                {% for video in video.tema.video_set.all|slice:"20" %}
+                {% for video in video.get_related_videos %}
                 <li class="obra">
                     <a href="/videoteca/video/{{video.pk}}/"><img src="{{video.portada.url_112x158}}" alt="{{video.nombre}}"></a>
                     {{video.nombre}}
