@@ -169,13 +169,12 @@ class Video(models.Model):
     def get_related_videos(self):
         videos = []
         for tema in self.tema.all():
-            for video in tema.video_set.filter(publicar=True).order_by('?')[:10]:
+            for video in tema.video_set.filter(publicar=True).order_by('?').exlude(pk=self.pk)[:10]:
                 videos.append(video)        
         if len(videos) < 15:
             return videos
         else:
             return random.sample(videos, 15)
-
 
     class Meta:
         verbose_name_plural = 'Videos'
