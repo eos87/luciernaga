@@ -149,7 +149,7 @@ class Video(models.Model):
     #acaban los campos nuevos    
     tema = models.ManyToManyField(Tema, blank=True)
     subtema = models.ManyToManyField(Subtema, blank=True)
-    genero = models.ForeignKey(Genero, verbose_name='Género', blank=True)
+    genero = models.ForeignKey(Genero, verbose_name='Género', blank=True, null=True)
     coleccion = models.ForeignKey(Coleccion, verbose_name='Colección', blank=True, null=True)
     owner = models.CharField(choices=OWNER_CHOICES, max_length=100)
     user = models.ForeignKey(User)    
