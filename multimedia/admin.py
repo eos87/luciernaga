@@ -4,7 +4,7 @@ from models import *
 class ModelOptions(admin.ModelAdmin):
     class Media:
         css = {
-            "all": ("/files/css/textarea.css", )
+            "all": ("/files/css/textarea.css",)
         }
 
         js = ('/files/js/tiny_mce/tiny_mce.js',
@@ -16,10 +16,18 @@ class VideoAdmin(admin.ModelAdmin):
     search_fields = ['nombre', 'sinopsis', 'realizacion__nombre', 'produccion', 'anio', 'codigo']
     save_on_top = True
     actions_on_top = True
+    fieldsets = [
+        (None, {'fields': [('publicar', 'destacado')]}),
+        ('Requeridos', {'fields': ['codigo', 'nombre', 'portada', 'archivo', 'owner', 'user']}),
+        ('Otros Datos', {'fields': ['sinopsis', 'produccion', 'anio', 'duracion', 'color', 'elenco', 'creditos', 'derechos_autor',
+         'comentarios', 'stand', 'fila', 'genero', 'coleccion', 'realizacion', 'pais_produccion', 'paises_referidos',
+         'formato_original', 'formatos_distribucion', 'idioma', 'tema', 'subtema']})
+    ]
+    
     
     class Media:
         css = {
-            "all": ("/files/css/vareas.css", )
+            "all": ("/files/css/vareas.css", "/files/css/requerido.css")
         }
 
         js = ('/files/js/tiny_mce/tiny_mce.js',
@@ -31,7 +39,7 @@ class SubtemaAdmin(admin.ModelAdmin):
     list_filter = ['tema']
 
 class DirectorAdmin(admin.ModelAdmin):
-    search_fields = ['nombre',]
+    search_fields = ['nombre', ]
     save_on_top = True
     actions_on_top = True
 

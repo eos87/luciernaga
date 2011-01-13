@@ -119,7 +119,7 @@ COLOR = (('blanco-negro', 'Blanco y Negro'), ('color', 'Color'))
 DERECHOS = (('si', 'Si'), ('no', 'No'))
 
 class Video(models.Model):
-    codigo = models.CharField(max_length=100, blank=True)
+    codigo = models.CharField(max_length=100)
     nombre = models.CharField(max_length=150, verbose_name='Título')
     destacado = models.BooleanField(verbose_name='Marcar como destacado')
     portada = ImageWithThumbsField(upload_to='videos/thumbs', sizes=((80, 52), (112,158), (140,135), ), help_text='Portada de la produccion.')
