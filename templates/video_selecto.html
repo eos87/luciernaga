@@ -1,4 +1,5 @@
 {% extends "base2.html" %}
+{% load youthumb %}
 {% block extratitle %}Videoteca | Video | {{video.nombre}}{% endblock %}
 {% block extrahead %}
 <script type="text/javascript" src="/files/js/jquery.metadata.js"></script>
@@ -27,7 +28,8 @@
 <div>
     <span class="title">{{video.nombre}}</span><br><br>
     <div class="video_player">
-        <a class="media" href="/public/{{video.archivo}}"></a>
+        <!--<a class="media" href="/public/{{video.archivo}}"></a>-->
+        <iframe title="{{video.nombre}}" class="youtube-player" type="text/html" width="480" height="390" src="http://www.youtube.com/embed/{{video.archivo|get_id}}?showsearch=0&showinfo=0&iv_load_policy=3&autoplay=1" frameborder="0"></iframe>
     </div>
     <div class="dato_video">
         <img src="{{video.portada.url}}" height="190" width="140" alt="{{video.nombre}}"><br><br>

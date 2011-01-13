@@ -127,7 +127,7 @@ class Video(models.Model):
     #archivo = RestrictedFileField(upload_to='videos',
     #                            content_types=['video/mpeg', 'video/x-msvideo', 'video/quicktime', 'video/x-flv', 'video/mp4'],
     #                            max_upload_size=104857600)
-    archivo = models.CharField(max_length=300, verbose_name='Video', help_text='nombre-video.flv ó nombre-video.mp4 Formatos: mp4, flv, wmv, avi, mov')
+    archivo = models.CharField(max_length=300, verbose_name='Video', help_text='Introduzca la URL del video. Ejm: http://www.youtube.com/watch?v=rEi6Me2K2RY')
     sinopsis = models.TextField(blank=True)
     realizacion = models.ManyToManyField(Director, verbose_name='Realización', blank=True)
     produccion = models.CharField(max_length=300, help_text='Nombre de productores separados por comas', verbose_name='Producción', blank=True)
