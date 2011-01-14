@@ -49,28 +49,4 @@
     {% endfor %}        
 
 </div>
-
-<!--<div>
-    <div class="otras_producciones">
-        <div class="title_prod2">Producciones recientes en {{contenido.nombre}}</div>
-        {% if contenido.video_set.all %}
-        <div class="prev_car" id="mycarousel-prev"></div>
-        <div class="obras_carusel">
-            <ul id="obras">
-                {% for video in contenido.obtener_ocho %}
-                <li class="obra">
-                    <a href="/videoteca/video/{{video.pk}}/"><img src="{{video.portada.url_112x158}}" alt="{{video.nombre}}"></a>
-                    {{video.nombre}}
-                    <br style="clear: both;">
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
-        <div class="next_car" id="mycarousel-next"></div>
-        {% else %}
-        <br>No hay producciones!
-        {% endif %}
-        <div class="clean"></div>
-    </div>
-</div>-->
 {% endblock %}

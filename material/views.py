@@ -5,6 +5,7 @@ from luciernaga.multimedia.models import *
 from models import *
 
 def index(request, slug):
+    flag = 'material'
     temas = Tema.objects.filter(especifico=True)
     temasall = Tema.objects.all()
     tema = get_object_or_404(Tema, slug=slug)

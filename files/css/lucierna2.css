@@ -35,6 +35,7 @@ body{
 }
 .cuerpo .breadcrumb{
     float: left;
+    margin-left: 8px;
 }
 .cuerpo .breadcrumb a{
     color: #456a38;
@@ -456,5 +457,36 @@ select.number{
     color: #000;
 }
 .related_videos a:hover{
+    text-decoration: underline;
+}
+.proyecto{
+    border-top: 1px #6d6e71 dashed;
+    padding: 10px 0px 10px 0px;
+    margin-bottom: 10px;
+}
+.proyecto .left{
+    float: left;
+    width: 180px;
+    height: 120px;    
+}
+.proyecto .left img{
+    padding: 2px 5px 2px 0px;
+}
+.proyecto .right{
+    float: left;
+    width: 480px;
+    height: 120px;    
+}
+.proyecto .title{
+    font-weight: bold;
+    font-size: 12px;
+}
+.proyecto .date{
+    font-size: 12px;
+}
+.proyecto .title a{
+    color: #000;
+}
+.proyecto .title a:hover{
     text-decoration: underline;
 }

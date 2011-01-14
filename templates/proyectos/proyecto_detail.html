@@ -1,0 +1,29 @@
+{% extends "base2.html" %}
+{% block extratitle %}Proyectos{{tema.nombre}}{% endblock %}
+
+{% block menu1 %}
+<a href="/proyectos/" style="font-weight: bold;">Proyectos &raquo;</a><br>
+<a href="/campanias/">Campa&ntilde;as &raquo;</a><br>
+<br><br><br>
+{% endblock %}
+
+{% block breadcrumb %}
+<a href="/proyectos/">Proyectos &raquo;</a>
+{% endblock %}
+
+{% block contenido %}
+<div>
+    <span class="title">{{proyecto.titulo}}</span><br>
+    <div class="date">Fecha: {{proyecto.fecha_inicio|date:"d F Y"|title}} al {{proyecto.fecha_fin|date:"d F Y"|title}}</div>    
+    <div>
+        <br>        
+        <div>
+            <img src="{{proyecto.portada.url_385x240}}" width="320" style="float: left; padding: 5px 10px 5px 0px;" alt="{{proyecto.titulo}}">
+            {{proyecto.descripcion|safe}}
+        </div>
+        <div class="proyecto">
+            
+        </div>
+    </div>
+</div>
+{% endblock %}

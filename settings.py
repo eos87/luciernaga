@@ -69,7 +69,8 @@ INSTALLED_APPS = (
     'luciernaga.multimedia',
     'luciernaga.red',
     'luciernaga.material',
-    #'south',
+    'luciernaga.proyectos',
+    'south',
     'luciernaga.pagination',
 )
 

@@ -14,6 +14,7 @@ urlpatterns = patterns('',
     (r'^', include('luciernaga.multimedia.urls')),
     (r'^', include('luciernaga.red.urls')),
     (r'^', include('luciernaga.material.urls')),
+    (r'^', include('luciernaga.proyectos.urls')),
     (r'^admin/', include(admin.site.urls)),
 )
 

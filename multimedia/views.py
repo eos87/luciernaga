@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 import operator
 
 from django.db.models import Q
