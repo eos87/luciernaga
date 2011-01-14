@@ -34,20 +34,7 @@
                 </div>
             </div>
             <div class="clean"></div>
-        </div>
-        <div class="proyecto">
-            <div class="left">
-                <a href="/proyecto/{{proy.slug}}/"><img src="{{proy.portada.url_175x110}}" alt="{{proyecto.titulo}}"></a>
-            </div>
-            <div class="right">
-                <div class="title"><a href="/proyecto/{{proy.slug}}/">{{proy.titulo}} &raquo;</a></div>
-                <div class="date">Fecha: {{proy.fecha_inicio|date:"d F Y"|title}} al {{proy.fecha_fin|date:"d F Y"|title}}</div>
-                <div class="proy_body">
-                    {{proy.descripcion|safe|truncatewords:"45"}}
-                </div>
-            </div>
-            <div class="clean"></div>
-        </div>
+        </div>        
         {% endfor %}
     </div>
 </div>
