@@ -179,3 +179,10 @@ class Video(models.Model):
     class Meta:
         verbose_name_plural = 'Videos'
         ordering = ['-id',]
+
+class Huerfana(models.Model):
+    archivo = models.ImageField(upload_to='tinyimages/')
+
+    class Meta:
+        verbose_name = 'Tiny Image'
+        verbose_name_plural = 'Tiny Images'

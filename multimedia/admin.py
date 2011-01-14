@@ -37,6 +37,7 @@ class VideoAdmin(admin.ModelAdmin):
 class SubtemaAdmin(admin.ModelAdmin):
     list_display = ['nombre', 'tema']
     list_filter = ['tema']
+    search_fields = ['nombre', 'tema__nombre', 'descripcion']
 
 class DirectorAdmin(admin.ModelAdmin):
     search_fields = ['nombre', ]
@@ -53,3 +54,4 @@ admin.site.register(Idioma)
 admin.site.register(Pais)
 admin.site.register(Formato)
 admin.site.register(Video, VideoAdmin)
+#admin.site.register(Huerfana)

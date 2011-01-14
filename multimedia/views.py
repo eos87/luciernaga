@@ -136,3 +136,22 @@ def get_subtema(request, id):
     results.append(dicc)
     
     return HttpResponse(simplejson.dumps(list(subtemas)), mimetype='application/json')
+
+def subir_huerfana(request):
+    if request.method == 'POST':
+        form = HuerfanaForm(data=request.POST, files=request.FILES)
+        if form.is_valid():
+            if 'archivo' in request.FILES:
+                new = Huerfana()               	
+                new.archivo = request.FILES['archivo']
+                new.save()
+                imagen = new
+    else:
+        form = HuerfanaForm()
+
+    if request.is_ajax():
+        id = request.POST['id']
+        obj = Huerfana.objects.get(pk=int(id))
+        obj.delete()
+
+    return render_to_response('multimedia/subir_huerfana.html', RequestContext(request, locals()))

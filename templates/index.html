@@ -8,7 +8,12 @@
                 <span class="title">FUNDACI&Oacute;N LUCI&Eacute;RNAGA</span><br>
                 <span class="subtitle">Comunicaci&oacute;n para el desarrollo</span><br><br>
                 <div class="desc">
-                    Somos una fundación especializada en la comunicación para el desarrollo. Luciérnaga se concentra fundamentalmente en la pedagogía audiovisual y en la difusión y producción de materiales educativos a favor de los procesos de desarrollo social.
+                    {% if intro.descripcion %}
+                    {{intro.descripcion}}
+                    {% else %}
+                    La Fundación Luciérnaga les da la bienvenida a nuestro sitio web y pone a su disposición una serie de materiales audiovisuales y didácticos de diversas temáticas.<br>
+                    Les invitamos a conocer nuestro trabajo y a seguir haciendo de la comunicación una herramienta para el desarrollo de nuestros pueblos.
+                    {% endif %}
                 </div><br>
                 <a href="/info/quienes-somos/">M&aacute;s de Fundaci&oacute;n Luci&eacute;rnaga &raquo;</a>
             </div>
