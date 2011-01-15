@@ -60,7 +60,7 @@
             <div class="title_prod2">Documentos</div><br>
             <div>
                 {% for doc in proyecto.documentos.all %}
-                <div class="doc">
+                <div class="doc1">
                     <a class="negrita" href="{{doc.archivo.url}}" target="_blank">{{doc.titulo}} &raquo;</a><br>
                     Tama&ntilde;o: {{doc.archivo.size|filesizeformat}}<br>
                     Fecha: {{doc.fecha|date:"F Y"|title}}

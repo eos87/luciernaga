@@ -9,7 +9,7 @@ add_introspection_rules([], ["^luciernaga\.thumbs\.ImageWithThumbsField"])
 
 class Base(models.Model):
     titulo = models.CharField(max_length=200)
-    portada = ImageWithThumbsField(upload_to=get_file_path, sizes=((175, 110), (385, 240),), help_text='Formatos permitidos: .jpg .png .gif')
+    portada = ImageWithThumbsField(upload_to=get_file_path, sizes=((175, 110), (385, 240), ), help_text='Formatos permitidos: .jpg .png .gif')
     fecha_inicio = models.DateField()
     fecha_fin = models.DateField()
     descripcion = models.TextField()
@@ -30,7 +30,7 @@ class Proyecto(Base):
     def save(self):
         if not self.id:
             n = Proyecto.objects.all().count()
-            self.slug = '%s-%s' % (str(n+1), slugify(self.titulo))
+            self.slug = '%s-%s' % (str(n + 1), slugify(self.titulo))
         else:
             pass
         super(Proyecto, self).save()
@@ -43,7 +43,7 @@ class Campania(Base):
     def save(self):
         if not self.id:
             n = Campania.objects.all().count()
-            self.slug = '%s-%s' % (str(n+1), slugify(self.titulo))
+            self.slug = '%s-%s' % (str(n + 1), slugify(self.titulo))
         else:
             pass
         super(Campania, self).save()

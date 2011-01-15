@@ -506,7 +506,7 @@ select.number{
 .proyecto .title a:hover{
     text-decoration: underline;
 }
-.doc{
+.doc1{
     float: left;
     width: 210px;
     height: 78px;    
@@ -518,4 +518,8 @@ select.number{
     border-bottom: 1px #6d6e71 dashed;
     padding: 10px 0px 0px 0px;
     margin-bottom: 10px;
+}
+a.link_a{
+    text-decoration: none !important;
+    color: #000 !important;
 }

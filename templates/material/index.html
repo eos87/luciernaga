@@ -28,7 +28,7 @@
             <img src="{{doc.portada.url_112x158}}" alt="{{doc.nombre}}">
         </div>
         <div class="breve_descripcion">
-            <div class="title_doc"><a href="{{doc.archivo.url}}">{{doc.titulo}} &raquo;</a></div>
+            <div class="title_doc"><a href="{{doc.archivo.url}}" class="link_a">{{doc.titulo}} &raquo;</a></div>
             <div class="metadata">Tama&ntilde;o: {{doc.archivo.size|filesizeformat}} &bull; Fecha: {{doc.fecha|date:"F Y"|title}}</div>
             <div class="doc_desc">
                 {{doc.descripcion|safe}}
@@ -36,10 +36,11 @@
             <div class="related_videos">
                 <div class="title_doc">Videos relacionados:</div>
                 {% for video in doc.videos_relacionados.all|slice:"3" %}
-                <a href="/videoteca/video/{{video.pk}}/">{{video.nombre}}</a>
+                <a class="link_a" href="/videoteca/video/{{video.pk}}/">{{video.nombre}}</a>
                 {% if forloop.last %}{% else %}&nbsp;|&nbsp;{% endif %}
                 {% endfor %}
             </div>
+            <div class="clean"></div>
         </div>
         <div class="clean"></div>
     </div>
