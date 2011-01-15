@@ -30,7 +30,7 @@
         {% for evento in eventos %}
         <div class="evento">
             <div class="left">
-                <div class="fecha_num">{{evento.fecha|get_img|safe}}</div>
+                <div class="fecha_num">{{evento.fecha|date:"d"|get_img|safe}}</div>
                 <div class="title"><a style="text-decoration: none;" href="/eventos/{{evento.slug}}/">{{evento.titulo}}</a></div>
                 <div class="clean"></div>
                 <div class="datos">
