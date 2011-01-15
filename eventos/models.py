@@ -11,7 +11,7 @@ class Evento(models.Model):
     hora = models.CharField(max_length=100, help_text='Ej: 3pm-7pm')
     direccion = models.CharField(max_length=200, blank=True, default='')
     contenido = models.TextField()
-    slug = models.SlugField(editable=True)
+    slug = models.SlugField(editable=False)
 
     fileDir = 'eventos/images/'
 
