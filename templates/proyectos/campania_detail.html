@@ -1,5 +1,5 @@
 {% extends "base2.html" %}
-{% block extratitle %}Proyectos{{tema.nombre}}{% endblock %}
+{% block extratitle %}Campa&ntilde; {{proyecto.titulo}}{% endblock %}
 
 {% block extrahead %}
 <style type="text/css">
@@ -38,21 +38,21 @@
 {% endblock %}
 
 {% block menu1 %}
-<a href="/proyectos/" style="font-weight: bold;">Proyectos &raquo;</a><br>
-<a href="/campanias/">Campa&ntilde;as &raquo;</a><br>
+<a href="/proyectos/">Proyectos &raquo;</a><br>
+<a href="/campanias/" style="font-weight: bold;">Campa&ntilde;as &raquo;</a><br>
 <br><br><br>
 {% endblock %}
 
 {% block breadcrumb %}
-<a href="/proyectos/">Proyectos &raquo;</a>
+<a href="/proyectos/">Campa&ntilde;as &raquo;</a>
 {% endblock %}
 
 {% block contenido %}
 <div>
     <span class="title">{{proyecto.titulo}}</span><br>
-    <div class="date">Fecha: {{proyecto.fecha_inicio|date:"d F Y"|title}} al {{proyecto.fecha_fin|date:"d F Y"|title}}</div>    
+    <div class="date">Fecha: {{proyecto.fecha_inicio|date:"d F Y"|title}} al {{proyecto.fecha_fin|date:"d F Y"|title}}</div>
     <div>
-        <br>        
+        <br>
         <div>
             <img src="{{proyecto.portada.url_385x240}}" width="320" style="float: left; padding: 5px 10px 5px 0px;" alt="{{proyecto.titulo}}">
             {{proyecto.descripcion|safe}}
@@ -60,18 +60,18 @@
         <div class="proyecto2">
             <div class="title_prod2">Documentos</div><br>
             <div>
-                {% for doc in proyecto.documentos.all %}                
+                {% for doc in proyecto.documentos.all %}
                 <div class="doc">
                     <a class="negrita" href="{{doc.archivo.url}}" target="_blank">{{doc.titulo}} &raquo;</a><br>
                     Tama&ntilde;o: {{doc.archivo.size|filesizeformat}}<br>
                     Fecha: {{doc.fecha|date:"F Y"|title}}
-                </div>                
+                </div>
                 {% endfor %}
                 <div class="clean"></div>
             </div>
         </div>
         <div class="otras_producciones">
-            <div class="title_prod2">Videos relacionados con este Proyecto</div>
+            <div class="title_prod2">Videos relacionados con esta Campa&ntilde;a</div>
             {% if proyecto.videos.all %}
             <div class="prev_car" id="mycarousel-prev"></div>
             <div class="obras_carusel">

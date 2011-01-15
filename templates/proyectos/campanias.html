@@ -1,0 +1,41 @@
+{% extends "base2.html" %}
+{% block extratitle %}Campa&ntilde;as{% endblock %}
+
+{% block menu1 %}
+<a href="/proyectos/">Proyectos &raquo;</a><br>
+<a href="/campanias/" style="font-weight: bold;">Campa&ntilde;as &raquo;</a><br>
+<br><br><br>
+{% endblock %}
+
+{% block breadcrumb %}
+<a href="/campanias/">Campa&ntilde;as &raquo;</a>
+{% endblock %}
+
+{% block contenido %}
+<div>
+    <span class="title">Campa&ntilde;as</span><br>
+    {% if info.descripcion %}
+    {{info.descripcion|safe}}
+    {% else %}
+    Notifique al admin sobre este contenido
+    {% endif %}
+    <div>
+        <br>
+        {% for proy in proyectos %}
+        <div class="proyecto">
+            <div class="left">
+                <a href="/campanias/{{proy.slug}}/"><img src="{{proy.portada.url_175x110}}" alt="{{proyecto.titulo}}"></a>
+            </div>
+            <div class="right">
+                <div class="title"><a href="/campanias/{{proy.slug}}/">{{proy.titulo}} &raquo;</a></div>
+                <div class="date">Fecha: {{proy.fecha_inicio|date:"d F Y"|title}} al {{proy.fecha_fin|date:"d F Y"|title}}</div>
+                <div class="proy_body">
+                    {{proy.descripcion|safe|truncatewords:"45"}}
+                </div>
+            </div>
+            <div class="clean"></div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
