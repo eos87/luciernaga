@@ -11,7 +11,7 @@ class Evento(models.Model):
     hora = models.CharField(max_length=100, help_text='Ej: 3pm-7pm')
     direccion = models.CharField(max_length=200, blank=True, default='')
     contenido = models.TextField()
-    slug = models.SlugField(editable=False)
+    slug = models.SlugField(editable=True)
 
     fileDir = 'eventos/images/'
 
@@ -24,7 +24,8 @@ class Evento(models.Model):
     def save(self):
         if not self.id:
             n = Evento.objects.all().count()
-            self.slug = '%s-%s' % (str(n + 1), slugify(self.titulo))
+            s = '%s-%s' % (str(n + 1), slugify(self.titulo))
+            self.slug = s[0:49]
         else:
             pass
         super(Evento, self).save()

@@ -1,4 +1,5 @@
 {% extends "base2.html" %}
+{% load youthumb %}
 {% block extratitle %}Campa&ntilde; {{proyecto.titulo}}{% endblock %}
 
 {% block extrahead %}
@@ -24,9 +25,60 @@
 
 {% block contenido %}
 <div>
-    <span class="title">Febrero 2011</span><br>
+    <span class="title">Febrero 2011</span><br><br>
     <div>
-        
+        {% for evento in eventos %}
+        <div class="evento">
+            <div class="left">
+                <div class="fecha_num">{{evento.fecha|get_img|safe}}</div>
+                <div class="title">{{evento.titulo}}</div>
+                <div class="clean"></div>
+                <div class="datos">
+                    <div style="float: left; width: 250px;">
+                        Lugar: {{evento.direccion}}<br>
+                        Hora: {{evento.hora}}
+                    </div>
+                    <div style="float: left;">
+                        Enviar a un amigo<br>
+                        Solicitar informacion
+                    </div>
+                    <div class="clean"></div>
+                </div>
+                <div class="contenido_evento">
+                    {{evento.contenido|safe|truncatewords:"80"}}
+                </div>                
+            </div>
+            <div class="derecha">
+                <img width="150" src="{{evento.portada.url_175x110}}"alt="evento">
+            </div>
+            <div class="clean"></div>
+        </div>
+        <div class="evento">
+            <div class="left">
+                <div class="fecha_num">{{evento.fecha|get_img|safe}}</div>
+                <div class="title">{{evento.titulo}}</div>
+                <div class="clean"></div>
+                <div class="datos">
+                    <div style="float: left; width: 250px;">
+                        Lugar: {{evento.direccion}}<br>
+                        Hora: {{evento.hora}}
+                    </div>
+                    <div style="float: left;">
+                        Enviar a un amigo<br>
+                        Solicitar informacion
+                    </div>
+                    <div class="clean"></div>
+                </div>
+                <div class="contenido_evento">
+                    {{evento.contenido|safe|truncatewords:"80"}}
+                </div>                
+            </div>
+            <div class="derecha">
+                <img width="150" src="{{evento.portada.url_175x110}}"alt="evento">
+            </div>
+            <div class="clean"></div>
+        </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}

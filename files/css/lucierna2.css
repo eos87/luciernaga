@@ -523,3 +523,36 @@ a.link_a{
     text-decoration: none !important;
     color: #000 !important;
 }
+.evento{
+    border-bottom: 1px #6d6e71 dashed;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+.evento .left{
+    float: left;
+    width: 500px;
+}
+.evento .derecha{
+    float: left;
+    padding-left: 10px;
+}
+.evento .left .fecha_num{    
+    float: left;
+    width: 65px;    
+    padding: 3px 4px 2px 0px;
+}
+.evento .left .title{
+    float: left;
+    color: #456a38;
+    width: 428px;
+    font-size: 14px;
+    font-weight: bold;    
+}
+.datos{
+    margin-left: 69px;
+    color: #456a38;
+}
+.contenido_evento{
+    text-align: justify;
+}
