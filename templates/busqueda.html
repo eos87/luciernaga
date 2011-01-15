@@ -39,7 +39,7 @@
         <div class="temas_recientes">
             <div class="title_prod2">Producciones Recientes en {{tema.nombre}}</div>
             {% if tema.video_set.all %}
-            {% for video in tema.obtener_ocho %}
+            {% for video in tema.obtener_cinco %}
             <div class="obra">
                 <a href="/videoteca/video/{{video.pk}}/"><img src="{{video.portada.url_112x158}}" alt="{{video.nombre}}"></a>
                 {{video.nombre}}
