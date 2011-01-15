@@ -28,6 +28,12 @@ body{
     margin-left: 10px;
     background: url(/files/images/separator.png) repeat-y left;
 }
+.cuerpo a{
+    text-decoration: underline;
+}
+.cuerpo a:visited{
+    color: #456a38;
+}
 .cuerpo .main{
     clear: both;
     padding-top: 10px;
@@ -79,6 +85,10 @@ body{
 a{
     text-decoration: none;
     outline: none;
+    color: #456a38;    
+}
+a:hover{
+    text-decoration: underline;
 }
 img{
     outline: none;
