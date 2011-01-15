@@ -4,12 +4,25 @@
 
 {% block extrahead %}
 <style type="text/css">
-    
-</style>
-<script type="text/javascript" src="/files/js/jquery.jcarousel.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function(){
 
+</style>
+<script type="text/javascript">    
+    function showSend(id){
+        $('.send, .getinfo').hide();
+        $('#'+id).slideDown();        
+        $('html, body').animate({
+            scrollTop: $('#'+id).offset().top
+        }, 2000);
+        return false;        
+    }
+    function hideSend(id){
+        $('#'+id).slideUp();
+        return false;
+    }
+    $(document).ready(function(){
+        {% if id %}
+        showSend('{{id}}');
+        {% endif %}
     });
 </script>
 {% endblock %}
@@ -39,8 +52,8 @@
                         Hora: {{evento.hora}}
                     </div>
                     <div style="float: left;">
-                        Enviar a un amigo<br>
-                        Solicitar informacion
+                        <a id="enviar_amigo" href="#" onclick="showSend('{{evento.id}}send'); return false;"><img src="/files/images/mail.png" alt="mail"> Enviar a un amigo</a><br>
+                        <a id="info" href="#" onclick="showSend('{{evento.id}}info'); return false;"><img src="/files/images/info.png" alt="mail">Solicitar informacion</a>
                     </div>
                     <div class="clean"></div>
                 </div>
@@ -52,8 +65,104 @@
                 <img width="150" src="{{evento.portada.url_175x110}}"alt="evento">
             </div>
             <div class="clean"></div>
-        </div>        
+        </div>
+        <div class="send" id="{{evento.id}}send">
+            <div class="form">
+                <form action="." method="post">{% csrf_token %}
+                    <table>
+                        <tr>
+                            <td class="titulo_form">
+                                <img src="/files/images/mail.png" alt=""> Enviar a un amigo
+                            <td>
+                            <td class="titulo_form cerrar">
+                                <a href="#" onclick="hideSend('{{evento.id}}send'); return false;">Cerrar <img style="float: right; padding-top: 2px; margin-left: 2px;" src="/files/images/cerrar.png" alt="cerrar"></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"></td>
+                        </tr>
+                        <tr>                            
+                            <td>
+                                Su email<br>
+                                {{form.su_email}}<br>
+                                {{form.su_email.errors}}
+                            </td>                            
+                            <td>Email de amigo<br>
+                                {{form.email_amigo}}<br>
+                                {{form.email_amigo.errors}}
+                            </td>
+                            <td rowspan="2">
+                                Escriba el c&oacute;digo<br>
+                                {{form.captcha}}<br>
+                                {{form.captcha.errors}}
+                                <input type="hidden" name="url" id="id_url" value="http://fundacionluciernaga.org/eventos/{{evento.slug}}/"/>
+                                <input type="hidden" name="centinel" id="id_centinel" value="enviar" />
+                                <input type="hidden" name="id" id="id_id" value="{{evento.id}}send"/>
+                                <br><br>
+                                <input type="submit" class="submit" value="Enviar &raquo;">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                Mensaje<br>
+                                {{form.mensaje}}<br>
+                                {{form.mensaje.errors}}
+                            </td>
+                        </tr>
+                        <tr><td>* Todos los campos son requeridos<td></tr>
+                    </table>                    
+                </form>
+            </div>         
+        </div>
+        <br>
+        <div class="getinfo" id="{{evento.id}}info">
+            <div class="form">
+                <form action="." method="post">{% csrf_token %}
+                    <table>
+                        <tr>
+                            <td class="titulo_form">
+                                <img src="/files/images/info.png" alt=""> Solicitar m&aacute;s informaci&oacute;n
+                            <td>
+                            <td class="titulo_form cerrar">
+                                <a href="#" onclick="hideSend('{{evento.id}}info'); return false;">Cerrar <img style="float: right; padding-top: 2px; margin-left: 2px;" src="/files/images/cerrar.png" alt="cerrar"></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Nombre y Apellido<br>
+                                {{form2.nombre}}<br>
+                                {{form2.nombre.errors}}
+                            </td>
+                            <td>Su email<br>
+                                {{form2.su_email}}<br>
+                                {{form2.su_email.errors}}
+                            </td>
+                            <td rowspan="2">
+                                Escriba el c&oacute;digo<br>
+                                {{form2.captcha}}<br>
+                                {{form2.captcha.errors}}
+                                <input type="hidden" name="id" id="id_id" value="{{evento.id}}info"/>
+                                <input type="hidden" name="evento" id="id_evento" value="{{evento.titulo}}/"/>
+                                <br><br>
+                                <input type="submit" class="submit" value="Enviar &raquo;">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                Mensaje<br>
+                                {{form2.mensaje}}<br>
+                                {{form2.mensaje.errors}}
+                            </td>
+                        </tr>
+                        <tr><td>* Todos los campos son requeridos<td></tr>                        
+                    </table>
+                </form>
+            </div>
+        </div>
         {% endfor %}
-    </div>
+    </div>    
 </div>
 {% endblock %}

@@ -1,0 +1,10 @@
+Eventos Fundación Luciérnaga.
+{{su_email}} ha compartido contigo un enlace.
+
+El manda este mensaje:
+{{mensaje}}
+
+Click en el enlace para saber mas
+{{url}}
+
+Por favor no contestes a este correo.

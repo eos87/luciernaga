@@ -1,0 +1,6 @@
+Eventos Fundación Luciérnaga.
+{{su_email}} ha solicitado más información sobre
+el evento {{evento}}
+
+Ha dejado el siguiente mensaje:
+{{mensaje}}

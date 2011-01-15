@@ -72,7 +72,13 @@ INSTALLED_APPS = (
     'luciernaga.proyectos',
     'luciernaga.eventos',
     'south',
+    'luciernaga.captcha',
     'luciernaga.pagination',
 )
 
 AUTH_PROFILE_MODULE = 'red.Perfil'
+RECAPTCHA_PUB_KEY = "6LdQgMASAAAAAMqmmS8ENSuxIP-D0FTaSBB6xtXF"
+RECAPTCHA_PRIVATE_KEY = "6LdQgMASAAAAAG0HDB7DBoXWDBd8GYKSIsMzPUZQ"
+
+CAPTCHA_BACKGROUND_COLOR = '#c3f5cc'
+CAPTCHA_FOREGROUND_COLOR = '#000000'

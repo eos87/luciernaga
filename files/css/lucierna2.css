@@ -552,7 +552,70 @@ a.link_a{
 .datos{
     margin-left: 69px;
     color: #456a38;
+    font-size: 11px;
 }
 .contenido_evento{
     text-align: justify;
+}
+#info, #enviar_amigo{
+    text-decoration: none;
+    line-height: 18px;
+}
+#info:hover, #enviar_amigo:hover{
+    color: #086a1c;
+}
+
+#info img, #enviar_amigo img{
+    margin-right: 3px;
+    margin-top: 2px;
+    float: left;
+}
+.form{
+    background-color: #cde2a4;
+    width: 100%;
+}
+.titulo_form, .titulo_form a{
+    color: #456a38;
+    text-decoration: none;
+}
+.titulo_form a:hover{
+    color: #086a1c;
+}
+.cerrar{
+    text-align: right;
+}
+.form table{
+    padding: 10px 15px;
+}
+.form table td{
+    width: 250px;    
+}
+.form input[type='text'], .form textarea{
+    border: 1px #000 solid;
+    padding: 2px 4px;
+}
+.form textarea{
+    width: 405px;
+    height: 80px;
+}
+.captcha{
+    margin-bottom: 9px;
+    margin-top: 5px;
+}
+.submit{
+    background: #7c0000;
+    border: none;
+    padding: 3px 10px;
+    color: #fff;
+}
+.send, .getinfo{
+    display: none;
+}
+.errorlist{
+    font-size: 11px;
+    color: red;
+    padding: 0px;
+    padding-left: 2px;
+    list-style: none;
+    margin-top: -1px;
 }

@@ -27,6 +27,7 @@ class SelectoForm(forms.Form):
         
     class Meta:
         pass
+    
 class HuerfanaForm(forms.ModelForm):
     class Meta:
         model = Huerfana

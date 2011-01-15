@@ -32,7 +32,7 @@ def img(value):
     }
     first = value[0]
     last = value[1]
-    return "<img src='/files/images/%s' alt='numeros'><img src='/files/images/%s' alt='numeros'>" % (dicc[int(first)], dicc[int(last)])
+    return "<img width='28' src='/files/images/%s' alt='numeros'><img width='28' src='/files/images/%s' alt='numeros'>" % (dicc[int(first)], dicc[int(last)])
 
 @stringfilter
 def youthumbnail(value, args):
