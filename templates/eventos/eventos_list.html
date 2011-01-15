@@ -31,7 +31,7 @@
         <div class="evento">
             <div class="left">
                 <div class="fecha_num">{{evento.fecha|get_img|safe}}</div>
-                <div class="title">{{evento.titulo}}</div>
+                <div class="title"><a style="text-decoration: none;" href="/eventos/{{evento.slug}}/">{{evento.titulo}}</a></div>
                 <div class="clean"></div>
                 <div class="datos">
                     <div style="float: left; width: 250px;">
