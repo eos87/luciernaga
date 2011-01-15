@@ -497,6 +497,7 @@ select.number{
 }
 .proyecto .title a{
     color: #000;
+    text-decoration: none;
 }
 .proyecto .title a:hover{
     text-decoration: underline;
