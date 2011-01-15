@@ -19,6 +19,8 @@ def proyectos(request):
 
 def proyecto_detail(request, slug):
     flag = 'proyecto'
+    temas = Tema.objects.filter(especifico=True)
+    temasall = Tema.objects.all()
     proyecto = get_object_or_404(Proyecto, slug=slug)
 
     return render_to_response('proyectos/proyecto_detail.html', RequestContext(request, locals()))

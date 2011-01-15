@@ -490,3 +490,20 @@ select.number{
 .proyecto .title a:hover{
     text-decoration: underline;
 }
+.doc{
+    float: left;
+    width: 210px;
+    height: 78px;    
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+.negrita{
+    font-weight: bold;
+    color: #000;
+}
+.proyecto2{
+    border-top: 1px #6d6e71 dashed;
+    border-bottom: 1px #6d6e71 dashed;
+    padding: 10px 0px 0px 0px;
+    margin-bottom: 10px;
+}

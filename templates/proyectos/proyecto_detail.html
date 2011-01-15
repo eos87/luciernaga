@@ -1,6 +1,39 @@
 {% extends "base2.html" %}
 {% block extratitle %}Proyectos{{tema.nombre}}{% endblock %}
 
+{% block extrahead %}
+<style type="text/css">
+    .jcarousel-item {
+        width: 112px;
+    }
+</style>
+<script type="text/javascript" src="/files/js/jquery.jcarousel.min.js"></script>
+<script type="text/javascript">
+    function mycarousel_initCallback(carousel) {
+        jQuery('#mycarousel-next').click(function() {
+            carousel.next();
+            return false;
+        });
+
+        jQuery('#mycarousel-prev').click(function() {
+            carousel.prev();
+            return false;
+        });
+    };
+    $(document).ready(function(){
+        $('.logo_animado').attr('src', '{{contenido.logo.url}}');
+        // Ride the carousel...
+        $("#obras").jcarousel({
+            scroll: 3,
+            initCallback: mycarousel_initCallback,
+            // This tells jCarousel NOT to autobuild prev/next buttons
+            buttonNextHTML: null,
+            buttonPrevHTML: null
+        });
+    });
+</script>
+{% endblock %}
+
 {% block menu1 %}
 <a href="/proyectos/" style="font-weight: bold;">Proyectos &raquo;</a><br>
 <a href="/campanias/">Campa&ntilde;as &raquo;</a><br>
@@ -21,8 +54,44 @@
             <img src="{{proyecto.portada.url_385x240}}" width="320" style="float: left; padding: 5px 10px 5px 0px;" alt="{{proyecto.titulo}}">
             {{proyecto.descripcion|safe}}
         </div>
-        <div class="proyecto">
-            
+        <div class="proyecto2">
+            <div class="title_prod2">Documentos</div><br>
+            <div>
+                {% for doc in proyecto.documentos.all %}                
+                <div class="doc">
+                    <a class="negrita" href="{{doc.archivo.url}}" target="_blank">{{doc.titulo}} &raquo;</a><br>
+                    Tama&ntilde;o: {{doc.archivo.size|filesizeformat}}<br>
+                    Fecha: {{doc.fecha|date:"F Y"|title}}
+                </div>
+                <div class="doc">
+                    <a class="negrita" href="{{doc.archivo.url}}" target="_blank">{{doc.titulo}} &raquo;</a><br>
+                    Tama&ntilde;o: {{doc.archivo.size|filesizeformat}}<br>
+                    Fecha: {{doc.fecha|date:"F Y"|title}}
+                </div>
+                {% endfor %}
+                <div class="clean"></div>
+            </div>
+        </div>
+        <div class="otras_producciones">
+            <div class="title_prod2">Otras Producciones Relacionadas</div>
+            {% if proyecto.videos.all %}
+            <div class="prev_car" id="mycarousel-prev"></div>
+            <div class="obras_carusel">
+                <ul id="obras">
+                    {% for video in proyecto.videos.all|slice:"10" %}
+                    <li class="obra">
+                        <a href="/videoteca/video/{{video.pk}}/"><img src="{{video.portada.url_112x158}}" alt="{{video.nombre}}"></a>
+                        {{video.nombre}}
+                        <br style="clear: both;">
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="next_car" id="mycarousel-next"></div>
+            {% else %}
+            <br>No hay producciones!
+            {% endif %}
+            <div class="clean"></div>
         </div>
     </div>
 </div>
