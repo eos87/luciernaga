@@ -97,6 +97,8 @@ img{
 }
 .negrita{
     font-weight: bold;
+    text-decoration: none;
+    color: #000;
 }
 .navegacion{
     height: 36px;
@@ -510,11 +512,6 @@ select.number{
     height: 78px;    
     margin-right: 10px;
     margin-bottom: 15px;
-}
-.negrita{
-    font-weight: bold;
-    color: #000;
-    text-decoration: none;
 }
 .proyecto2{
     border-top: 1px #6d6e71 dashed;
