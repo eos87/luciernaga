@@ -2,6 +2,28 @@
 {% load youthumb %}
 {% block extratitle %}Eventos {{evento.titulo}}{% endblock %}
 
+{% block extrahead %}
+<script type="text/javascript">
+    function showSend(id){
+        $('.send, .getinfo').hide();
+        $('#'+id).slideDown();
+        $('html, body').animate({
+            scrollTop: $('#'+id).offset().top
+        }, 2000);
+        return false;
+    }
+    function hideSend(id){
+        $('#'+id).slideUp();
+        return false;
+    }
+    $(document).ready(function(){
+        {% if id %}
+        showSend('{{id}}');
+        {% endif %}
+    });
+</script>
+{% endblock %}
+
 {% block menu1 %}
 <a href="/noticias" style="font-weight: bold;">Noticias</a>
 <br><br><br>
@@ -33,6 +55,7 @@
             {{evento.contenido|safe}}
         </div>
         <div class="clean"></div>
+        {% include "envios.html" %}
         <div class="proyecto2">
             <div class="title_prod2">Documentos</div><br>
             <div>
