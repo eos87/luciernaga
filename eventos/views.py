@@ -6,7 +6,7 @@ from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from luciernaga.multimedia.models import *
 from models import *
-from forms import *
+#from forms import *
 """from luciernaga.settings import RECAPTCHA_PRIVATE_KEY
 from luciernaga.settings import RECAPTCHA_PUB_KEY"""
 
@@ -15,7 +15,7 @@ def eventos(request):
     temas = Tema.objects.filter(especifico=True)
     temasall = Tema.objects.all()
     eventos = Evento.objects.all()
-    if request.method == 'POST':
+    """if request.method == 'POST':
         try:
             centinel = request.POST['centinel']
             form = SendForm(request.POST)
@@ -35,5 +35,5 @@ def eventos(request):
                 return HttpResponseRedirect('http://fundacionluciernaga.org/eventos/')
     else:
         form = SendForm()
-        form2 = InfoForm()
+        form2 = InfoForm()"""
     return render_to_response('eventos/eventos_list.html', RequestContext(request, locals()))
