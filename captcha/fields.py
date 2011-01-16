@@ -53,8 +53,9 @@ class CaptchaTextInput(MultiWidget):
         store = CaptchaStore.objects.create(challenge=challenge, response=response)
         key = store.hashkey
         value = [key, u'']
+        print key
         
-        self.image_and_audio = '<img src="/captcha/image/%s" alt="captcha" class="captcha" />' % (key)#reverse('captcha_image', kwargs=dict(key=key))
+        self.image_and_audio = '<img src="/captcha/image/%s" alt="captcha" class="captcha" />' % key #reverse('captcha_image', args=dict(key=key))
         if settings.CAPTCHA_FLITE_PATH:
             self.image_and_audio = '<a href="%s" title="%s">%s</a>' % (reverse('captcha-audio', kwargs=dict(key=key)), unicode(_('Play captcha as audio file')), self.image_and_audio)
         #fields = super(CaptchaTextInput, self).render(name, value, attrs=attrs)
