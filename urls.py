@@ -18,6 +18,6 @@ urlpatterns = patterns('',
     (r'^', include('luciernaga.material.urls')),
     (r'^', include('luciernaga.proyectos.urls')),
     (r'^admin/', include(admin.site.urls)),
-    (r'^captcha/', include('luciernaga.captcha.urls')),
+    (r'^captcha/image/(?P<key>\w+)/$', 'luciernaga.captcha.views.captcha_image'),
 )
 
