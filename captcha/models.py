@@ -1,5 +1,5 @@
 from django.db import models
-from captcha.conf import settings as captcha_settings
+from luciernaga.captcha.conf import settings as captcha_settings
 import datetime, unicodedata, random, time
 
 # Heavily based on session key generation in Django
