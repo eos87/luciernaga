@@ -619,3 +619,18 @@ a.link_a{
     list-style: none;
     margin-top: -1px;
 }
+.numeros{
+    float: left;
+    margin-right: 10px;
+    height: 50px;    
+}
+.title_evento{
+    float: left;
+    color: #456a38;
+    font-size: 21px;
+}
+.datos1{    
+    color: #456a38;
+    font-size: 11px;
+    margin-top: 5px;
+}

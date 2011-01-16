@@ -1,0 +1,72 @@
+{% extends "base2.html" %}
+{% load youthumb %}
+{% block extratitle %}Eventos {{evento.titulo}}{% endblock %}
+
+{% block extrahead %}
+<style type="text/css">
+    .jcarousel-item {
+        width: 112px;
+    }
+    .obra{
+        margin: 15px 6px 30px 4px;
+    }
+</style>
+<script type="text/javascript" src="/files/js/jquery.jcarousel.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        
+    });
+</script>
+{% endblock %}
+
+{% block menu1 %}
+<br><br><br>
+<br><br><br>
+{% endblock %}
+
+{% block breadcrumb %}
+<a href="/eventos/">Eventos &raquo;</a>
+{% endblock %}
+
+{% block contenido %}
+<div>
+    <br>
+    <div class="numeros">{{evento.fecha|date:"d"|get_img|safe}}</div>
+    <div class="title_evento">
+        {{evento.titulo}}<br>
+        <div class="datos1">
+            <div style="float: left; width: 250px;">
+                Lugar: {{evento.direccion}}<br>
+                Hora: {{evento.hora}}
+            </div>
+            <div style="float: left;">
+                <a id="enviar_amigo" href="#" onclick="showSend('{{evento.id}}send'); return false;"><img src="/files/images/mail.png" alt="mail"> Enviar a un amigo</a><br>
+                <a id="info" href="#" onclick="showSend('{{evento.id}}info'); return false;"><img src="/files/images/info.png" alt="mail">Solicitar informacion</a>
+            </div>
+            <div class="clean"></div>
+        </div>        
+    </div>
+    <div class="clean"></div>
+    <div>
+        <br>
+        <div>
+            <img src="{{evento.portada.url_385x240}}" width="320" style="float: left; padding: 5px 10px 5px 0px;" alt="{{proyecto.titulo}}">
+            {{evento.contenido|safe}}
+        </div>
+        <div class="clean"></div>
+        <div class="proyecto2">
+            <div class="title_prod2">Documentos</div><br>
+            <div>
+                {% for doc in evento.documentos.all %}
+                <div class="doc1">
+                    <a class="negrita" href="{{doc.archivo.url}}" target="_blank">{{doc.titulo}} &raquo;</a><br>
+                    Tama&ntilde;o: {{doc.archivo.size|filesizeformat}}<br>
+                    Fecha: {{doc.fecha|date:"F Y"|title}}
+                </div>
+                {% endfor %}
+                <div class="clean"></div>
+            </div>
+        </div>        
+    </div>
+</div>
+{% endblock %}

@@ -2,6 +2,7 @@
 from django.db import models
 from luciernaga.thumbs import ImageWithThumbsField
 from luciernaga.utils import get_file_path
+from luciernaga.material.models import *
 from django.template.defaultfilters import slugify
 
 class Evento(models.Model):
@@ -11,6 +12,7 @@ class Evento(models.Model):
     hora = models.CharField(max_length=100, help_text='Ej: 3pm-7pm')
     direccion = models.CharField(max_length=200, blank=True, default='')
     contenido = models.TextField()
+    documentos = models.ManyToManyField(Documento, verbose_name='Documentos relacionados', blank=True, null=True)
     slug = models.SlugField(editable=False)
 
     fileDir = 'eventos/images/'

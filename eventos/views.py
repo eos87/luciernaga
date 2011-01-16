@@ -4,6 +4,7 @@ from django.template.loader import render_to_string
 from django.core.mail import send_mail
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404
 from luciernaga.multimedia.models import *
 from models import *
 from forms import *
@@ -37,3 +38,12 @@ def eventos(request):
         form = SendForm()
         form2 = InfoForm()
     return render_to_response('eventos/eventos_list.html', RequestContext(request, locals()))
+
+
+def evento_detail(request, slug):
+    flag = 'evento'
+    temas = Tema.objects.filter(especifico=True)
+    temasall = Tema.objects.all()
+    evento = get_object_or_404(Evento, slug=slug)
+
+    return render_to_response('eventos/evento_detail.html', RequestContext(request, locals()))
