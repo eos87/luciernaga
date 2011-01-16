@@ -11,7 +11,7 @@ class ModelOptions(admin.ModelAdmin):
               '/files/js/tiny_mce/tconfig.js')
 
 class VideoAdmin(admin.ModelAdmin):
-    list_display = ['get_portada', 'nombre', 'codigo', 'owner', 'anio', 'publicar', 'duracion', 'archivo']
+    list_display = ['get_portada', 'nombre', 'codigo', 'owner', 'anio', 'publicar', 'destacado', 'duracion', 'archivo']
     list_filter = ['publicar']
     search_fields = ['nombre', 'sinopsis', 'realizacion__nombre', 'produccion', 'anio', 'codigo']
     save_on_top = True
