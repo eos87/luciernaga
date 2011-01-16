@@ -20,8 +20,12 @@
             </div>
             <div class="video_destacado">
                 <span class="title"><span style="font-size: 16px;">D</span>ESTACADO EN <span style="font-size: 16px;">V</span>IDEOTECA</span><br>
-                <img src="/files/images/video_portada.png" alt="Destacado en videoteca"><br>
-                Sol y Sombras<br><br>
+                {% for d in destacado %}
+                <a href="/videoteca/video/{{d.pk}}/"><img style="background: url({{d.portada.url_140x135}})" src="/files/images/video_portada.png" class="destaca" alt="Destacado en videoteca"></a>
+                <br>
+                {{d.nombre}}
+                {% endfor %}
+                <br><br>
                 <a href="/videoteca/" class="red_link">Tenemos {{v_count}} videos mas &raquo;</a>
             </div>
             <img src="/files/images/hline.png" alt="" class="hline">
@@ -29,7 +33,7 @@
         <div class="mural">
             <div class="mural_eventos">
                 <br>
-                <div class="meses">{{date|date:"F Y"|title}} | <a href="">{{next|date:"F Y"|title}} &raquo;</a></div>
+                <div class="meses"><a href="/" {% if c %}style="color: #456a38;"{% endif %}>{{date|date:"F Y"|title}}</a> | <a href="#">{{next|date:"F Y"|title}} &raquo;</a></div>
                 <div class="clean">
                     <br>
                     <!-- Lista de eventos -->
