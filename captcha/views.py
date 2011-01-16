@@ -14,7 +14,8 @@ except ImportError:
 
 NON_DIGITS_RX = re.compile('[^\d]')
 
-def captcha_image(request,key):
+def captcha_image(request):
+    key = request.GET.get('key', '')
     store = get_object_or_404(CaptchaStore,hashkey=key)
     text=store.challenge
     
