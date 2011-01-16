@@ -18,7 +18,7 @@ urlpatterns = patterns('',
     (r'^', include('luciernaga.red.urls')),
     (r'^', include('luciernaga.material.urls')),
     (r'^', include('luciernaga.proyectos.urls')),    
-    (r'^captcha/image/$', 'luciernaga.captcha.views.captcha_image'),
+    (r'^captcha/image/$', 'captcha.views.captcha_image'),
     #(r'^captcha/image/(?P<key>\w+)/$', 'luciernaga.captcha.views.captcha_image'),
 )
 
