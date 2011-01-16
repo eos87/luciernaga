@@ -2,6 +2,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from luciernaga.eventos.models import*
 from luciernaga.multimedia.models import *
+from luciernaga.material.models import *
 import datetime
 
 
@@ -16,7 +17,9 @@ def index(request):
     next = datetime.datetime.today() + datetime.timedelta(1 * 365 / 12)
     c = True   
     last_two = Evento.objects.all()[:2]
-
+    try:
+        index = FotoPortada.objects.get(slug='index')
+    except: pass
     destacado = Video.objects.filter(publicar=True, destacado=True).order_by('?')[:1]
     try:
         intro = Informacion.objects.get(slug='intro')

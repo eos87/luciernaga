@@ -1,6 +1,15 @@
 {% extends "base.html" %}
 {% load youthumb %}
 {% block extratitle %}Inicio{% endblock %}
+{% block extrahead %}
+{% if index %}
+<style type="text/css">
+    #contenido {
+        background: url({{index.foto.url}}) no-repeat;
+    }
+</style>
+{% endif %}
+{% endblock %}
 {% block contenido %}
 <div class="portada">
     <div class="left">
