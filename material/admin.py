@@ -24,5 +24,6 @@ class DocumentoAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Documento, DocumentoAdmin)
+admin.site.register(FotoPortada)
 
 
