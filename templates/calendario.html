@@ -1,0 +1,31 @@
+<div class="calendar">
+    <table cellspacing="0">
+        <tr class="cal_nav"><th><a href="/eventos/{{prev|date:'Y'}}/{{prev|date:'m'}}/" title="{{prev|date:'F'|title}}">&lsaquo;&lsaquo;</a>&nbsp;</th>
+            <th  colspan="5">                
+                {{fecha|date:"F Y"|title}}
+            </th>
+            <th>
+                &nbsp;<a href="/eventos/{{next|date:'Y'}}/{{next|date:'m'}}/" title="{{next|date:'F'|title}}">&rsaquo;&rsaquo;</a>
+            </th>
+        </tr>
+        <tbody>
+            <tr>{% for i in w1 %}<td {% for a in f1 %}{% ifequal i a %}class="test"{% endifequal %}{% endfor %}><a href="/eventos/{{fecha|date:'Y'}}/{{fecha|date:'m'}}/{{i}}/">{{ i }}</a></td>{% endfor %}
+            </tr>
+            <tr>{% for i in w2 %}<td {% for a in f1 %}{% ifequal i a %}class="test"{% endifequal %}{% endfor %}><a href="/eventos/{{fecha|date:'Y'}}/{{fecha|date:'m'}}/{{i}}/">{{ i }}</a></td>{% endfor %}
+            </tr>
+            <tr>{% for i in w3 %}<td {% for a in f1 %}{% ifequal i a %}class="test"{% endifequal %}{% endfor %}><a href="/eventos/{{fecha|date:'Y'}}/{{fecha|date:'m'}}/{{i}}/">{{ i }}</a></td>{% endfor %}
+            </tr>
+            <tr>{% for i in w4 %}<td {% for a in f1 %}{% ifequal i a %}class="test"{% endifequal %}{% endfor %}><a href="/eventos/{{fecha|date:'Y'}}/{{fecha|date:'m'}}/{{i}}/">{{ i }}</a></td>{% endfor %}
+            </tr>
+            <tr>{% for i in w5 %}<td {% for a in f1 %}{% ifequal i a %}class="test"{% endifequal %}{% endfor %}><a href="/eventos/{{fecha|date:'Y'}}/{{fecha|date:'m'}}/{{i}}/">{{ i }}</a></td>{% endfor %}
+            </tr>
+        <tfoot>
+            <tr>
+                <th>Lu</th><th>Ma</th><th>Mi</th>
+                <th>Ju</th><th>Vi</th><th>Sa</th>
+                <th>Do</th>
+            </tr>
+        </tfoot>
+        </tbody>
+    </table>
+</div>

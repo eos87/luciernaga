@@ -644,3 +644,53 @@ a.link_a{
     margin-right: 10px;
     font-size: 11px;
 }
+
+/* Estilos para el calendario*/
+.calendar{
+    margin-left: -5px;
+}
+.calendar .cal_nav{
+    font-size: 10px;
+    font: small sans-serif;
+    margin-bottom: 3px;    
+    text-align: center;
+}
+
+.calendar table {
+    font-size: 10px;
+    text-align: center;
+}
+
+.calendar td {
+    border: 1px solid #656565;
+    width: 22px;
+    height: 16px;
+    text-align: center;
+    color: #444;
+}
+
+.calendar th{
+    width: 22px;
+    height: 16px;
+    font-weight: normal;
+}
+.calendar td:hover{
+    background-color: #EEE695;
+    color: #000;
+    cursor: pointer;
+}
+.calendar td.test{
+    background-color: #cee3a5;
+}
+
+.calendar td.test:hover{
+    background-color: #EEE695;
+    color: #000;
+}
+.calendar td a{
+    display: block;
+    color: #000;
+}
+.calendar td a:hover{
+    color: #000;
+}

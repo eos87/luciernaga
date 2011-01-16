@@ -28,8 +28,8 @@
 {% endblock %}
 
 {% block menu1 %}
-<br><br><br>
-<br><br><br>
+{% include "calendario.html" %}
+<div class="clean"></div>
 {% endblock %}
 
 {% block breadcrumb %}
@@ -38,8 +38,9 @@
 
 {% block contenido %}
 <div>
-    <span class="title">Febrero 2011</span><br><br>
+    <span class="title">{% if day %}{{day}}{% endif %} {{fecha|date:"F Y"|title}}</span><br><br>
     <div>
+        {% if eventos %}
         {% for evento in eventos %}
         <div class="evento">
             <div class="left">
@@ -59,7 +60,7 @@
                 </div>
                 <div class="contenido_evento">
                     {{evento.contenido|safe|truncatewords:"80"}}
-                </div>                
+                </div>
             </div>
             <div class="derecha">
                 <img width="150" src="{{evento.portada.url_175x110}}"alt="evento">
@@ -81,12 +82,12 @@
                         <tr>
                             <td colspan="3"></td>
                         </tr>
-                        <tr>                            
+                        <tr>
                             <td>
                                 Su email<br>
                                 {{form.su_email}}<br>
                                 {{form.su_email.errors}}
-                            </td>                            
+                            </td>
                             <td>Email de amigo<br>
                                 {{form.email_amigo}}<br>
                                 {{form.email_amigo.errors}}
@@ -110,9 +111,9 @@
                             </td>
                         </tr>
                         <tr><td>* Todos los campos son requeridos<td></tr>
-                    </table>                    
+                    </table>
                 </form>
-            </div>         
+            </div>
         </div>
         <br>
         <div class="getinfo" id="{{evento.id}}info">
@@ -157,12 +158,15 @@
                                 {{form2.mensaje.errors}}
                             </td>
                         </tr>
-                        <tr><td>* Todos los campos son requeridos<td></tr>                        
+                        <tr><td>* Todos los campos son requeridos<td></tr>
                     </table>
                 </form>
             </div>
         </div>
         {% endfor %}
+        {% else %}
+        No hay Eventos para esta fecha!!
+        {% endif %}
     </div>    
 </div>
 {% endblock %}

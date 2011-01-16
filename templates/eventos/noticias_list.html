@@ -17,7 +17,7 @@
 
 {% block contenido %}
 <div>
-    <span class="title">Febrero 2011</span><br>
+    <span class="title">{{date|date:"F Y"|title}}</span><br>
     <div>
         {% for evento in noticias %}
         <div class="evento">

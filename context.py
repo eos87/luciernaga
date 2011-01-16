@@ -1,4 +1,5 @@
 from multimedia.forms import *
+import datetime
 
 def variables(request):
     temas_material = []
@@ -12,5 +13,6 @@ def variables(request):
             'videoForm': videoForm,
             'v_count': videos_count,
             'temas_material': temas_material,
+            'date': datetime.datetime.now(),
            }
     return dicc
