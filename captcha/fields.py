@@ -7,7 +7,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse
 from luciernaga.captcha.models import CaptchaStore
 from luciernaga.captcha.conf import settings
-from captcha.helpers import *
+from luciernaga.captcha.helpers import *
 import datetime
 
 class CaptchaTextInput(MultiWidget):

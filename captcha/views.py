@@ -2,7 +2,7 @@ from cStringIO import StringIO
 from luciernaga.captcha.models import CaptchaStore
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import get_object_or_404
-from captcha.conf import settings
+from luciernaga.captcha.conf import settings
 import re, random
 
 try:
