@@ -1,9 +1,8 @@
 from cStringIO import StringIO
-from captcha.models import CaptchaStore
+from luciernaga.captcha.models import CaptchaStore
 from django.http import HttpResponse, Http404
 from django.shortcuts import get_object_or_404
 from luciernaga.captcha.conf import settings
-from views import *
 import re, random
 
 try:
