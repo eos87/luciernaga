@@ -39,10 +39,10 @@ class CaptchaTextInput(MultiWidget):
 
     def render(self, name, value, attrs=None):
 
-        try:
+        """try:
             image_url = reverse('captcha-image', args=('dummy',))
         except Exception,e:
-            raise ImproperlyConfigured('Make sure you\'ve included captcha.urls as explained in the INSTALLATION section on http://code.google.com/p/django-simple-captcha/')
+            raise ImproperlyConfigured('Make sure you\'ve included captcha.urls as explained in the INSTALLATION section on http://code.google.com/p/django-simple-captcha/')"""
 
 
         challenge,response= settings.get_challenge()()
@@ -51,7 +51,7 @@ class CaptchaTextInput(MultiWidget):
         key = store.hashkey
         value = [key, u'']
 
-        self.image_and_audio = '<img src="%s" alt="captcha" class="captcha" />' %reverse('captcha-image',kwargs=dict(key=key))
+        self.image_and_audio = '<img src="/captcha/image/%s" alt="captcha" class="captcha" />' % key #reverse('captcha-image',kwargs=dict(key=key))
         if settings.CAPTCHA_FLITE_PATH:
             self.image_and_audio = '<a href="%s" title="%s">%s</a>' %( reverse('captcha-audio', kwargs=dict(key=key)), unicode(_('Play captcha as audio file')), self.image_and_audio)
         #fields = super(CaptchaTextInput, self).render(name, value, attrs=attrs)
