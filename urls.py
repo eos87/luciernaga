@@ -12,13 +12,14 @@ urlpatterns = patterns('',
     (r'^admin/filebrowser/', 'luciernaga.multimedia.views.subir_huerfana'),
     (r'^admin/', include(admin.site.urls)),
     
-    (r'^$', 'luciernaga.views.index'),    
+    (r'^$', 'luciernaga.views.index'),
+    (r'^captcha/image/$', 'captcha.views.captcha_image'),
     (r'^', include('luciernaga.eventos.urls')),
     (r'^', include('luciernaga.multimedia.urls')),
     (r'^', include('luciernaga.red.urls')),
     (r'^', include('luciernaga.material.urls')),
     (r'^', include('luciernaga.proyectos.urls')),    
-    (r'^captcha/image/$', 'captcha.views.captcha_image'),
+    
     #(r'^captcha/image/(?P<key>\w+)/$', 'luciernaga.captcha.views.captcha_image'),
 )
 
