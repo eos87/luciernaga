@@ -58,7 +58,7 @@ def noticias(request):
 
 
 def noticia_detail(request, slug):
-    flag = 'evento'
+    flag = 'noticia'
     temas = Tema.objects.filter(especifico=True)
     temasall = Tema.objects.all()
     evento = get_object_or_404(Noticia, slug=slug)
