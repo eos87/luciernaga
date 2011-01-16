@@ -127,7 +127,7 @@ button.red_link, a.red_link{
     text-align: justify;
 }
 .mural_eventos .meses{
-    float: right;
+    float: right;    
 }
 .mural_eventos .imagen{
     float: left;
@@ -189,5 +189,10 @@ button.red_link, a.red_link{
 .hline2{
     margin-bottom: 10px;
     margin-top: 10px;
+}
+.texto_evento img{
+    width: 20px;
+    height: 18px;
+    padding-bottom: 2px;
 }
 

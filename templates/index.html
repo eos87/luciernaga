@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load youthumb %}
 {% block extratitle %}Inicio{% endblock %}
 {% block contenido %}
 <div class="portada">
@@ -28,38 +29,28 @@
         <div class="mural">
             <div class="mural_eventos">
                 <br>
-                <div class="meses">Septiembre 2010 | <a href="">Octubre 2010 &raquo;</a></div>
+                <div class="meses">{{date|date:"F Y"|title}} | <a href="">{{next|date:"F Y"|title}} &raquo;</a></div>
                 <div class="clean">
                     <br>
                     <!-- Lista de eventos -->
+                    {% for ev in last_two %}
                     <div class="eventos">
                         <div class="imagen">
-                            <img src="/files/images/evento1.png" alt="EventoXY">
+                            <img src="{{ev.portada.url_175x110}}" width="150" alt="EventoXY">
                         </div>
                         <div class="texto_evento">
-                            <img src="/files/images/dia.png" alt="dia"><br><br>
-                            <a href="" class="title">Titulo de la Actividad, Evento o Noticia en este espacio</a><br>
-                            Lugar: lugar de la actividad <br>
-                            Hora: 3:00 pm - 7:00 pm<br><br>
+                            {{ev.fecha|date:"d"|get_img|safe}}<br>
+                            <a href="" class="title">{{ev.titulo}}</a><br>
+                            Lugar: {{ev.direccion}}<br>
+                            Hora: {{ev.hora}}<br>
                             <div class="desc">
-                                Breve descripcion de la actividad en este espacio Breve descripcion de la actividad en este espacio Breve descripcion de la actividad en este espacio
-                                Breve descripcion de la actividad en este espacio
+                                {{ev.contenido|safe|truncatewords:"20"}}
                             </div>
                         </div>
                     </div>
-                    <div class="eventos">
-                        <div class="imagen">
-                            <img src="/files/images/evento2.png" alt="EventoXY">
-                        </div>
-                        <div class="texto_evento">
-                            <img src="/files/images/dia.png" alt="dia"><br><br>
-                            <a href="" class="title">Titulo de la Actividad, Evento o Noticia en este espacio</a><br>
-                            Lugar: lugar de la actividad <br>
-                            Hora: 3:00 pm - 7:00 pm<br>
-                        </div>
-                    </div>
+                    {% endfor %}
                     <!-- fin lista eventos -->
-                    <a href="" class="red_link">Ver m&aacute;s actividades &raquo;</a>
+                    <a href="/eventos/" class="red_link">Ver m&aacute;s eventos &raquo;</a>
                 </div>
             </div>
             <img src="/files/images/vline.png" alt="line" class="vline">
