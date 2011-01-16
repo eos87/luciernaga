@@ -14,7 +14,7 @@ except ImportError:
 NON_DIGITS_RX = re.compile('[^\d]')
 
 def captcha_image(request, key):
-    store = get_object_or_404(CaptchaStore, hashkey=key)
+    store = CaptchaStore.objects.get(hashkey=key)
     text = store.challenge
 
     if settings.CAPTCHA_FONT_PATH.lower().strip().endswith('ttf'):
