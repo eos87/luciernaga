@@ -23,18 +23,18 @@ class CaptchaStore(models.Model):
     hashkey = models.CharField(blank=False, max_length=40, unique=True)
     expiration = models.DateTimeField(blank=False)
     
-    def save(self,*args,**kwargs):
+    def save(self, *args,  ** kwargs):
         self.response = self.response.lower()
         if not self.expiration:
-            self.expiration = datetime.datetime.now() + datetime.timedelta(minutes= int(captcha_settings.CAPTCHA_TIMEOUT))
+            self.expiration = datetime.datetime.now() + datetime.timedelta(minutes=int(captcha_settings.CAPTCHA_TIMEOUT))
         if not self.hashkey:
-            key_ = unicodedata.normalize('NFKD', str(randrange(0,MAX_RANDOM_KEY)) + str(time.time()) + unicode(self.challenge)).encode('ascii', 'ignore') + unicodedata.normalize('NFKD', unicode(self.response)).encode('ascii', 'ignore')
+            key_ = unicodedata.normalize('NFKD', str(randrange(0, MAX_RANDOM_KEY)) + str(time.time()) + unicode(self.challenge)).encode('ascii', 'ignore') + unicodedata.normalize('NFKD', unicode(self.response)).encode('ascii', 'ignore')
             if hashlib:
                 self.hashkey = hashlib.new('sha', key_).hexdigest()
             else:
                 self.hashkey = sha.new(key_).hexdigest()
             del(key_)
-        super(CaptchaStore,self).save(*args,**kwargs)
+        super(CaptchaStore, self).save(*args,  ** kwargs)
 
     def __unicode__(self):
         return self.challenge
