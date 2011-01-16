@@ -1,6 +1,6 @@
 from cStringIO import StringIO
 from luciernaga.captcha.models import CaptchaStore
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 from captcha.conf import settings
 import re, random
@@ -13,7 +13,8 @@ except ImportError:
 
 NON_DIGITS_RX = re.compile('[^\d]')
 
-def captcha_image(request, key):
+def captcha_image(request):
+    return HttpResponseRedirect('http://google.com')
     store = CaptchaStore.objects.get(hashkey=key)
     text = store.challenge
 
