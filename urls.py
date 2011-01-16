@@ -13,7 +13,7 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
     
     (r'^$', 'luciernaga.views.index'),
-    (r'^captcha/image/$', 'captcha.views.captcha_image'),
+    (r'^captcha/image/$', 'luciernaga.captcha.views.captcha_image'),
     (r'^', include('luciernaga.eventos.urls')),
     (r'^', include('luciernaga.multimedia.urls')),
     (r'^', include('luciernaga.red.urls')),
