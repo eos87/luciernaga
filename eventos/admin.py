@@ -3,7 +3,7 @@ from luciernaga.multimedia.models import Video
 from models import *
 
 class ModelOptions(admin.ModelAdmin):
-    #filter_horizontal = ['videos', 'documentos']
+    filter_horizontal = ['documentos']
     class Media:
         css = {
             "all": ("/files/css/textarea.css", )
