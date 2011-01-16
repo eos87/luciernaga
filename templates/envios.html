@@ -24,7 +24,7 @@
                         {{form.email_amigo.errors}}
                     </td>
                     <td rowspan="2">
-                        Escriba el c&oacute;digo<br>
+                        <!--Escriba el c&oacute;digo--><br>
                         {{form.captcha}}<br>
                         {{form.captcha.errors}}
                         <input type="hidden" name="url" id="id_url" value="http://fundacionluciernaga.org/{% if flag == 'noticia' %}noticias{% else %}eventos{% endif %}/{{evento.slug}}/"/>
@@ -73,7 +73,7 @@
                         {{form2.su_email.errors}}
                     </td>
                     <td rowspan="2">
-                        Escriba el c&oacute;digo<br>
+                        <!--Escriba el c&oacute;digo--><br>
                         {{form2.captcha}}<br>
                         {{form2.captcha.errors}}
                         <input type="hidden" name="id" id="id_id" value="{{evento.id}}info"/>
