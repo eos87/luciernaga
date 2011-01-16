@@ -3,6 +3,25 @@
 {% block extratitle %}Noticias | {{noticia.titulo}}{% endblock %}
 
 {% block extrahead %}
+<script type="text/javascript">
+    function showSend(id){
+        $('.send, .getinfo').hide();
+        $('#'+id).slideDown();
+        $('html, body').animate({
+            scrollTop: $('#'+id).offset().top
+        }, 2000);
+        return false;
+    }
+    function hideSend(id){
+        $('#'+id).slideUp();
+        return false;
+    }
+    $(document).ready(function(){
+        {% if id %}
+        showSend('{{id}}');
+        {% endif %}
+    });
+</script>
 {% endblock %}
 
 {% block menu1 %}
@@ -39,7 +58,8 @@
                 <img width="150" src="{{evento.portada.url_175x110}}"alt="evento">
             </div>
             <div class="clean"></div>
-        </div>        
+        </div>
+        {% include "envios.html" %}
         {% endfor %}
     </div>
 </div>
