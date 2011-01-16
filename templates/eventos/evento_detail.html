@@ -11,10 +11,23 @@
         margin: 15px 6px 30px 4px;
     }
 </style>
-<script type="text/javascript" src="/files/js/jquery.jcarousel.min.js"></script>
 <script type="text/javascript">
+    function showSend(id){
+        $('.send, .getinfo').hide();
+        $('#'+id).slideDown();
+        $('html, body').animate({
+            scrollTop: $('#'+id).offset().top
+        }, 2000);
+        return false;
+    }
+    function hideSend(id){
+        $('#'+id).slideUp();
+        return false;
+    }
     $(document).ready(function(){
-        
+        {% if id %}
+        showSend('{{id}}');
+        {% endif %}
     });
 </script>
 {% endblock %}
@@ -45,7 +58,7 @@
             <div class="clean"></div>
         </div>        
     </div>
-    <div class="clean"></div>
+    <div class="clean"></div>    
     <div>
         <br>
         <div>
@@ -53,6 +66,7 @@
             {{evento.contenido|safe}}
         </div>
         <div class="clean"></div>
+        {% include "envios.html" %}
         <div class="proyecto2">
             <div class="title_prod2">Documentos</div><br>
             <div>
@@ -66,6 +80,6 @@
                 <div class="clean"></div>
             </div>
         </div>        
-    </div>
+    </div>    
 </div>
 {% endblock %}

@@ -84,6 +84,28 @@ def evento_detail(request, slug):
     temasall = Tema.objects.all()
     evento = get_object_or_404(Evento, slug=slug)
 
+    if request.method == 'POST':
+        try:
+            centinel = request.POST['centinel']
+            form = SendForm(request.POST)
+            form2 = InfoForm()
+            id = request.POST['id']
+            if form.is_valid():
+                contenido = render_to_string('eventos/send_to_friend.txt', {'url': form.cleaned_data['url'], 'mensaje': form.cleaned_data['mensaje'], 'su_email': form.cleaned_data['su_email']})
+                send_mail('Eventos Fundación Luciérnaga', contenido, 'noreply@fundacionluciernaga.org', [form.cleaned_data['email_amigo']])
+                return HttpResponseRedirect(form.cleaned_data['url'])
+        except:
+            form = SendForm()
+            form2 = InfoForm(request.POST)
+            id = request.POST['id']
+            if form2.is_valid():
+                contenido = render_to_string('eventos/request_info.txt', {'evento': form2.cleaned_data['evento'], 'mensaje': form2.cleaned_data['mensaje'], 'su_email': form2.cleaned_data['su_email']})
+                send_mail('Eventos Fundación Luciérnaga', contenido, form2.cleaned_data['su_email'], ['eventos@fundacionluciernaga.org'])
+                return HttpResponseRedirect('http://fundacionluciernaga.org/eventos/')
+    else:
+        form = SendForm()
+        form2 = InfoForm()
+
     return render_to_response('eventos/evento_detail.html', RequestContext(request, locals()))
 
 def noticias(request):
