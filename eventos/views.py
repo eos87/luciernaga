@@ -122,7 +122,7 @@ def noticias(request):
             id = request.POST['id']
             if form.is_valid():
                 contenido = render_to_string('eventos/send_to_friend_1.txt', {'url': form.cleaned_data['url'], 'mensaje': form.cleaned_data['mensaje'], 'su_email': form.cleaned_data['su_email']})
-                send_mail('Eventos Fundación Luciérnaga', contenido, 'noreply@fundacionluciernaga.org', [form.cleaned_data['email_amigo']])
+                send_mail('Noticias Fundación Luciérnaga', contenido, 'noreply@fundacionluciernaga.org', [form.cleaned_data['email_amigo']])
                 return HttpResponseRedirect(form.cleaned_data['url'])
         except:
             form = SendForm()
@@ -130,7 +130,7 @@ def noticias(request):
             id = request.POST['id']
             if form2.is_valid():
                 contenido = render_to_string('eventos/request_info_1.txt', {'evento': form2.cleaned_data['evento'], 'mensaje': form2.cleaned_data['mensaje'], 'su_email': form2.cleaned_data['su_email']})
-                send_mail('Eventos Fundación Luciérnaga', contenido, form2.cleaned_data['su_email'], ['eventos@fundacionluciernaga.org'])
+                send_mail('Noticias Fundación Luciérnaga', contenido, form2.cleaned_data['su_email'], ['eventos@fundacionluciernaga.org'])
                 return HttpResponseRedirect('http://fundacionluciernaga.org/noticias/')
     else:
         form = SendForm()
