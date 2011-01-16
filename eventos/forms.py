@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 from django import forms as forms
-from luciernaga.captcha.fields import CaptchaField
+from captcha.fields import CaptchaField
 from models import *
 
 class SendForm(forms.Form):
