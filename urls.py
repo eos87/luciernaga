@@ -17,6 +17,6 @@ urlpatterns = patterns('',
     (r'^', include('luciernaga.red.urls')),
     (r'^', include('luciernaga.material.urls')),
     (r'^', include('luciernaga.proyectos.urls')),
-    (r'^captcha/', include('captcha.urls')),
+    (r'^captcha/', include('luciernaga.captcha.urls')),
 )
 

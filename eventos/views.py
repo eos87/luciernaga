@@ -6,7 +6,7 @@ from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from luciernaga.multimedia.models import *
 from models import *
-#from forms import *
+from forms import *
 """from luciernaga.settings import RECAPTCHA_PRIVATE_KEY
 from luciernaga.settings import RECAPTCHA_PUB_KEY"""
 
