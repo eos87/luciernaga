@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import random
-from captcha.conf import settings
+from django.captcha.conf import settings
 
 def math_challenge():
     operators = ('+','*','-',)
