@@ -634,3 +634,13 @@ a.link_a{
     font-size: 11px;
     margin-top: 5px;
 }
+.title2 a{    
+    font-size: 14px;
+    font-weight: bold;
+}
+.junto{
+    display: inline-block;
+    margin-top: 5px;
+    margin-right: 10px;
+    font-size: 11px;
+}

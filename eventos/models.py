@@ -31,3 +31,28 @@ class Evento(models.Model):
         else:
             pass
         super(Evento, self).save()
+
+class Noticia(models.Model):
+    titulo = models.CharField(max_length=150)
+    portada = ImageWithThumbsField(upload_to=get_file_path, sizes=((175, 110), (385, 240), ), help_text='Formatos permitidos: .jpg .png .gif')
+    fecha = models.DateTimeField()    
+    contenido = models.TextField()
+    documentos = models.ManyToManyField(Documento, verbose_name='Documentos relacionados', blank=True, null=True)
+    slug = models.SlugField(editable=False)
+
+    fileDir = 'noticias/images/'
+
+    class Meta:
+        ordering = ['-fecha']
+
+    def __unicode__(self):
+        return self.titulo
+
+    def save(self):
+        if not self.id:
+            n = Noticia.objects.all().count()
+            s = '%s-%s' % (str(n + 1), slugify(self.titulo))
+            self.slug = s[0:49]
+        else:
+            pass
+        super(Noticia, self).save()

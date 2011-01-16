@@ -1,0 +1,46 @@
+{% extends "base2.html" %}
+{% load youthumb %}
+{% block extratitle %}Noticias | {{noticia.titulo}}{% endblock %}
+
+{% block extrahead %}
+{% endblock %}
+
+{% block menu1 %}
+<a href="/noticias" style="font-weight: bold;">Noticias</a>
+<br><br><br>
+<br><br><br>
+{% endblock %}
+
+{% block breadcrumb %}
+<a href="/noticias/">Noticias &raquo;</a>
+{% endblock %}
+
+{% block contenido %}
+<div>
+    <span class="title">Febrero 2011</span><br>
+    <div>
+        {% for evento in noticias %}
+        <div class="evento">
+            <div class="left">                
+                <div class="title2" style="width: 100%;"><a style="text-decoration: none;" href="/noticias/{{evento.slug}}/">{{evento.titulo}}</a><br>
+                    <span style="font-size: 11px; font-weight: normal; color: #456a38;">{{evento.fecha|date:"d F Y"}}</span>
+                </div>
+                <div class="clean"></div>
+                <div style="float: left;">
+                    <div class="junto"><a id="enviar_amigo" href="#" onclick="showSend('{{evento.id}}send'); return false;"><img src="/files/images/mail.png" alt="mail"> Enviar a un amigo</a></div>
+                    <div class="junto"><a id="info" href="#" onclick="showSend('{{evento.id}}info'); return false;"><img src="/files/images/info.png" alt="mail">Solicitar informacion</a></div>
+                </div>
+                <div class="clean"></div>
+                <div class="contenido_evento">
+                    {{evento.contenido|safe|truncatewords:"80"}}
+                </div>
+            </div>
+            <div class="derecha">
+                <img width="150" src="{{evento.portada.url_175x110}}"alt="evento">
+            </div>
+            <div class="clean"></div>
+        </div>        
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

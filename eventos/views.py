@@ -47,3 +47,21 @@ def evento_detail(request, slug):
     evento = get_object_or_404(Evento, slug=slug)
 
     return render_to_response('eventos/evento_detail.html', RequestContext(request, locals()))
+
+def noticias(request):
+    flag = 'noticia'
+    temas = Tema.objects.filter(especifico=True)
+    temasall = Tema.objects.all()
+    noticias = Noticia.objects.all()
+
+    return render_to_response('eventos/noticias_list.html', RequestContext(request, locals()))
+
+
+def noticia_detail(request, slug):
+    flag = 'evento'
+    temas = Tema.objects.filter(especifico=True)
+    temasall = Tema.objects.all()
+    evento = get_object_or_404(Noticia, slug=slug)
+    cinco = Noticia.objects.all().exclude(pk=evento.pk)[:5]
+
+    return render_to_response('eventos/noticia_detail.html', RequestContext(request, locals()))
