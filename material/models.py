@@ -19,3 +19,14 @@ class Documento(models.Model):
 
     class Meta:
         ordering = ['-fecha']
+
+class FotoPortada(models.Model):
+    nombre = models.CharField(max_length=100)
+    foto = models.ImageField(upload_to='fotoportada/')
+    slug = models.SlugField()
+
+    def __unicode__(self):
+        return self.nombre
+
+    class Meta:
+        ordering = ['-id']
