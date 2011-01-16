@@ -21,6 +21,7 @@ class Informacion(models.Model):
 class Tema(models.Model):
     nombre = models.CharField(max_length=100)
     descripcion = models.TextField(null=True, blank=True)
+    descripcion_material = models.TextField(null=True, blank=True)
     especifico = models.BooleanField(verbose_name='Tema específico de Luciérnaga')
     imagen = models.ImageField(upload_to='temas/', help_text='Imagen que aparece en el banner superior. Tamaño 960x704', null=True, blank=True)
     logo = models.ImageField(upload_to='temas/', help_text='Logo superior. Tamaño 350x300', null=True, blank=True)

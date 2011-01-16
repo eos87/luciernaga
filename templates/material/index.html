@@ -15,8 +15,12 @@
 {% block contenido %}
 <div>
     <span class="title">{{tema.nombre}}</span><br><br>
-    <div class="flatpage">        
-        {{tema.descripcion|truncatewords:40|safe}}
+    <div class="flatpage">
+        {% if tema.descripcion_material %}
+        {{tema.descripcion_material|safe}}
+        {% else %}
+        Favor notifica al administrador sobre este contenido
+        {% endif %}
     </div>
 </div>
 <br>
