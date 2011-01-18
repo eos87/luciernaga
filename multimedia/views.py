@@ -15,7 +15,7 @@ def info(request, slug):
     contenido = Informacion.objects.get(slug=slug)
     temas = Tema.objects.filter(especifico=True)
     temasall = Tema.objects.all()
-    menu = Informacion.objects.all()    
+    menu = Informacion.objects.all().exclude(slug=slug)
     return render_to_response('info.html', RequestContext(request, locals()))
 
 def tema_detail(request, slug):

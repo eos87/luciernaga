@@ -45,6 +45,9 @@ class Tema(models.Model):
         else:
             return False
 
+    def get_treinta(self):
+        return self.nombre[:17]
+
 class Subtema(models.Model):
     nombre = models.CharField(max_length=100)
     descripcion = models.TextField(null=True, blank=True)

@@ -37,6 +37,7 @@
     text-align: left;
     color: #fff;
     background: url(/files/images/menu_back.png) repeat-x;
+    font-size: 11px;
 }
 #nav li ul a:hover{
     color: #cadb36;

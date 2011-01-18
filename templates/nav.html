@@ -1,5 +1,11 @@
 <ul id="nav">
-    <li class="l1 {% if flag == 'quien' %}selected{% endif %}"><a href="/info/quienes-somos/">Quienes somos</a></li>
+    <li class="l1 {% if flag == 'quien' %}selected{% endif %}"><a href="/info/quienes-somos/">Quienes somos</a>
+        <ul>
+            {% for tema in infos %}
+            <li><a href="/info/{{tema.slug}}/">{{tema.titulo}} &raquo;</a></li>
+            {% endfor %}
+        </ul>
+    </li>
     <li class="l1 {% if flag == 'temas' %}selected{% endif %}"><a href="#">Temas</a>
         <ul>
             {% for tema in temas %}
@@ -11,7 +17,7 @@
         <ul>
             <li><a href="/videoteca/buscar/">B&uacute;squeda &raquo;</a></li>
             {% for tema in temasall %}
-            <li><a href="/videoteca/{{tema.slug}}/">{{tema.nombre}} &raquo;</a></li>
+            <li><a href="/videoteca/{{tema.slug}}/">{{tema.get_treinta}} &raquo;</a></li>
             {% endfor %}
         </ul>
     </li>
