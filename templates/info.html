@@ -3,7 +3,7 @@
 
 {% block menu1 %}
 {% for tema in menu %}
-<a href="/info/{{tema.slug}}/">{{tema.titulo}} &raquo;</a><br>
+<a href="/info/{{tema.slug}}/" {% if tema.slug == contenido.slug %}style='font-weight: bold;'{% endif %}>{{tema.titulo}} &raquo;</a><br>
 {% endfor %}
 <br><br><br>
 {% endblock %}

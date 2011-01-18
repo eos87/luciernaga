@@ -54,7 +54,7 @@
 
 {% block menu1 %}
 {% for tema in temas %}
-<a href="/temas/{{tema.slug}}/">{{tema.nombre}} &raquo;</a><br>
+<a href="/temas/{{tema.slug}}/" {% if tema.slug == contenido.slug %}style='font-weight: bold;'{% endif %}>{{tema.nombre}} &raquo;</a><br>
 {% endfor %}
 <br><br><br>
 {% endblock %}

@@ -525,8 +525,7 @@ a.link_a{
 }
 .evento{
     border-bottom: 1px #6d6e71 dashed;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 20px;    
     padding-bottom: 10px;
 }
 .evento .left{

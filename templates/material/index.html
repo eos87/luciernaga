@@ -2,8 +2,8 @@
 {% block extratitle %}Materiales Did&aacute;cticos - {{tema.nombre}}{% endblock %}
 
 {% block menu1 %}
-{% for tema in temas_material %}
-<a href="/material/{{tema.slug}}/">{{tema.nombre}} &raquo;</a><br>
+{% for theme in temas_material %}
+<a href="/material/{{theme.slug}}/" {% if theme.slug == tema.slug %}style='font-weight: bold;'{% endif %}>{{theme.nombre}} &raquo;</a><br>
 {% endfor %}
 <br><br><br>
 {% endblock %}

@@ -39,7 +39,7 @@
 
 {% block menu1 %}
 {% for tema in temasall %}
-<a href="/videoteca/{{tema.slug}}/">{{tema.nombre}} &raquo;</a><br>
+<a href="/videoteca/{{tema.slug}}/" {% if tema.slug == selecto.slug %}style='font-weight: bold;'{% endif %}>{{tema.nombre}} &raquo;</a><br>
 {% endfor %}
 {% endblock %}
 

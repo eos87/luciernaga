@@ -15,13 +15,13 @@ def info(request, slug):
     contenido = Informacion.objects.get(slug=slug)
     temas = Tema.objects.filter(especifico=True)
     temasall = Tema.objects.all()
-    menu = Informacion.objects.all().exclude(slug=slug)
+    menu = Informacion.objects.all()
     return render_to_response('info.html', RequestContext(request, locals()))
 
 def tema_detail(request, slug):
     flag = 'temas'
     contenido = Tema.objects.get(slug=slug)
-    temas = Tema.objects.filter(especifico=True).exclude(pk=contenido.pk)
+    temas = Tema.objects.filter(especifico=True)
     temasall = Tema.objects.all()
     return render_to_response('tema.html', RequestContext(request, locals()))
 
@@ -75,7 +75,7 @@ def buscar(request):
 def tema_selecto(request, slug):
     flag = 'videoteca'
     temas = Tema.objects.filter(especifico=True)
-    temasall = Tema.objects.all().exclude(slug=slug)
+    temasall = Tema.objects.all()
     selecto = get_object_or_404(Tema, slug=slug)
 
     #objetos por pagina
