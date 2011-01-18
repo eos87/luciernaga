@@ -78,7 +78,7 @@
         <div class="prev_car" id="mycarousel-prev"></div>
         <div class="obras_carusel">
             <ul id="obras">
-                {% for video in contenido.obtener_ocho|slice:"6" %}
+                {% for video in contenido.obtener_ocho %}
                 <li class="obra">
                     <a href="/videoteca/video/{{video.pk}}/"><img src="{{video.portada.url_112x158}}" alt="{{video.nombre}}"></a>
                     {{video.nombre}}
