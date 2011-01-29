@@ -74,7 +74,11 @@ INSTALLED_APPS = (
     'south',
     'luciernaga.captcha',
     'luciernaga.pagination',
+    'haystack',
 )
+
+HAYSTACK_SITECONF = 'luciernaga.search_sites'
+HAYSTACK_SEARCH_ENGINE = 'simple'
 
 AUTH_PROFILE_MODULE = 'red.Perfil'
 RECAPTCHA_PUB_KEY = "6LdQgMASAAAAAMqmmS8ENSuxIP-D0FTaSBB6xtXF"
