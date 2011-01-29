@@ -53,7 +53,7 @@
                         </div>
                         <div class="texto_evento">
                             {{ev.fecha|date:"d"|get_img|safe}}<br>
-                            <a href="" class="title">{{ev.titulo}}</a><br>
+                            <a href="{{ev.get_full_url}}" class="title">{{ev.titulo}}</a><br>
                             Lugar: {{ev.direccion}}<br>
                             Hora: {{ev.hora}}<br>
                             <div class="desc">
