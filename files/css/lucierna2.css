@@ -710,8 +710,7 @@ a.link_a{
     text-decoration: none !important;
     font-size: 11px !important;
 }
-.resumen_search p{
-    padding: 0;
+.resumen_search p{    
     margin: 0;
-    margin-bottom: 5px;
+    margin-top: 5px;
 }
