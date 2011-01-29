@@ -1,11 +1,12 @@
 {%extends "base2.html"%}
-{%block extraheader%}
+{% load highlight %}
+{% block extrahead %}
 <script type='text/javascript'>
     $(document).ready(function(){
-        $('#id_models_0').parent().parent().parent().parent().parent().css('display', 'none');
+        $('#q_search').val('{{query}}');
     });
 </script>
-{%endblock%}
+{% endblock %}
 
 {% block menu1 %}
 <br><br><br>
@@ -14,36 +15,28 @@
 {% endblock %}
 
 {% block breadcrumb %}
-<a href="/eventos/">Eventos &raquo;</a>
+<a href="/busqueda/">Busqueda &raquo;</a>
 {% endblock %}
 
 {% block contenido %}
-<h2>Resultados de Búsqueda</h2>
+<span class="title">Resultados de Búsqueda</span>
 <div id="resultado_busqueda">    
     {% if query %}
     <br>
-    <div id="contenido_pagina">
-        <table>
-            <thead>
-                <tr>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for result in page.object_list %}
-                {{result}}
-                <tr>
-                    <td>
-                        {% if result.object.titulo %}
-                        <a href="{{ result.object.get_full_url }}">{{ result.object.titulo}}</a>
-                        {% else %}
-                        <a href="{{ result.object.get_full_url }}">{{ result.object.nombre}}</a>
-                        {% endif %}                        
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+    <div id="contenido_pagina">        
+        {% for result in page.object_list %}
+        <div class="salida_search">
+            <a href="{{result.object.get_full_url}}">{{result.object.titulo}}</a><br>
+            <div class="resumen_search">
+                {% highlight result.object.contenido with query %}
+            </div>
+            <div class="link_search">
+                <a href="{{result.object.get_full_url}}">{{result.object.fecha|date:"d M Y"}}</a>
+            </div>
+        </div>
+        {% empty %}
+        <div>La busqueda <span class="highlighted">{{query}}</span> no obtuvo ningun resultado</div>
+        {% endfor %}
 
         {% if page.has_previous or page.has_next %}
         <div>

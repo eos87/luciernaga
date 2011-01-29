@@ -693,3 +693,20 @@ a.link_a{
 .calendar td a:hover{
     color: #000;
 }
+.salida_search{    
+    font-size: 12px;
+    color: #000;
+    margin-bottom: 10px;
+}
+.salida_search a, .salida_search a:visited{
+    color: #2200C1;
+    font-size: 14px;
+}
+.highlighted{
+    font-weight: bold;
+}
+.link_search a{
+    color: #0E774A !important;
+    text-decoration: none !important;
+    font-size: 11px !important;
+}

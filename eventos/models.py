@@ -32,6 +32,12 @@ class Evento(models.Model):
             pass
         super(Evento, self).save()
 
+    def get_full_url(self):
+        return '/eventos/%s' % self.slug
+
+    def get_model(self):
+        return '[Evento] '
+
 class Noticia(models.Model):
     titulo = models.CharField(max_length=150)
     portada = ImageWithThumbsField(upload_to=get_file_path, sizes=((175, 110), (385, 240), ), help_text='Formatos permitidos: .jpg .png .gif')
@@ -56,3 +62,9 @@ class Noticia(models.Model):
         else:
             pass
         super(Noticia, self).save()
+
+    def get_full_url(self):
+        return '/noticias/%s' % self.slug
+
+    def get_model(self):
+        return '[Noticia] '

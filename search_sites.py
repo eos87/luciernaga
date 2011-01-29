@@ -1,2 +1,2 @@
-from luciernaga import haystack
+import haystack
 haystack.autodiscover()
