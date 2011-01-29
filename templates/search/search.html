@@ -27,12 +27,8 @@
         {% for result in page.object_list %}
         <div class="salida_search">
             <a href="{{result.object.get_full_url}}">{{result.object.titulo}}</a><br>
-            <div class="resumen_search">
-                {% autoescape on %}
-
-                {% highlight result.object.contenido with query %}
-                {% endautoescape %}
-
+            <div class="resumen_search">                
+                {{result.object.contenido|safe|truncatewords:"30"}}
             </div>
             <div class="link_search">
                 <a href="{{result.object.get_full_url}}">{{result.object.fecha|date:"d M Y"}}</a>
