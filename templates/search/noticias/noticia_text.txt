@@ -1,3 +1,0 @@
-{{ object.titulo }}
-{{ object.contenido }}
-{{ object.autor }}
