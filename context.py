@@ -14,6 +14,8 @@ def variables(request):
             'v_count': videos_count,
             'temas_material': temas_material,
             'date': datetime.datetime.now(),
-            'infos': Informacion.objects.all().exclude(slug='intro')
+            'infos': Informacion.objects.all().exclude(slug='intro'),
+            'temasall': Tema.objects.all(),
+            'temas': Tema.objects.filter(especifico=True)
            }
     return dicc

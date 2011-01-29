@@ -9,7 +9,8 @@
 {% endblock %}
 
 {% block menu1 %}
-<br><br><br>
+<a href="/eventos/">Eventos</a><br>
+<a href="/noticias/">Noticias</a><br>
 <br><br><br>
 <br><br><br>
 {% endblock %}
@@ -26,7 +27,7 @@
     <div id="contenido_pagina">        
         {% for result in page.object_list %}
         <div class="salida_search">
-            <a href="{{result.object.get_full_url}}">{{result.object.titulo}}</a><br>
+            <a href="{{result.object.get_full_url}}">{{result.object.get_model}}{{result.object.titulo}}</a><br>
             <div class="resumen_search">                
                 {{result.object.contenido|safe|truncatewords:"30"}}
             </div>
