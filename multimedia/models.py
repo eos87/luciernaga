@@ -180,6 +180,12 @@ class Video(models.Model):
         else:
             return random.sample(videos, 15)
 
+    def get_full_url(self):
+        return '/videoteca/video/%s' % self.id
+
+    def get_model(self):
+        return '[Video] '
+
     class Meta:
         verbose_name_plural = 'Videos'
         ordering = ['-id',]

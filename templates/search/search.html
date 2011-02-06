@@ -26,15 +26,33 @@
     <br>
     <div id="contenido_pagina">        
         {% for result in page.object_list %}
+        {% if result.object.get_model == '[Video] ' %}
+        {% if result.object.publicar %}
+        <div class="salida_search">
+            <a href="{{result.object.get_full_url}}">{{result.object.get_model}}{{result.object.nombre}}</a><br>
+            <div class="resumen_search">                
+                {{result.object.sinopsis|safe|truncatewords:"30"}}                
+            </div>
+            <div class="link_search">
+                <a href="{{result.object.get_full_url}}">{{result.object.anio}}</a>
+            </div>
+        </div>
+        {% endif %}
+        {% else %}
         <div class="salida_search">
             <a href="{{result.object.get_full_url}}">{{result.object.get_model}}{{result.object.titulo}}</a><br>
             <div class="resumen_search">                
+                {% if result.object.contenido %}
                 {{result.object.contenido|safe|truncatewords:"30"}}
+                {% else %}
+                {{result.object.sinopsis|safe|truncatewords:"30"}}
+                {% endif %}
             </div>
             <div class="link_search">
                 <a href="{{result.object.get_full_url}}">{{result.object.fecha|date:"d M Y"}}</a>
             </div>
         </div>
+        {% endif %}
         {% empty %}
         <div>La busqueda <span class="highlighted">{{query}}</span> no obtuvo ningun resultado</div>
         {% endfor %}
