@@ -24,14 +24,14 @@
 <div id="resultado_busqueda">    
     {% if query %}
     <br>
-    <div id="contenido_pagina">        
+    <div id="contenido_pagina">                
         {% for result in page.object_list %}
         {% if result.object.get_model == '[Video] ' %}
         {% if result.object.publicar %}
         <div class="salida_search">
             <a href="{{result.object.get_full_url}}">{{result.object.get_model}}{{result.object.nombre}}</a><br>
-            <div class="resumen_search">                
-                {{result.object.sinopsis|safe|truncatewords:"30"}}                
+            <div class="resumen_search">
+                {{result.object.sinopsis|safe|truncatewords:"30"}}
             </div>
             <div class="link_search">
                 <a href="{{result.object.get_full_url}}">{{result.object.anio}}</a>
@@ -41,7 +41,7 @@
         {% else %}
         <div class="salida_search">
             <a href="{{result.object.get_full_url}}">{{result.object.get_model}}{{result.object.titulo}}</a><br>
-            <div class="resumen_search">                
+            <div class="resumen_search">
                 {% if result.object.contenido %}
                 {{result.object.contenido|safe|truncatewords:"30"}}
                 {% else %}
@@ -64,12 +64,11 @@
             {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Siguiente &raquo;{% if page.has_next %}</a>{% endif %}
         </div>
         {% endif %}
-        {% else %}
-        {# Show some example queries to run, maybe query syntax, something else? #}
-        {% endif %}
-    </div>
-
+    </div>    
     <br>
+    {% else %}
+    {# Show some example queries to run, maybe query syntax, something else? #}
+    {% endif %}    
 </div>
 
 {%endblock %}
