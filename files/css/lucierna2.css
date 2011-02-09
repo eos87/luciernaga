@@ -608,7 +608,7 @@ a.link_a{
     color: #fff;
 }
 .send, .getinfo{
-    /*display: none;*/
+    display: none;
 }
 .errorlist{
     font-size: 11px;
