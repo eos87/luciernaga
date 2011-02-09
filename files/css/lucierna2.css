@@ -594,7 +594,7 @@ a.link_a{
     padding: 2px 4px;
 }
 .form textarea{
-    width: 426px;
+    width: 405px;
     height: 80px;
 }
 .captcha{
@@ -608,7 +608,7 @@ a.link_a{
     color: #fff;
 }
 .send, .getinfo{
-    display: none;
+    /*display: none;*/
 }
 .errorlist{
     font-size: 11px;

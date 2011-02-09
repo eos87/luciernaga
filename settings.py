@@ -72,7 +72,7 @@ INSTALLED_APPS = (
     'luciernaga.proyectos',
     'luciernaga.eventos',
     'south',
-    'luciernaga.captcha',
+    'luciernaga.djcaptcha',
     'luciernaga.pagination',
     'haystack',
 )
