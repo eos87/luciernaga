@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import *
 
-urlpatterns = patterns('djcaptcha.views',
+urlpatterns = patterns('luciernaga.djcaptcha.views',
     (r'^(?P<key>\w+)/$', 'captcha'),
 )
 

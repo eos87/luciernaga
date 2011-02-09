@@ -2,10 +2,10 @@
 import random
 
 CAPTCHA_LENGTH = 5
-CAPTCHA_CHALLENGE_FUNCT = 'djcaptcha.utils.code_generator'
-CAPTCHA_CHALLENGE_FUNCT = 'djcaptcha.utils.code_generator'
-CAPTCHA_NOISE_FUNCTIONS = ('djcaptcha.utils.noise_arcs','djcaptcha.utils.noise_dots',)
-CAPTCHA_FILTER_FUNCTIONS = ('djcaptcha.utils.post_smooth',)
+CAPTCHA_CHALLENGE_FUNCT = 'luciernaga.djcaptcha.utils.code_generator'
+CAPTCHA_CHALLENGE_FUNCT = 'luciernaga.djcaptcha.utils.code_generator'
+CAPTCHA_NOISE_FUNCTIONS = ('luciernaga.djcaptcha.utils.noise_arcs','luciernaga.djcaptcha.utils.noise_dots',)
+CAPTCHA_FILTER_FUNCTIONS = ('luciernaga.djcaptcha.utils.post_smooth',)
 CAPTCHA_FOREGROUND_COLOR = '#000000'
 
 def code_generator():
