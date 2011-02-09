@@ -73,7 +73,7 @@ class CaptchaField(MultiValueField):
             store = CaptchaStore.objects.get(respuesta=respuesta, hashkey=value[0], expiration__gt=datetime.datetime.now())
             store.delete()
         except Exception:
-            raise ValidationError(getattr(self,'error_messages',dict()).get('invalid', _('Invalid CAPTCHA')))
+            raise ValidationError(getattr(self,'error_messages',dict()).get('invalid', 'Invalid CAPTCHA'))
         return value
 
 
