@@ -26,11 +26,11 @@
 #nav ul{
     position:absolute;
     display:none;
-    width:15em;
+    width:17em;
     top:36px;    
 }
 #nav li ul a{
-    width:16em;
+    width:18em;
     height:24px;
     line-height: 24px;
     float:left;
