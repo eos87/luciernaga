@@ -553,7 +553,11 @@ a.link_a{
 }
 .evento .derecha{
     float: left;
-    padding-left: 10px;
+    padding-left: 15px;
+}
+.evento .derecha img{
+    padding: 1px;
+    border: 1px #ccc solid;
 }
 .evento .left .fecha_num{    
     float: left;
