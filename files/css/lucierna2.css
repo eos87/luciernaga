@@ -413,7 +413,7 @@ button.red_link, a.red_link{
     font-size: 11px;
 }
 a.prev, a.next{
-    color: #fff;    
+    color: #fff !important;
     display: inline-block;
     width: 20px;
     height: 19px;
