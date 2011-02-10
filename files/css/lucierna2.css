@@ -415,6 +415,7 @@ button.red_link, a.red_link{
 a.prev, a.next{
     color: #fff !important;
     display: inline-block;
+    text-decoration: none !important;
     width: 20px;
     height: 19px;
     text-align: center;
@@ -488,7 +489,7 @@ select.number{
 }
 .proyecto .left{
     float: left;
-    width: 180px;
+    width: 185px;
     height: 120px;    
 }
 .proyecto .left img{
@@ -497,7 +498,8 @@ select.number{
 .proyecto .right{
     float: left;
     width: 480px;
-    height: 120px;    
+    height: 120px;
+    text-align: justify;
 }
 .proyecto .title{
     font-weight: bold;

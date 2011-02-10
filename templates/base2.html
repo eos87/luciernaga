@@ -9,6 +9,12 @@
         <script type="text/javascript" src="/files/js/nav.js"></script>        
         {% block extrahead %}
         {% endblock %}
+        <script type="text/javascript">
+            $(document).ready(function(){
+                var alto = $('.bar').height();
+                $('.cuerpo').css('min-height', alto);
+            });
+        </script>
     </head>
     <body>
         <div id="contenido">
