@@ -493,7 +493,11 @@ select.number{
     height: 120px;    
 }
 .proyecto .left img{
-    padding: 2px 5px 2px 0px;
+    padding: 1px;
+}
+.proyecto .left img:hover{
+    background: #696969;
+    padding: 1px;
 }
 .proyecto .right{
     float: left;
@@ -563,7 +567,7 @@ a.link_a{
     font-size: 11px;
 }
 .contenido_evento{
-    text-align: justify;
+    text-align: justify !important;
 }
 #info, #enviar_amigo{
     text-decoration: none;
