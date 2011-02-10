@@ -51,14 +51,14 @@
                             <span class='symbol'>[-]</span> {{nicaragua.nombre|upper}}
                         </div>
                         <div class='bandera'>
-                            <img src='/public/{{nicaragua.bandera.name}}/' alt='Nicaragua'>
+                            <img src='/public/{{nicaragua.bandera.name}}' alt='Nicaragua'>
                         </div>
                         <div class="clean"></div>
                     </div>
                     <div class='body'>
                         {% for miembro in nicaragua.perfil_set.all %}
                         <div class='perfil'>
-                            <div class="img"><img src='/public/{{miembro.logo.name}}/' alt='{{miembro.nombre}}'></div><br>
+                            <div class="img"><img src='/public/{{miembro.logo.name}}' alt='{{miembro.nombre}}'></div><br>
                             {{miembro.siglas}}<br>
                             Fundada: {{miembro.fundada}}
                         </div>
