@@ -31,7 +31,7 @@ function openYouTube(opener) {
         },
         slideshowGroup: 'group1',
         outlineType: 'rounded-white',
-        wrapperClassName: 'draggable-header no-footer',
+        //wrapperClassName: 'draggable-header no-footer',
         fadeInOut: false,
         maincontentText: 'You need to upgrade your Flash player'
     });
@@ -42,7 +42,7 @@ function openYouTube(opener) {
 
 // Add the controlbar
 hs.addSlideshow({
-    //wrapperClassName: 'dark borderless floating-caption',
+    wrapperClassName: 'dark borderless floating-caption',
     slideshowGroup: 'group2',
     interval: 5000,
     repeat: false,

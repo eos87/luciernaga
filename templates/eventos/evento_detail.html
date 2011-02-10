@@ -89,12 +89,12 @@
             </div>
         </div>
         {% endif %}
-        <div class="proyecto2">
+        <div class="proyecto2 fix">
             <div class="title_prod2">Videos y Fotos</div><br>
             {% for video in evento.video.all %}
             <div class="doc1">
                 <a class="negrita" href="{{video.url|replace:'/watch?v='}}?showsearch=0&showinfo=0&iv_load_policy=3&autoplay=1&version=3" onclick="return openYouTube(this, { align: 'center', slideshowGroup: 'group1' })">{{video.titulo}} &raquo;</a><br>
-                Duraci&oacute;n: {{video.url|get_size}}<br>
+                Duraci&oacute;n: {{video.url}}<br>
             </div>
             {% endfor %}
             {% if evento.image.all %}

@@ -425,7 +425,7 @@ a.prev, a.next{
     color: #fff;
     font-weight: bold;
 }
-.disabled{
+.pagination .disabled{
     background: #eee;
     padding: 2px 5px;
     color: #959595;
