@@ -67,6 +67,7 @@
         </div>
         <div class="clean"></div>
         {% include "envios.html" %}
+        {% if evento.documentos.all %}
         <div class="proyecto2">
             <div class="title_prod2">Documentos</div><br>
             <div>
@@ -79,7 +80,8 @@
                 {% endfor %}
                 <div class="clean"></div>
             </div>
-        </div>        
+        </div>
+        {% endif %}
     </div>    
 </div>
 {% endblock %}
