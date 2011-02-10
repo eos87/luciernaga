@@ -75,14 +75,14 @@
                             <span class='symbol'>[+]</span> {{pais.nombre|upper}}
                         </div>
                         <div class='bandera'>
-                            <img src='/public/{{pais.bandera.name}}/' alt='{{pais.nombre}}'>
+                            <img src='/public/{{pais.bandera.name}}' alt='{{pais.nombre}}'>
                         </div>
                         <div class="clean"></div>
                     </div>
                     <div class='body'>
                         {% for miembro in pais.perfil_set.all %}
                         <div class='perfil'>
-                            <div class="img"><img src='/public/{{miembro.logo.name}}/' alt='{{miembro.nombre}}'></div><br>
+                            <div class="img"><img src='/public/{{miembro.logo.name}}' alt='{{miembro.nombre}}'></div><br>
                             {{miembro.siglas}}<br>
                             Fundada: {{miembro.fundada}}
                         </div>
