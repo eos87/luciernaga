@@ -4,6 +4,8 @@ from django.db import models
 from luciernaga.multimedia.customfilefield import ContentTypeRestrictedFileField as RestrictedFileField
 from luciernaga.multimedia.models import *
 from luciernaga.thumbs import ImageWithThumbsField
+from django.contrib.contenttypes import generic
+from django.contrib.contenttypes.models import ContentType
 
 class Documento(models.Model):
     titulo = models.CharField(max_length=150)
@@ -32,5 +34,30 @@ class FotoPortada(models.Model):
         ordering = ['-id']
 
 class GenericVideo(models.Model):
+    content_type = models.ForeignKey(ContentType)
+    object_id = models.IntegerField(db_index=True)
+    content_object = generic.GenericForeignKey()
+
     titulo = models.CharField(max_length=150)
     url = models.CharField(max_length=300, help_text='Introduzca la URL del video. Ejm: http://www.youtube.com/watch?v=rEi6Me2K2RY')
+
+    def __unicode__(self):
+        return self.titulo
+
+    class Meta:
+        verbose_name = 'Generic Video'
+        verbose_name_plural = 'Generic Videos'
+
+class GenericImage(models.Model):
+    content_type = models.ForeignKey(ContentType)
+    object_id = models.IntegerField(db_index=True)
+    content_object = generic.GenericForeignKey()
+
+    image = models.ImageField(upload_to='genericphoto/', verbose_name='Foto')
+
+    def __unicode__(self):
+        return 'Image %s' % self.id
+
+    class Meta:
+        verbose_name = 'Generic Image'
+        verbose_name_plural = 'Generic Images'

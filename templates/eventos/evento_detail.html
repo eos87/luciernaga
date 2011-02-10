@@ -3,13 +3,17 @@
 {% block extratitle %}Eventos {{evento.titulo}}{% endblock %}
 
 {% block extrahead %}
+<link rel="stylesheet" type="text/css" href="/files/css/highslide.css" >
+<script type="text/javascript" src="/files/js/highslide-full.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.1/swfobject.js"></script>
+<script type="text/javascript" src="/files/js/load.js"></script>
 <style type="text/css">
     .jcarousel-item {
         width: 112px;
     }
     .obra{
         margin: 15px 6px 30px 4px;
-    }
+    }    
 </style>
 <script type="text/javascript">
     function showSend(id){
@@ -29,6 +33,7 @@
         showSend('{{id}}');
         {% endif %}
     });
+    
 </script>
 {% endblock %}
 
@@ -64,7 +69,7 @@
         <div>
             <img src="{{evento.portada.url_385x240}}" width="320" style="float: left; padding: 5px 10px 5px 0px;" alt="{{proyecto.titulo}}">
             <div class="super_align">
-            {{evento.contenido|safe}}
+                {{evento.contenido|safe}}
             </div>
         </div>
         <div class="clean"></div>
@@ -79,11 +84,33 @@
                     Tama&ntilde;o: {{doc.archivo.size|filesizeformat}}<br>
                     Fecha: {{doc.fecha|date:"F Y"|title}}
                 </div>
-                {% endfor %}
+                {% endfor %}                
                 <div class="clean"></div>
             </div>
         </div>
         {% endif %}
+        <div class="proyecto2">
+            <div class="title_prod2">Videos y Fotos</div><br>
+            {% for video in evento.video.all %}
+            <div class="doc1">
+                <a class="negrita" href="{{video.url|replace:'/watch?v='}}?showsearch=0&showinfo=0&iv_load_policy=3&autoplay=1&version=3" onclick="return openYouTube(this, { align: 'center', slideshowGroup: 'group1' })">{{video.titulo}} &raquo;</a><br>
+                Duraci&oacute;n: {{video.url|get_size}}<br>
+            </div>
+            {% endfor %}
+            {% if evento.image.all %}
+            <div class="doc1 highslide-gallery">
+                <a id="thumb1" class="negrita highslide" href="http://lospatiosgranada.com/public/multimedia/gallery/g7.jpg" onclick="return hs.expand(this, { align: 'center', thumbnailId: 'thumb1', slideshowGroup: 'group2'})">Titulo de la galeria &raquo;</a><br>
+                Tu madre en bolas<br>
+            </div>
+            {% endif %}
+            <div class="clean"></div>
+        </div>
     </div>    
 </div>
+<div class="hidden-container">
+    {% for image in evento.image.all %}
+    <a href="{{image.image.url}}" class="highslide" onclick="return hs.expand(this, { thumbnailId: 'thumb1', slideshowGroup: 'group2'})"></a>
+    {% endfor %}
+</div>
+
 {% endblock %}

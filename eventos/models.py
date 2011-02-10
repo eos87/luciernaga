@@ -4,6 +4,7 @@ from luciernaga.thumbs import ImageWithThumbsField
 from luciernaga.utils import get_file_path
 from luciernaga.material.models import *
 from django.template.defaultfilters import slugify
+from django.contrib.contenttypes import generic
 
 class Evento(models.Model):
     titulo = models.CharField(max_length=150)
@@ -14,6 +15,9 @@ class Evento(models.Model):
     contenido = models.TextField()
     documentos = models.ManyToManyField(Documento, verbose_name='Documentos relacionados', blank=True, null=True)
     slug = models.SlugField(editable=False)
+
+    image = generic.GenericRelation(GenericImage)
+    video = generic.GenericRelation(GenericVideo)
 
     fileDir = 'eventos/images/'
 
