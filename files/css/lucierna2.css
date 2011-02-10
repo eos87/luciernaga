@@ -461,6 +461,13 @@ select.number{
     margin: 0 10px 0 5px;
     width: 112px;
 }
+.portada img{
+    padding: 1px;
+}
+.portada img:hover{
+    background: #696969;
+    padding: 1px;
+}
 .doc .breve_descripcion{
     float: left;
     width: 540px;    
@@ -476,11 +483,10 @@ select.number{
 }
 .related_videos a{
     color: #000;
-    text-decoration: none;
-    
+    text-decoration: none;    
 }
 .related_videos a:hover{
-    text-decoration: underline;
+    text-decoration: underline !important;
 }
 .proyecto{
     border-top: 1px #6d6e71 dashed;
