@@ -210,6 +210,13 @@ button.red_link, a.red_link{
     width: 623px;
     margin-left: -15px;    
 }
+.obra img{
+    padding: 1px;
+}
+.obra img:hover{
+    background: #696969;
+    padding: 1px;
+}
 .prev_car, .next_car{
     float: left;
     width: 22px;
