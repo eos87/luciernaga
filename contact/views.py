@@ -9,8 +9,8 @@ def index(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            contenido = render_to_string('contact/contact.txt', {'mensaje': form.cleaned_data['nombre'], 'email': form.cleaned_data['email'], 'mensaje': form.cleaned_data['mensaje']})
-            send_mail(u'Contáctenos @ Fundación Luciernaga', contenido, 'noreply@fundacionluciernaga.org', ['helmygb@gmail.com', ])
+            contenido = render_to_string('contact/contact.txt', {'nombre': form.cleaned_data['nombre'], 'email': form.cleaned_data['email'], 'mensaje': form.cleaned_data['mensaje']})
+            send_mail(u'Contáctenos @ Fundación Luciernaga', contenido, 'noreply@fundacionluciernaga.org', ['joaquin@fundacionluciernaga.org', ])
             ok = True
     else:
         form = ContactForm()
