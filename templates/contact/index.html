@@ -13,6 +13,10 @@
     {% else %}
     <span class="title">Cont&aacute;ctenos</span><br><br>
     <div class="super_align">
+        {{info.descripcion|safe}}
+    </div>
+    <br>
+    <div class="super_align">
         <form action="." method="POST" class="contactform">{% csrf_token %} 
             <table>
                 {{form.as_table}}                

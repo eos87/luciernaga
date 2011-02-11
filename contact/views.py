@@ -4,8 +4,13 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.template.loader import render_to_string
 from forms import ContactForm
+from luciernaga.multimedia.models import Informacion
 
 def index(request):
+    try:
+        info = Informacion.objects.get(slug='contact')
+    except:
+        pass
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
