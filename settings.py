@@ -71,7 +71,7 @@ INSTALLED_APPS = (
     'luciernaga.material',
     'luciernaga.proyectos',
     'luciernaga.eventos',
-    #'south',
+    'south',
     'luciernaga.djcaptcha',
     'luciernaga.pagination',
     'haystack',
