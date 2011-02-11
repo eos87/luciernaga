@@ -7,7 +7,7 @@ class GenericImageInline(generic.GenericTabularInline):
     model = GenericImage
     extra = 3
     verbose_name = 'foto'
-    verbose_name_plural = 'Galeria de fotos'
+    verbose_name_plural = 'Fotos'
 
 class GenericVideoInline(generic.GenericStackedInline):
     model = GenericVideo
@@ -31,5 +31,17 @@ class ModelOptions(admin.ModelAdmin):
               '/files/js/tiny_mce/tconfig.js')
 
 
-admin.site.register(Evento, ModelOptions)
-admin.site.register(Noticia, ModelOptions)
+class EventoAdmin(ModelOptions):
+    fieldsets = [
+        (None, {'fields': ['titulo', 'portada', 'fecha', 'hora', 'direccion', 'contenido', 'documentos']}),
+        ('Galeria de fotos', {'fields': ['titulo_galeria', 'fecha_galeria']}),
+    ]
+
+class NoticiaAdmin(ModelOptions):
+    fieldsets = [
+        (None, {'fields': ['titulo', 'portada', 'fecha', 'contenido', 'documentos']}),
+        ('Galeria de fotos', {'fields': ['titulo_galeria', 'fecha_galeria']}),
+    ]
+
+admin.site.register(Evento, EventoAdmin)
+admin.site.register(Noticia, NoticiaAdmin)

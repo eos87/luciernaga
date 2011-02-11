@@ -24,6 +24,11 @@ class Base(models.Model):
         ordering = ['-id']
 
 class Proyecto(Base):
+    titulo_galeria = models.CharField(max_length=150, blank=True, default='')
+    fecha_galeria = models.DateTimeField(blank=True, default=datetime.datetime.now())
+    image = generic.GenericRelation(GenericImage)
+    video = generic.GenericRelation(GenericVideo)
+    
     def __unicode__(self):
         return self.titulo
 
@@ -37,6 +42,11 @@ class Proyecto(Base):
 
 
 class Campania(Base):
+    titulo_galeria = models.CharField(max_length=150, blank=True, default='')
+    fecha_galeria = models.DateTimeField(blank=True, default=datetime.datetime.now())
+    image = generic.GenericRelation(GenericImage)
+    video = generic.GenericRelation(GenericVideo)
+    
     def __unicode__(self):
         return self.titulo
 

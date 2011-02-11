@@ -22,13 +22,17 @@ def get_size(value):
     url = urllib.urlopen('http://gdata.youtube.com/feeds/api/videos/%s?alt=json&format=5' % video_id)
     datos = url.read()
     json_data = json.loads(datos)
-    duration = json_data['entry']['media$group']['media$content'][0]['duration']
 
-    if int(duration) < 3600:
-        return time.strftime('%M:%S', time.gmtime(int(duration)))
-    else:
-        return time.strftime('%H:%M:%S', time.gmtime(int(duration)))
-
+    try:
+        duration = json_data['entry']['media$group']['media$content'][0]['duration']
+        
+        if int(duration) < 3600:
+            return time.strftime('%M:%S', time.gmtime(int(duration)))
+        else:
+            return time.strftime('%H:%M:%S', time.gmtime(int(duration)))
+    except:
+        return '00:00'
+    
     return ''
 
 @stringfilter

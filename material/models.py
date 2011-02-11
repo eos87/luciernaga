@@ -6,6 +6,7 @@ from luciernaga.multimedia.models import *
 from luciernaga.thumbs import ImageWithThumbsField
 from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
+from thumbs import ImageWithThumbsField as ImageThumb2
 
 class Documento(models.Model):
     titulo = models.CharField(max_length=150)
@@ -53,7 +54,8 @@ class GenericImage(models.Model):
     object_id = models.IntegerField(db_index=True)
     content_object = generic.GenericForeignKey()
 
-    image = models.ImageField(upload_to='genericphoto/', verbose_name='Foto')
+    image = ImageThumb2(upload_to='genericphoto/', sizes=((800, 600),), verbose_name='Foto')
+    #image = models.ImageField(upload_to='genericphoto/', verbose_name='Foto')
 
     def __unicode__(self):
         return 'Image %s' % self.id

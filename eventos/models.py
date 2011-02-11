@@ -5,6 +5,7 @@ from luciernaga.utils import get_file_path
 from luciernaga.material.models import *
 from django.template.defaultfilters import slugify
 from django.contrib.contenttypes import generic
+import datetime
 
 class Evento(models.Model):
     titulo = models.CharField(max_length=150)
@@ -16,6 +17,8 @@ class Evento(models.Model):
     documentos = models.ManyToManyField(Documento, verbose_name='Documentos relacionados', blank=True, null=True)
     slug = models.SlugField(editable=False)
 
+    titulo_galeria = models.CharField(max_length=150, blank=True, default='')
+    fecha_galeria = models.DateTimeField(blank=True, default=datetime.datetime.now())
     image = generic.GenericRelation(GenericImage)
     video = generic.GenericRelation(GenericVideo)
 
@@ -50,6 +53,10 @@ class Noticia(models.Model):
     documentos = models.ManyToManyField(Documento, verbose_name='Documentos relacionados', blank=True, null=True)
     slug = models.SlugField(editable=False)
 
+    titulo_galeria = models.CharField(max_length=150, blank=True, default='')
+    fecha_galeria = models.DateTimeField(blank=True, default=datetime.datetime.now())
+    image = generic.GenericRelation(GenericImage)
+    video = generic.GenericRelation(GenericVideo)
     fileDir = 'noticias/images/'
 
     class Meta:

@@ -3,6 +3,10 @@
 {% block extratitle %}Eventos {{evento.titulo}}{% endblock %}
 
 {% block extrahead %}
+<link rel="stylesheet" type="text/css" href="/files/css/highslide.css" >
+<script type="text/javascript" src="/files/js/highslide-full.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.1/swfobject.js"></script>
+<script type="text/javascript" src="/files/js/load.js"></script>
 <script type="text/javascript">
     function showSend(id){
         $('.send, .getinfo').hide();
@@ -71,6 +75,25 @@
             </div>
         </div>
         {% endif %}
+        {% if evento.image.all or evento.video.all %}
+        <div class="proyecto2 fix">
+            <div class="title_prod2">Videos y Fotos</div><br>
+            {% for video in evento.video.all %}
+            <div class="doc1">
+                <a class="negrita" href="{{video.url|replace:'/watch?v='}}?showsearch=0&showinfo=0&iv_load_policy=3&autoplay=1&version=3" onclick="return openYouTube(this, { align: 'center', slideshowGroup: 'group1' })">{{video.titulo}} &raquo;</a><br>
+                <span class="short_desc">Duraci&oacute;n: {{video.url|get_size}}</span><br>
+            </div>
+            {% endfor %}
+            {% if evento.image.all %}
+            <div class="doc1 highslide-gallery">
+                <a id="thumb1" class="negrita highslide" {% for i in evento.image.all|slice:"1" %}href="{{i.image.url_800x600}}"{% endfor %} onclick="return hs.expand(this, { align: 'center', thumbnailId: 'thumb1', slideshowGroup: 'group2'})">{{evento.titulo_galeria}} &raquo;</a><br>
+                <span class="short_desc">{{evento.image.all.count}} fotos</span><br>
+                <span class="short_desc">{{evento.fecha_galeria|date:"M Y"}}</span>
+            </div>
+            {% endif %}
+            <div class="clean"></div>
+        </div>
+        {% endif %}
         {% if cinco %}
         <div style="border-top: 1px #6d6e71 dashed; padding-top: 10px;">
             <div class="title_prod2">Otras Noticias</div><br>
@@ -83,5 +106,10 @@
         </div>
         {% endif %}
     </div>
+</div>
+<div class="hidden-container">
+    {% for image in evento.image.all|slice:"1:" %}
+    <a href="{{image.image.url_800x600}}" class="highslide" onclick="return hs.expand(this, { thumbnailId: 'thumb1', slideshowGroup: 'group2'})"></a>
+    {% endfor %}
 </div>
 {% endblock %}

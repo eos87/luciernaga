@@ -1,7 +1,6 @@
 # -*- coding: UTF-8 -*-
 from django.db import models
 from django.contrib.auth.models import User
-#from customfilefield import ContentTypeRestrictedFileField as RestrictedFileField
 from luciernaga.thumbs import ImageWithThumbsField
 from luciernaga.red.models import *
 from django.template.defaultfilters import slugify
@@ -167,6 +166,7 @@ class Video(models.Model):
             return u'<img alt="%s" title="%s" width="80" height="52" src="%s" />' % (self.nombre, self.nombre, self.portada.url_80x52)
         else:
             return '(Without image)'
+        
     get_portada.short_description = 'Portada'
     get_portada.allow_tags = True
 
