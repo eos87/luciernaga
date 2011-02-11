@@ -1,0 +1,26 @@
+{% extends "base2.html" %}
+{% block extratitle %}Cont&aacute;ctenos{% endblock %}
+
+{% block menu1 %}
+<a href="/">Inicio &raquo;</a><br>
+<a href="/contactenos/" style='font-weight: bold;'>Cont&aacute;ctenos &raquo;</a><br>
+<br><br><br>
+{% endblock %}
+{% block contenido %}
+<div>
+    {% if ok %}
+    <span class="title">Enviado con &eacute;xito!</span><br><br>
+    {% else %}
+    <span class="title">Cont&aacute;ctenos</span><br><br>
+    <div class="super_align">
+        <form action="." method="POST" class="contactform">{% csrf_token %} 
+            <table>
+                {{form.as_table}}                
+            </table><br>
+            <button class="red_link" type="submit">Enviar &raquo;</button>
+        </form>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+

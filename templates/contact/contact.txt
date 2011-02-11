@@ -1,0 +1,10 @@
+Saludos,
+
+{{nombre}} ha enviado un mensaje desde el sitio
+de Fundación Luciérnaga
+
+Email: {{email}}
+
+Mensaje:
+
+{{mensaje}}
