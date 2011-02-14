@@ -6,7 +6,7 @@ import datetime
 
 class VideoIndex(SearchIndex):
     text = CharField(document=True, use_template=True)
-    titulo = CharField(model_attr='nombre')
+    nombre = CharField(model_attr='nombre')
     sinopsis = CharField(model_attr='sinopsis')
     produccion = CharField(model_attr='produccion')
 

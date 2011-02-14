@@ -59,10 +59,17 @@
                     </div>
                 </div>                                
                 <div class="cuerpo">
-                    <div class="search">
-                        <form action="/busqueda/" method="get">
-                            <input name="q" type="input" id="q_search"> <button type="submit" class="red_link">Buscar &raquo;</button>
+                    <div class="search">                        
+                        <form action="" id="cse-search-box">
+                            <div>
+                                <input type="hidden" name="cx" value="011709114369982533135:gtk2oadaqsm" />
+                                <input type="hidden" name="cof" value="FORID:10" />
+                                <input type="hidden" name="ie" value="UTF-8" />
+                                <input type="text" name="q" size="31" />                                
+                                <button type="submit" class="red_link">Buscar &raquo;</button>
+                            </div>
                         </form>
+                        <script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=en"></script>
                     </div>
                     <div class="main">
                         <br>
@@ -79,8 +86,8 @@
                         <div class="clean"></div>
                     </div>
                     <div style="margin-right: 5px; margin-left: 10px;">
-                    {% block contenido %}
-                    {% endblock %}
+                        {% block contenido %}
+                        {% endblock %}
                     </div>                    
                 </div>
                 <div class="clean"></div>
@@ -91,6 +98,6 @@
             Todos los derechos reservados. Fundaci&oacute;n Luci&eacute;rnaga 2010.<br>
             Telefonos: (505) 2266-0811 • 2268-7802. Dirección: Reparto Bolonia, Sumedico 1 c. al Oeste, Managua, Nicaragua<br>
             <br><br>
-        </div>
+        </div>        
     </body>
 </html>

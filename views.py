@@ -27,3 +27,8 @@ def index(request):
         pass
     return render_to_response('index.html', RequestContext(request, locals()))
 
+from haystack.query import SearchQuerySet
+
+def CustomSearch(request):    
+
+    return render_to_response('search/search.html', RequestContext(request, locals()))

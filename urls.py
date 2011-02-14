@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     (r'^admin/filebrowser/', 'luciernaga.multimedia.views.subir_huerfana'),    
     
     (r'^$', 'luciernaga.views.index'),
+    (r'^busqueda/$', 'luciernaga.views.CustomSearch'),
     (r'^captcha/', include('luciernaga.djcaptcha.urls')),
     (r'^', include('luciernaga.multimedia.urls')),
     (r'^', include('luciernaga.red.urls')),
@@ -19,7 +20,8 @@ urlpatterns = patterns('',
     (r'^', include('luciernaga.proyectos.urls')),
     (r'^', include('luciernaga.eventos.urls')),
     (r'^', include('luciernaga.contact.urls')),
-    (r'^busqueda/', include('haystack.urls')),
+    #(r'^busqueda/', include('haystack.urls')),
+
 
     (r'^admin/', include(admin.site.urls)),
     #(r'^captcha/image/(?P<key>\w+)/$', 'luciernaga.captcha.views.captcha_image'),

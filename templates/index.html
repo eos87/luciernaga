@@ -79,9 +79,16 @@
     </div>
     <div class="facebook">
         <div class="search">
-            <form method="get" action="/busqueda/">
-                <input name="q" type="input" id="q_search"> <button type="submit" class="red_link">Buscar &raquo;</button>
+            <form action="/busqueda/" id="cse-search-box">
+                <div>
+                    <input type="hidden" name="cx" value="011709114369982533135:gtk2oadaqsm" />
+                    <input type="hidden" name="cof" value="FORID:10" />
+                    <input type="hidden" name="ie" value="UTF-8" />
+                    <input type="text" name="q" size="31" />
+                    <button type="submit" class="red_link">Buscar &raquo;</button>
+                </div>
             </form>
+            <script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=en"></script>
         </div>
         <div class="plugin_like">
             <fb:like-box header="true" stream="true" width="300" href="http://www.facebook.com/pages/Fundacion-Luciernaga/107767055952591" class="  fb_iframe_widget "></fb:like-box>
