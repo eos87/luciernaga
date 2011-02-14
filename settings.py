@@ -74,12 +74,12 @@ INSTALLED_APPS = (
     'south',
     'luciernaga.djcaptcha',
     'luciernaga.pagination',
-    'haystack',
+    #'haystack',
 )
 
-HAYSTACK_SITECONF = 'luciernaga.search_sites'
-HAYSTACK_SEARCH_ENGINE = 'whoosh'
-HAYSTACK_WHOOSH_PATH = PROJECT_DIR + '/whoosh_index'
+#HAYSTACK_SITECONF = 'luciernaga.search_sites'
+#HAYSTACK_SEARCH_ENGINE = 'whoosh'
+#HAYSTACK_WHOOSH_PATH = PROJECT_DIR + '/whoosh_index'
 
 HAYSTACK_SEARCH_RESULTS_PER_PAGE = 10
 
