@@ -21,6 +21,11 @@ class ModelOptions(admin.ModelAdmin):
         GenericImageInline,
         GenericVideoInline
     ]
+    search_fields = ['titulo', 'contenido']
+    list_filter = ['fecha']
+    list_display = ['titulo', 'fecha',]
+    save_on_top = True
+    actions_on_top = True
 
     class Media:
         css = {

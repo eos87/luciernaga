@@ -8,6 +8,24 @@
         background: url({{index.foto.url}}) no-repeat !important;
     }
 </style>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#mesdos').click(function(){
+            $('#divuno').hide();
+            $('#divdos').show()
+            $(this).addClass('mes_activo');
+            $('#mesuno').removeClass('mes_activo');
+            return false;
+        });
+        $('#mesuno').click(function(){
+            $('#divdos').hide();
+            $('#divuno').show()
+            $(this).addClass('mes_activo');
+            $('#mesdos').removeClass('mes_activo');
+            return false;
+        });
+    });
+</script>
 {% endif %}
 {% endblock %}
 {% block contenido %}
@@ -42,11 +60,33 @@
         <div class="mural">
             <div class="mural_eventos">
                 <br>
-                <div class="meses"><a href="/" {% if c %}style="color: #456a38;"{% endif %}>{{date|date:"F Y"|title}}</a> | <a href="#">{{next|date:"F Y"|title}} &raquo;</a></div>
-                <div class="clean">
+                <div class="meses"><a href="#" id="mesuno" class="mes_activo">{% if vacio == 0 %}{{divuno_label|date:"F Y"|title}}{% else %}{% if vacio == 1 %}Pr&oacute;ximos{% else %}Eventos pasados{% endif %}{% endif %}</a> {% if flag == 0 %}| <a href="#" id="mesdos">{{divdos_label|date:"F Y"|title}} &raquo;</a>{% else %}{% if flag == 1 %}| <a href="#" id="mesdos">Pr&oacute;ximos &raquo;</a>{% endif %}{% endif %}</div>
+                <div class="clean"></div>
+                <div id="divuno">
                     <br>
                     <!-- Lista de eventos -->
-                    {% for ev in last_two %}
+                    {% for ev in eventos %}
+                    <div class="eventos">
+                        <div class="imagen">
+                            <img src="{{ev.portada.url_175x110}}" width="150" alt="EventoXY">
+                        </div>
+                        <div class="texto_evento">
+                            {{ev.fecha|date:"d"|get_img|safe}}<br>
+                            <a href="{{ev.get_full_url}}" class="title">{{ev.titulo}}</a><br>
+                            Lugar: {{ev.direccion}}<br>
+                            Hora: {{ev.hora}}<br>
+                            <div class="desc">
+                                {{ev.contenido|safe|truncatewords:"20"}}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <!-- fin lista eventos -->                    
+                </div>
+                <div id="divdos">
+                    <br>
+                    <!-- Lista de eventos -->
+                    {% for ev in proximos %}
                     <div class="eventos">
                         <div class="imagen">
                             <img src="{{ev.portada.url_175x110}}" width="150" alt="EventoXY">
@@ -63,8 +103,8 @@
                     </div>
                     {% endfor %}
                     <!-- fin lista eventos -->
-                    <a href="/eventos/" class="red_link">Ver m&aacute;s eventos &raquo;</a>
                 </div>
+                <a href="/eventos/" class="red_link">Ver m&aacute;s eventos &raquo;</a>
             </div>
             <img src="/files/images/vline.png" alt="line" class="vline">
             <div class="red_social">                

@@ -26,11 +26,11 @@
 #nav ul{
     position:absolute;
     display:none;
-    width:17em;
+    width:12em;
     top:36px;
 }
 #nav li ul a{
-    width:18em;
+    width:13em;
     height:24px;
     line-height: 24px;
     float:left;
@@ -38,13 +38,21 @@
     color: #fff;
     background: url(/files/images/menu_back.png) repeat-x;
     font-size: 11px;
+    padding-left: 8px;
 }
 #nav li ul a:hover{
     color: #cadb36;
+    background: url(/files/images/menu_hover.png) repeat;
 }
 #nav ul ul{
     top:auto;
 }
 .selected{
     background: url(/files/images/nav_hover.png) repeat-x bottom;
+}
+.ancho ul{
+    width: 17em !important;
+}
+.ancho ul a{
+    width: 18em !important;
 }
