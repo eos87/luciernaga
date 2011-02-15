@@ -49,13 +49,13 @@ def buscar(request):
 
     #validando si selecciono algun tema
     if themes != [u'']:
-        resultados = Video.objects.filter(tema__pk__in=themes, publicar=True)
+        resultados = Video.objects.filter(tema__pk__in=themes, publicar=True, owner='luciernaga')
     #validando si selecciono un tipo de genero
     if genero:
-        resultados = Video.objects.filter(genero__pk=genero, publicar=True)
+        resultados = Video.objects.filter(genero__pk=genero, publicar=True, owner='luciernaga')
     #validando si selecciono una coleccion
     if coleccion:
-        resultados = Video.objects.filter(coleccion__pk=coleccion, publicar=True)
+        resultados = Video.objects.filter(coleccion__pk=coleccion, publicar=True, owner='luciernaga')
         
     #verificar si hay palabras claves
     if query:
@@ -95,7 +95,7 @@ def tema_selecto(request, slug):
     query = request.GET.get('q', '')
     subtema = request.GET.get('subtema', '')
     qset = []    
-    videos = Video.objects.filter(tema=selecto, publicar=True).order_by(order)
+    videos = Video.objects.filter(tema=selecto, publicar=True, owner='luciernaga').order_by(order)
     if query:
         qset.append(Q(nombre__icontains=query))
         qset.append(Q(sinopsis__icontains=query))

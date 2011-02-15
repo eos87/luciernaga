@@ -12,7 +12,7 @@ class ModelOptions(admin.ModelAdmin):
 
 class VideoAdmin(admin.ModelAdmin):
     list_display = ['get_portada', 'nombre', 'codigo', 'owner', 'anio', 'publicar', 'destacado', 'duracion', 'archivo']
-    list_filter = ['publicar']
+    list_filter = ['publicar', 'owner']
     search_fields = ['nombre', 'sinopsis', 'realizacion__nombre', 'produccion', 'anio', 'codigo']
     save_on_top = True
     actions_on_top = True
@@ -23,8 +23,7 @@ class VideoAdmin(admin.ModelAdmin):
          'comentarios', 'stand', 'fila', 'genero', 'coleccion', 'realizacion', 'pais_produccion', 'paises_referidos',
          'formato_original', 'formatos_distribucion', 'idioma', 'tema', 'subtema']})
     ]
-    
-    
+        
     class Media:
         css = {
             "all": ("/files/css/vareas.css", "/files/css/requerido.css")
@@ -32,6 +31,20 @@ class VideoAdmin(admin.ModelAdmin):
 
         js = ('/files/js/tiny_mce/tiny_mce.js',
               '/files/js/tiny_mce/vconfig.js')
+
+    def queryset(self, request):
+        if request.user.is_superuser:
+            return Video.objects.all()
+        return Video.objects.filter(user=request.user)
+
+    def get_form(self, request, obj=None, ** kwargs):
+        if request.user.is_superuser:
+            form = super(VideoAdmin, self).get_form(self, request, ** kwargs)
+        else:
+            form = super(VideoAdmin, self).get_form(self, request, ** kwargs)
+            form.base_fields['user'].queryset = User.objects.filter(pk=request.user.pk)
+            form.base_fields['owner'].choices = (('red', 'Red Mesoamericana'),)
+        return form
 
 
 class SubtemaAdmin(admin.ModelAdmin):
