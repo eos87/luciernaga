@@ -148,7 +148,7 @@ a.negrita:hover{
 }
 button.red_link, a.red_link{
     background-color: #7c0000;
-    padding: 1px 5px;
+    padding: 2px 5px;
     color: #fff;
     border: none;
 }
