@@ -3,7 +3,7 @@ from luciernaga.multimedia.models import Video
 from models import *
 
 class DocumentoAdmin(admin.ModelAdmin):
-    list_display = ['titulo', 'fecha']
+    list_display = ['titulo', 'fecha', 'red']
     search_fields = ['titulo', 'descripcion']
     save_on_top = True
     actions_on_top = True
