@@ -208,3 +208,11 @@ button.red_link, a.red_link{
 #cse-search-box input[name='q']{
     background: #fff !important;
 }
+.mes_activo{
+    color: #456a38 !important;
+    text-decoration: none !important;
+    font-weight: bold;
+}
+#divdos{
+    display: none;
+}
