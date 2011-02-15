@@ -60,7 +60,7 @@
         <div class="mural">
             <div class="mural_eventos">
                 <br>
-                <div class="meses"><a href="#" id="mesuno" class="mes_activo">{% if vacio == 0 %}{{divuno_label|date:"F Y"|title}}{% else %}Pr&oacute;ximos{% endif %}</a> {% if flag == 0 %}| <a href="#" id="mesdos">{{divdos_label|date:"F Y"|title}} &raquo;</a>{% else %}{% if flag == 1 %}| <a href="#" id="mesdos">Pr&oacute;ximos &raquo;</a>{% endif %}{% endif %}</div>
+                <div class="meses"><a href="#" id="mesuno" class="mes_activo">{% if vacio == 0 %}{{divuno_label|date:"F Y"|title}}{% else %}{% if vacio == 1 %}Pr&oacute;ximos{% else %}Eventos pasados{% endif %}{% endif %}</a> {% if flag == 0 %}| <a href="#" id="mesdos">{{divdos_label|date:"F Y"|title}} &raquo;</a>{% else %}{% if flag == 1 %}| <a href="#" id="mesdos">Pr&oacute;ximos &raquo;</a>{% endif %}{% endif %}</div>
                 <div class="clean"></div>
                 <div id="divuno">
                     <br>

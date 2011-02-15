@@ -36,6 +36,9 @@ def index(request):
         proximos = []
         flag = 2
         vacio = 1
+    if not eventos:
+        vacio = 2
+        eventos = Evento.objects.all().order_by('-fecha')[:2]
     try:
         index = FotoPortada.objects.get(slug='index')
     except: pass
