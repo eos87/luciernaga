@@ -16,6 +16,7 @@ class Documento(models.Model):
     archivo = RestrictedFileField(upload_to='documentos', content_types=['application/pdf',], max_upload_size=5242880, help_text='Formato PDF, Tamaño máx. 50MB')
     tema = models.ManyToManyField(Tema)
     videos_relacionados = models.ManyToManyField(Video, blank=True, verbose_name='Videos relacionados (max. 3)')
+    red = models.BooleanField(verbose_name='Red Mesoamericana')
 
     def __unicode__(self):
         return self.titulo

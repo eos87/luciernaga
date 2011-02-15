@@ -8,6 +8,7 @@ class DocumentoAdmin(admin.ModelAdmin):
     save_on_top = True
     actions_on_top = True
     filter_horizontal = ('videos_relacionados',)
+    fields = ['red', 'titulo', 'portada', 'descripcion', 'fecha', 'archivo', 'tema', 'videos_relacionados']
 
     def get_form(self, request, obj=None, ** kwargs):
         form = super(DocumentoAdmin, self).get_form(self, request, ** kwargs)
