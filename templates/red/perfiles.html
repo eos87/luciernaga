@@ -1,6 +1,9 @@
 {% extends "base2.html" %}
-{% block extratitle %}Red Mesoamericana{% endblock %}
+{% block extratitle %}Red Mesoamericana | {% if centinel %}{{miembro.siglas}}{% endif %}{% endblock %}
 {% block extrahead %}
+<script type="text/javascript" src="/files/js/jquery.jcarousel.min.js"></script>
+<script type="text/javascript" src="/files/js/cconfig.js"></script>
+<script type="text/javascript" src="/files/js/perfil.js"></script>
 <style type="text/css">
     #contenido {
         background: url(/files/images/banner_medio_ambiente.jpg) no-repeat;
@@ -8,40 +11,80 @@
     .banner{
         height: 380px;
     }
-</style>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('.logo_animado').attr('src', '/files/images/logo_red.png');
-        lastBlock = $('#a8');
-        maxHeight = 505;
-        minHeight = 28;
-        $(".acordeon ul li div.title").click(
-        function(){
-	    $(lastBlock).find('.body').hide();
-            $(lastBlock).animate({height: minHeight+"px"}, { queue:false, duration:300 });		
-            $(this).parent().animate({height: maxHeight+"px"}, { queue:false, duration:300});
-	    $(this).parent().find('.body').show();
-            changeSymbol(lastBlock, this);
-            lastBlock = $(this).parent();
-            return false;
-        });
-    });
-    function changeSymbol(lastBlock, newBlock){
-        $(lastBlock).find('span').html('[+]');
-        $(newBlock).find('span').html('[-]');
+    .jcarousel-item {
+        width: 112px;
     }
-</script>
+    .obra{
+        margin: 15px 6px 30px 6px;
+    }
+</style>
 {% endblock %}
 {% block menu1 %}
-<a href="/red/perfiles/">Perfiles de miembros &raquo;</a><br>
+<a class="negrita" href="/red/perfiles/">Perfiles de miembros &raquo;</a><br>
 {% for tema in menu %}
 <a href="/red/{{tema.id}}/">{{tema.nombre}} &raquo;</a><br>
 {% endfor %}
 <br><br><br>
 {% endblock %}
+
+{% block breadcrumb %}
+<a href="/red/perfiles/">Perfiles &raquo; </a>{% if centinel %}<a href="/red/perfiles/{{miembro.user.username}}/">{{miembro.user.username|title}}</a>{% endif %}
+{% endblock %}
+
 {% block contenido %}
 <div>
+    {% if centinel %}
+    <div>
+        <span class="title">{{miembro.siglas|title}}</span><br><br>
+        <div class="super_align">
+            <img class="logo_perfil" src='/public/{{miembro.logo.name}}' alt='{{miembro.nombre}}'>
+            {{miembro.descripcion|safe}}
+        </div>
+        <br><br>
+    </div>
+    {% if miembro.user.video_set.all %}
+    <img src="/files/images/hline_large.png" alt="line" class="hline2">
+    <div class="otras_producciones">
+        <div class="title_prod2">Producciones recientes de {{miembro.siglas|title}}</div>
+        <div class="prev_car" id="mycarousel-prev"></div>
+        <div class="obras_carusel">
+            <ul id="obras">
+                {% for video in miembro.user.video_set.all %}
+                <li class="obra">
+                    <a href="/videoteca/video/{{video.pk}}/"><img src="{{video.portada.url_112x158}}" alt="{{video.nombre}}"></a>
+                    {{video.nombre}}
+                    <br style="clear: both;">
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="next_car" id="mycarousel-next"></div>                
+        <div class="clean"></div>
+    </div>
+    {% endif %}
+    {% endif %}
+    {% if centinel %}
+    {% if miembro.user.documento_set.all %}
+    <img src="/files/images/hline_large.png" alt="line" class="hline2">
+    <div class="otras_producciones">
+        <div class="title_prod2">Documentos</div><br>
+        <div>
+            {% for doc in miembro.user.documento_set.all %}
+            <div class="doc1">
+                <a class="negrita" href="{{doc.archivo.url}}" target="_blank">{{doc.titulo}} &raquo;</a><br>
+                Tama&ntilde;o: {{doc.archivo.size|filesizeformat}}<br>
+                Fecha: {{doc.fecha|date:"F Y"|title}}
+            </div>            
+            {% endfor %}
+            <div class="clean"></div>
+        </div>
+    </div>
+    {% endif %}
+    <img src="/files/images/hline_large.png" alt="line" class="hline2">
+    <div class="title_prod2">Otros miembros de la Red Mesoamericana</div><br>
+    {% else %}
     <span class="title">Perfiles de Miembros</span><br><br>
+    {% endif %}
     <div class='acordeon'>
         <ul>
             <li>
@@ -58,7 +101,9 @@
                     <div class='body'>
                         {% for miembro in nicaragua.perfil_set.all %}
                         <div class='perfil'>
-                            <div class="img"><img src='/public/{{miembro.logo.name}}' alt='{{miembro.nombre}}'></div><br>
+                            <div class="img">
+                                <a href="/red/perfiles/{{miembro.user.username}}/"><img src='/public/{{miembro.logo.name}}' alt='{{miembro.nombre}}'></a>
+                            </div><br>
                             {{miembro.siglas}}<br>
                             Fundada: {{miembro.fundada}}
                         </div>

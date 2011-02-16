@@ -2,6 +2,7 @@
 {% block extratitle %}{{contenido.nombre}}{% endblock %}
 {% block extrahead %}
 <script type="text/javascript" src="/files/js/jquery.jcarousel.min.js"></script>
+<script type="text/javascript" src="/files/js/cconfig.js"></script>
 {% if contenido.imagen %}
 <style type="text/css">
     #contenido {
@@ -25,28 +26,9 @@
         margin: 15px 6px 30px 6px;
     }
 </style>
-<script type="text/javascript">
-    function mycarousel_initCallback(carousel) {
-        jQuery('#mycarousel-next').click(function() {
-            carousel.next();
-            return false;
-        });
-
-        jQuery('#mycarousel-prev').click(function() {
-            carousel.prev();
-            return false;
-        });
-    };
+<script type="text/javascript">    
     $(document).ready(function(){
-        $('.logo_animado').attr('src', '{{contenido.logo.url}}');        
-        // Ride the carousel...        
-        $("#obras").jcarousel({
-            scroll: 4,
-            initCallback: mycarousel_initCallback,
-            // This tells jCarousel NOT to autobuild prev/next buttons
-            buttonNextHTML: null,
-            buttonPrevHTML: null            
-        });        
+        $('.logo_animado').attr('src', '{{contenido.logo.url}}');                     
     });
 </script>
 {% endif %}

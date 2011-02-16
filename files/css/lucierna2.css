@@ -50,7 +50,7 @@ body{
 }
 .cuerpo .title{
     color: #456a38;
-    font-size: 21px;
+    font-size: 19px;
 }
 .cuerpo .addthis{
     float: right;
@@ -770,4 +770,8 @@ a.link_a{
 }
 #cse-search-box input[name='q']{
     background: #fff !important;
+}
+.logo_perfil{
+    float: right;
+    padding: 5px 6px;
 }

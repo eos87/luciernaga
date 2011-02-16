@@ -1,6 +1,8 @@
 {% extends "base2.html" %}
 {% block extratitle %}Red Mesoamericana{% endblock %}
 {% block extrahead %}
+<script type="text/javascript" src="/files/js/jquery.jcarousel.min.js"></script>
+<script type="text/javascript" src="/files/js/cconfig.js"></script>
 <style type="text/css">
     #contenido {
         background: url(/files/images/banner_medio_ambiente.jpg) no-repeat;
@@ -8,10 +10,16 @@
     .banner{
         height: 380px;
     }
+    .jcarousel-item {
+        width: 112px;
+    }
+    .obra{
+        margin: 15px 6px 30px 6px;
+    }
 </style>
-<script type="text/javascript">
+<script type="text/javascript">    
     $(document).ready(function(){
-        $('.logo_animado').attr('src', '/files/images/logo_red.png');
+        $('.logo_animado').attr('src', '/files/images/logo_red.png');        
     });
 </script>
 {% endblock %}
@@ -32,13 +40,24 @@
 <img src="/files/images/hline_large.png" alt="line" class="hline2">
 <div>
     <div class="otras_producciones">
-        <div>Producciones recientes de la Red Mesoamericana</div>
-        {% for video in producciones|slice:"5" %}
-        <div class="obra">
-            <a href="/videoteca/video/{{video.pk}}/"<img src="{{video.portada.url}}" alt="{{video.nombre}}"></a>
-            {{video.nombre}}
+        <div class="title_prod2">Producciones recientes de la Red Mesoamericana</div>
+        {% if producciones %}
+        <div class="prev_car" id="mycarousel-prev"></div>
+        <div class="obras_carusel">
+            <ul id="obras">
+                {% for video in producciones|slice:"8" %}
+                <li class="obra">
+                    <a href="/videoteca/video/{{video.pk}}/"><img src="{{video.portada.url_112x158}}" alt="{{video.nombre}}"></a>
+                    {{video.nombre}}
+                    <br style="clear: both;">
+                </li>
+                {% endfor %}
+            </ul>
         </div>
-        {% endfor %}
+        <div class="next_car" id="mycarousel-next"></div>
+        {% else %}
+        <br>No hay producciones!
+        {% endif %}
         <div class="clean"></div>
     </div>
 </div>

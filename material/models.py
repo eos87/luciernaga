@@ -7,6 +7,7 @@ from luciernaga.thumbs import ImageWithThumbsField
 from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
 from thumbs import ImageWithThumbsField as ImageThumb2
+from django.contrib.auth.models import User
 
 class Documento(models.Model):
     titulo = models.CharField(max_length=150)
@@ -16,7 +17,8 @@ class Documento(models.Model):
     archivo = RestrictedFileField(upload_to='documentos', content_types=['application/pdf',], max_upload_size=5242880, help_text='Formato PDF, Tamaño máx. 50MB')
     tema = models.ManyToManyField(Tema)
     videos_relacionados = models.ManyToManyField(Video, blank=True, verbose_name='Videos relacionados (max. 3)')
-    red = models.BooleanField(verbose_name='Red Mesoamericana')
+    #red = models.BooleanField(verbose_name='Red Mesoamericana')
+    user = models.ForeignKey(User, verbose_name='Usuario')
 
     def __unicode__(self):
         return self.titulo
