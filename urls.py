@@ -6,9 +6,7 @@ import os
 admin.autodiscover()
 PROJECT_DIR = os.path.dirname(__file__)
 
-urlpatterns = patterns('',
-    (r'^files/(?P<path>.*)$', 'django.views.static.serve', {'document_root': PROJECT_DIR + '/files'}),
-    (r'^public/(?P<path>.*)$', 'django.views.static.serve', {'document_root': MEDIA_ROOT}),
+urlpatterns = patterns('',    
     (r'^admin/filebrowser/', 'luciernaga.multimedia.views.subir_huerfana'),    
     
     (r'^$', 'luciernaga.views.index'),
@@ -27,3 +25,8 @@ urlpatterns = patterns('',
     #(r'^captcha/image/(?P<key>\w+)/$', 'luciernaga.captcha.views.captcha_image'),
 )
 
+if DEBUG:
+    urlpatterns += patterns('',
+                            (r'^files/(?P<path>.*)$', 'django.views.static.serve', {'document_root': PROJECT_DIR + '/files'}),
+                            (r'^public/(?P<path>.*)$', 'django.views.static.serve', {'document_root': MEDIA_ROOT}),
+                           )
