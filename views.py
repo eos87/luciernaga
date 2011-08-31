@@ -20,7 +20,10 @@ def index(request):
     vacio = 0
     flag = 0    
     divuno_label = fecha
-    divdos_label = datetime.date(fecha.year, fecha.month+1, fecha.day)
+    try:
+        divdos_label = datetime.date(fecha.year, fecha.month+1, fecha.day)
+    except:
+        divdos_label = datetime.date(fecha.year, fecha.month+1, fecha.day-1)
     if not eventos:
         fecha2 = datetime.date(fecha.year, fecha.month+2, fecha.day)
         eventos = Evento.objects.filter(fecha__month=fecha.month+1, fecha__year=fecha.year).order_by('fecha')[:2]
